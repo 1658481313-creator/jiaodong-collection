@@ -67,7 +67,7 @@
   --text-primary-50: #eef1f5;
 
   /* surface */
-  --surface-50: #ffffff;
+  --surface-50: #f9fbfd;
   /* hero 轮播区域白色（文字/圆点/按钮） */
   --color-on-hero: var(--surface-50);
   --surface-100: #f9fbfc;
