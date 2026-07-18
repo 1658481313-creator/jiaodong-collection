@@ -331,6 +331,17 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   box-shadow: var(--shadow-1);
 }
 
+/* === 收藏动态右侧详情卡片 hover === */
+#newsDetail:hover {
+  border-color: rgba(35, 69, 136, 0.30);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  #newsDetail { transition: none; }
+  #newsDetail:hover { transform: none; box-shadow: none; }
+}
+
 /* === 藏品卡片图片 hover 放大 === */
 .collection-card img {
   transition: transform 0.3s var(--easing-default);
