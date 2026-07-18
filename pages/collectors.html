@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="认识胶东地区知名私人收藏家，了解他们的收藏方向、藏品数量与收藏理念。">
+    <title>收藏家 - 胶东私人收藏</title>
+    <base href="/pages/">
+    <link rel="stylesheet" href="theme.css">
+    <style type="text/tailwindcss">
+@theme inline {
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-foreground);
+    --color-card: var(--color-card);
+    --color-primary: var(--color-primary);
+    --color-on-primary: var(--color-on-primary);
+    --color-border: var(--color-border);
+    --color-outline: var(--color-outline);
+    --color-muted-foreground: var(--color-muted-foreground);
+    --color-on-surface: var(--color-on-surface);
+    --color-on-surface-variant: var(--color-on-surface-variant);
+    --color-surface: var(--color-surface);
+    --color-surface-container-low: var(--color-surface-container-low);
+    --color-surface-container: var(--color-surface-container);
+    --color-success: var(--color-success);
+    --color-warning: var(--color-warning);
+    --color-error: var(--color-error);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-avatar: var(--radius-avatar);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  
+  @layer base {
+    body { background: var(--color-background); color: var(--color-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <style>
+    /* == Responsive == */
+@media (max-width: 1023px) {
+  .resp-full-width { flex-direction: column !important; }
+  .resp-detail-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 767px) {
+  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .resp-grid-3 { grid-template-columns: 1fr !important; }
+  .resp-grid-news { grid-template-columns: 1fr !important; }
+  .resp-hide-mobile { display: none !important; }
+  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
+  .resp-section-pt { padding-top: 32px !important; }
+  .resp-section-pb { padding-bottom: 32px !important; }
+  .resp-filter-min-h button { min-height: 40px !important; }
+  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .resp-banner-img { height: 200px !important; }
+  .resp-detail-info { flex-direction: column !important; }
+  .resp-contact-form { max-width: 100% !important; }
+  .resp-breadcrumb { font-size: 12px !important; }
+  .resp-card-gap { gap: 12px !important; }
+}
+    </style>
+    </head>
+<body class="min-h-screen font-sans antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
+        <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
+            <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap block" style="height:50px;overflow:hidden;"><img src="../assets/logo.png" alt="胶东私人收藏" style="height:100%;width:auto;object-fit:contain;"></a>
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">首页</a>
+                <a href="collection.html" data-dom-id="nav-collection" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">藏品展示</a>
+                <a href="collectors.html" data-dom-id="nav-collector" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);font-weight:600;color:var(--navy-500);border-bottom:2px solid var(--navy-500);" aria-current="page">收藏家</a>
+                <a href="stories.html" data-dom-id="nav-story" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏故事</a>
+                <a href="updates.html" data-dom-id="nav-updates" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏动态</a>
+                <a href="info.html" data-dom-id="nav-info" class="whitespace-nowrap" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);text-decoration:none;line-height:var(--line-height-nav);padding:4px 0;position:relative;transition:color var(--duration-fast) var(--easing-default);">服务帮助</a>
+                    <a href="contact.html" data-dom-id="nav-contact" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">入驻联系</a>
+            </nav>
+<button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center" style="width:40px;height:40px;border:none;background:none;cursor:pointer;padding:0;" aria-label="菜单" onclick="toggleMobileMenu()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+        </div>
+    </header>
+<div id="mobile-menu" class="lg:hidden" style="display:none;background:var(--surface-50);border-bottom:1px solid var(--border-200);padding:16px 24px;">
+  <nav class="flex flex-col gap-3">
+    <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
+    <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
+    <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
+    <a href="stories.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
+    <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
+    <a href="info.html" style="font-size:var(--font-size-body);font-weight:500;color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
+            <a href="contact.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;">入驻联系</a>
+  </nav>
+</div>
+<script>
+function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=document.getElementById('mobile-menu-btn');if(m.style.display==='none'||!m.style.display){m.style.display='block';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';}else{m.style.display='none';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';}}
+</script>
+
+    <!-- Banner 轮播 -->
+    <div class="relative w-full overflow-hidden" style="height:320px;" data-dom-id="carousel-collectors">
+        <div class="flex transition-opacity duration-300" id="collectorsCarousel">
+            <div class="relative w-full flex-shrink-0">
+                <img src="../assets/banner-collectors-1.jpg" alt="收藏家交流" class="w-full resp-banner-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="height:320px;object-fit:cover;">
+                <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(30,59,122,0.6) 0%, transparent 60%);"></div>
+                <div class="absolute bottom-0 left-0 p-8" style="max-width:560px;">
+                    <h2 style="font-size:24px;font-weight:700;color:#ffffff;font-family:var(--font-body);margin-bottom:8px;">以藏会友：胶东收藏家群落</h2>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.85);font-family:var(--font-body);line-height:1.6;">汇聚胶东地区热爱收藏的民间藏家，共同分享收藏心得</p>
+                </div>
+            </div>
+            <div class="relative w-full flex-shrink-0">
+                <img src="../assets/banner-collectors-2.jpg" loading="lazy" alt="文房清供" class="w-full resp-banner-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="height:320px;object-fit:cover;">
+                <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(30,59,122,0.6) 0%, transparent 60%);"></div>
+                <div class="absolute bottom-0 left-0 p-8" style="max-width:560px;">
+                    <h2 style="font-size:24px;font-weight:700;color:#ffffff;font-family:var(--font-body);margin-bottom:8px;">文人雅趣：文房清供与供石</h2>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.85);font-family:var(--font-body);line-height:1.6;">品味传统文人的案头雅玩，感受收藏的审美情趣</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-4 left-1/2 flex gap-1.5" style="transform:translateX(-50%);">
+            <button onclick="goCollectorsSlide(0)" class="w-2 h-2 rounded-full" style="background:#ffffff;opacity:1;width:24px;border-radius:4px;border:none;cursor:pointer;" id="collectors-dot-0"></button>
+            <button onclick="goCollectorsSlide(1)" class="w-2 h-2 rounded-full" style="background:#ffffff;opacity:0.5;width:8px;border:none;cursor:pointer;" id="collectors-dot-1"></button>
+        </div>
+    </div>
+    <script>
+    var collectorsSlide = 0;
+    var collectorsTotal = 2;
+    var collectorsCarousel = document.getElementById('collectorsCarousel');
+    function goCollectorsSlide(n) {
+        collectorsSlide = n;
+        var slides = collectorsCarousel.children;
+        for (var i = 0; i < slides.length; i++) { slides[i].style.display = i === n ? 'block' : 'none'; }
+        for (var j = 0; j < collectorsTotal; j++) {
+            var dot = document.getElementById('collectors-dot-' + j);
+            if (j === n) { dot.style.opacity = '1'; dot.style.width = '24px'; dot.style.borderRadius = '4px'; }
+            else { dot.style.opacity = '0.5'; dot.style.width = '8px'; dot.style.borderRadius = '4px'; }
+        }
+    }
+    goCollectorsSlide(0);
+    setInterval(function() { goCollectorsSlide((collectorsSlide + 1) % collectorsTotal); }, 5000);
+    </script>
+
+    <main>
+        <!-- 1. Breadcrumb -->
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding-top:24px;">
+            <p style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">
+                <a href="index.html" data-dom-id="nav-home" style="color:var(--text-primary-300);text-decoration:none;">首页</a> &gt; 收藏家
+            </p>
+        </div>
+
+        <!-- 2. Page Title -->
+        <div class="mx-auto px-6 resp-section-pt resp-section-pb" style="max-width:var(--size-content-width);padding-top:16px;padding-bottom:24px;">
+            <h1 style="font-family:var(--font-heading);font-size:32px;font-weight:700;color:var(--text-primary-700);">收藏家</h1>
+            <p class="mt-2" style="font-size:15px;color:var(--text-primary-300);font-family:var(--font-body);">了解胶东地区的私人收藏家与他们的收藏方向</p>
+        </div>
+
+        <!-- 3. Statistics Bar -->
+        <section class="w-full" style="background:var(--surface-200);">
+            <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:12px 0;">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="flex flex-col items-center justify-center p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+                        <span class="whitespace-nowrap" style="font-size:var(--font-size-stat);font-weight:var(--font-weight-stat);color:var(--navy-500);font-family:var(--font-body);">24</span>
+                        <span class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">入驻收藏家</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+                        <span class="whitespace-nowrap" style="font-size:var(--font-size-stat);font-weight:var(--font-weight-stat);color:var(--navy-500);font-family:var(--font-body);">5</span>
+                        <span class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">覆盖地区</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+                        <span class="whitespace-nowrap" style="font-size:var(--font-size-stat);font-weight:var(--font-weight-stat);color:var(--navy-500);font-family:var(--font-body);">20+</span>
+                        <span class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">藏品总数</span>
+                    </div>
+                </div>
+        </section>
+
+        <!-- 4. Filter Bar -->
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding-top:24px;padding-bottom:18px;">
+            <div class="flex flex-nowrap overflow-x-auto gap-2.5 no-scrollbar resp-filter-min-h" id="collectorFilterBar">
+                <button onclick="filterCollectorCards('全部', this)" data-region="全部" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-nav);font-family:var(--font-body);border-radius:var(--radius-sm);border:none;cursor:pointer;" aria-pressed="true">全部</button>
+                <button onclick="filterCollectorCards('烟台', this)" data-region="烟台" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">烟台</button>
+                <button onclick="filterCollectorCards('威海', this)" data-region="威海" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">威海</button>
+                <button onclick="filterCollectorCards('青岛', this)" data-region="青岛" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">青岛</button>
+                <button onclick="filterCollectorCards('潍坊', this)" data-region="潍坊" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">潍坊</button>
+                <button onclick="filterCollectorCards('济南', this)" data-region="济南" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">济南</button>
+            </div>
+        </div>
+
+        <!-- 5. Collector Cards Grid -->
+        <section class="mx-auto px-6 resp-padding-mobile" style="max-width:var(--size-content-width);margin-top:24px;">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 resp-grid-3" style="gap:20px;" id="collectorCardsGrid">
+                <!-- Collector 1: 王 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-1" data-card-region="烟台" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">王</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">王先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：民俗瓷器与文房器物</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">专注于胶东地区民俗瓷器及文房器物的收藏与研究，藏品时间跨度从清代至民国。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 2: 刘 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-2" data-card-region="威海" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">刘</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">刘女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 威海</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：玉器与书画收藏</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">喜好玉器与书画，尤以胶东地区文人书画为收藏重点，兼收部分文房清供。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 3: 赵 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-3" data-card-region="青岛" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">赵</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">赵先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：钱币、票据与地方文献</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏涵盖清代至民国钱币、老票据及胶东地方文献资料。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 4: 孙 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-4" data-card-region="烟台" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">孙</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">孙先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：字画与地方题跋</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">以胶东地方字画及题跋为主要收藏方向，兼顾地方文化史料。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 5: 李 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-5" data-card-region="潍坊" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">李</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">李先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 潍坊</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：年画与民俗工艺品</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">专注潍坊地区民间年画与传统工艺品的收藏，致力于保护地方非物质文化遗产。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 6: 张 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-6" data-card-region="青岛" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">张</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">张女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：当代书画与版画</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">偏好胶东地区当代书画家作品，兼收木版画及现代艺术版画。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 7: 陈 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-7" data-card-region="烟台" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">陈</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">陈先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：古籍善本与地方志</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">系统收集胶东地区古籍善本、地方志书及手抄本文献，重视文献保存。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 8: 林 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-8" data-card-region="威海" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">林</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">林先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 威海</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：航海文物与海捞瓷</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏胶东沿海打捞的古代瓷器及航海相关文物，研究海上丝绸之路。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 9: 于 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-9" data-card-region="青岛" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">于</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">于女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：旗袍与纺织品收藏</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏民国至今的旗袍与传统纺织工艺品，展示胶东地区服饰文化。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 10: 吕 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-10" data-card-region="济南" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">吕</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">吕先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 济南</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：齐鲁文化石刻</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏山东地区的碑刻拓片与汉画像石，深入齐鲁石刻文化研究。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 11: 马 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-11" data-card-region="烟台" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">马</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">马先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：古琴与文房雅玩</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">喜好古琴收藏与文房雅玩，兼收古琴配件及相关文献资料。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 12: 高 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-12" data-card-region="潍坊" data-page="1" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">高</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">高女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 潍坊</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：风筝与传统玩具</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏潍坊传统风筝及民间玩具，传承胶东民间手工艺文化。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 13: 崔 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-13" data-card-region="威海" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">崔</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">崔先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 威海</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：老照片与影像资料</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">系统收集胶东地区老照片、明信片及早期影像资料，记录城市变迁。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 14: 孟 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-14" data-card-region="青岛" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">孟</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">孟先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：葡萄酒具与洋务文物</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏近代青岛开埠以来的欧式酒具及洋务运动相关文物。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 15: 姜 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-15" data-card-region="烟台" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">姜</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">姜先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：渔业文化与船具</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏胶东传统渔业用具、船模及渔民生活器具，记录海洋文化。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 16: 宋 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-16" data-card-region="济南" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">宋</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">宋女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 济南</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：戏曲脸谱与行头</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏山东地方戏曲的脸谱、戏服和道具，保护地方戏曲文化遗产。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 17: 韩 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-17" data-card-region="威海" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">韩</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">韩先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 威海</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：邮票与邮政史</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏胶东地区早期邮票、实寄封及邮政史相关文献藏品。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 18: 程 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-18" data-card-region="潍坊" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">程</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">程先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 潍坊</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：嵌银漆器与镶嵌工艺</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏潍坊嵌银漆器及各类镶嵌工艺品，传承百年手工艺技艺。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 19: 魏 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-19" data-card-region="青岛" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">魏</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">魏女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：老家具与家居器物</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏民国时期胶东地区老家具及日常家居器物，再现昔日生活场景。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 20: 周 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-20" data-card-region="烟台" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">周</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">周先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：古钱币与银锭</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">系统收藏胶东地区出土及流通的古钱币、银锭等金融文物。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 21: 曹 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-21" data-card-region="威海" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">曹</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">曹先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 威海</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：贝壳与海洋标本</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏胶东沿海各类海洋贝壳及标本，研究胶东海域生物多样性。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 22: 袁 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-22" data-card-region="烟台" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">袁</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">袁女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 烟台</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：古籍版本与刻本</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">专注胶东地区古籍版本收藏，尤其偏好明代刻本与活字本。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 23: 董 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-23" data-card-region="青岛" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">董</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">董先生</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 青岛</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：邮票与集邮文献</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">系统收藏胶东地区邮政史相关邮品，包括实寄封、邮戳等。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+                <!-- Collector 24: 潘 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-24" data-card-region="潍坊" data-page="2" class="collector-card-filter block p-6" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);" onmouseenter="this.style.borderColor='rgba(35,69,136,0.30)';this.style.boxShadow='var(--shadow-1)';this.style.transform='translateY(-2px)'" onmouseleave="this.style.borderColor='var(--border-200)';this.style.boxShadow='none';this.style.transform='translateY(0)'" hidden>
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">潘</div>
+                        <div class="min-w-0">
+                            <p class="truncate" style="font-size:var(--font-size-h3);font-weight:var(--font-weight-h3);color:var(--text-primary-700);font-family:var(--font-heading);">潘女士</p>
+                            <p class="truncate" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-300);font-family:var(--font-body);">山东 潍坊</p>
+                        </div>
+                    </div>
+                    <p class="mb-2" style="font-size:14px;color:var(--text-primary-500);font-family:var(--font-body);">收藏方向：民间剪纸与年画</p>
+                    <p class="mb-3 line-clamp-2" style="font-size:15px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">收藏潍坊地区传统剪纸与木版年画，传承胶东民间艺术。</p>
+                    <span class="whitespace-nowrap" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">了解更多 &rarr;</span>
+                </a>
+            </div>
+            <div class="flex items-center justify-center gap-3" style="margin-top:24px;padding-bottom:24px;" id="collector-pagination">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap" style="width:40px;height:40px;background:var(--navy-500);color:white;font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);border:none;cursor:pointer;" onclick="goToCollectorPage(1, this)">1</button>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap" style="width:40px;height:40px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="goToCollectorPage(2, this)" onmouseenter="this.style.background='var(--surface-200)'" onmouseleave="this.style.background='var(--surface-50)';this.style.color='var(--text-primary-500)'">2</button>
+                </div>
+        </section>
+
+        <!-- 6. Join Banner -->
+        <section class="w-full" style="background:var(--navy-500);padding:28px;text-align:center;">
+            <div class="mx-auto px-6" style="max-width:var(--size-content-width);">
+                <h2 style="font-family:var(--font-heading);font-size:20px;font-weight:700;color:#ffffff;margin-bottom:8px;">您也是胶东地区的收藏家？</h2>
+                <p style="font-size:14px;color:rgba(255,255,255,0.8);font-family:var(--font-body);margin-bottom:20px;">欢迎入驻平台，展示您的收藏</p>
+                <a href="contact.html" data-dom-id="nav-contact" class="inline-flex items-center justify-center whitespace-nowrap" style="min-height:44px;padding:0 20px;background:#ffffff;color:var(--navy-500);font-size:15px;font-weight:700;font-family:var(--font-body);border-radius:var(--radius-sm);text-decoration:none;">申请入驻</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full" style="background:var(--surface-50);border-top:1px solid var(--border-200);">
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:var(--space-17) 0 32px 0;">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 resp-footer-grid">
+                <div class="col-span-2 lg:col-span-1">
+                    <p class="mb-3" style="font-size:18px;font-weight:700;color:var(--navy-500);font-family:var(--font-body);">胶东私人收藏</p>
+                    <p style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;">胶东地区私人藏品信息展示平台，提供收藏家之间的联系渠道。</p>
+                    <div class="mt-4 p-3" style="background:var(--surface-200);border-radius:var(--radius-sm);">
+                        <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);line-height:1.6;">本平台仅做信息展示与联系线索，不参与交易，不评估价值，不担保真伪。</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">藏品浏览</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="collection.html" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">全部藏品</a>
+                        <a href="collection.html?category=%E7%93%B7%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">瓷器</a>
+                        <a href="collection.html?category=%E7%8E%89%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">玉器</a>
+                        <a href="collection.html?category=%E4%B9%A6%E7%94%BB" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">书画</a>
+                        <a href="collection.html?category=%E9%92%B1%E5%B8%81" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">钱币</a>
+                        <a href="collection.html?category=%E9%93%9C%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">铜器</a>
+                        <a href="collection.html?category=%E6%9D%82%E9%A1%B9" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">杂项</a>
+                        <a href="collection.html?category=%E6%96%87%E6%88%BF" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">文房</a>
+                        <a href="collection.html?category=%E7%BB%87%E7%BB%A3" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">织绣</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">关于平台</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏家入驻</a>
+                        <a href="stories.html" data-dom-id="nav-story" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏故事</a>
+                        <a href="updates.html" data-dom-id="nav-updates" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏动态</a>
+                        <a href="info.html#service" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">平台服务说明</a>
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">联系我们</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">帮助与联系</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="info.html#faq" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">常见问题</a>
+                        <a href="info.html#guide" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">入驻指南</a>
+                        <a href="info.html#privacy" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">隐私政策</a>
+                        <a href="info.html#terms" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">使用条款</a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="contact.html" data-dom-id="nav-contact" class="inline-flex items-center justify-center whitespace-nowrap" style="height:44px;padding-left:16px;padding-right:16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);text-decoration:none;">申请入驻</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:16px 0;border-top:1px solid var(--border-200);">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">&copy; 2026 胶东收藏版权所有&emsp;鲁B2-20090191-18&emsp;主办单位：胶东收藏</p>
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">胶东地区私人藏品信息展示平台</p>
+            </div>
+        </div>
+    </footer>
+<script>lucide.createIcons();</script>
+<script>
+    var collectorCurrentPage = 1;
+    var collectorCurrentRegion = '全部';
+
+    function goToCollectorPage(page, btn) {
+        collectorCurrentPage = page;
+        var cards = document.querySelectorAll('.collector-card-filter');
+
+        cards.forEach(function(card) {
+            var reg = card.getAttribute('data-card-region');
+            var pg = parseInt(card.getAttribute('data-page'));
+            var showByRegion = collectorCurrentRegion === '全部' || reg === collectorCurrentRegion;
+            var showByPage = pg === page;
+            if (showByRegion && showByPage) {
+                card.removeAttribute('hidden');
+            } else {
+                card.setAttribute('hidden', '');
+            }
+        });
+
+        var buttons = document.querySelectorAll('#collector-pagination button');
+        buttons.forEach(function(b, i) {
+            if (i + 1 === page) {
+                b.style.background = 'var(--navy-500)';
+                b.style.color = 'white';
+                b.style.border = 'none';
+                b.removeAttribute('onmouseenter');
+                b.removeAttribute('onmouseleave');
+            } else {
+                b.style.background = 'var(--surface-50)';
+                b.style.color = 'var(--text-primary-500)';
+                b.style.border = '1px solid var(--border-200)';
+                b.setAttribute('onmouseenter', "this.style.background='var(--surface-200)'");
+                b.setAttribute('onmouseleave', "this.style.background='var(--surface-50)';this.style.color='var(--text-primary-500)'");
+            }
+        });
+    }
+
+    function filterCollectorCards(region, btn) {
+        collectorCurrentRegion = region;
+        collectorCurrentPage = 1;
+        var buttons = document.querySelectorAll('#collectorFilterBar button');
+        buttons.forEach(function(b) {
+            if (b === btn) {
+                b.style.background = 'var(--navy-500)';
+                b.style.color = 'var(--surface-50)';
+                b.style.border = 'none';
+            } else {
+                b.style.background = 'var(--surface-50)';
+                b.style.color = 'var(--text-primary-500)';
+                b.style.border = '1px solid var(--border-200)';
+            }
+        });
+        goToCollectorPage(1, document.querySelector('#collector-pagination button'));
+    }
+    (function(){var btn=document.querySelector('[onclick*="Page(1,"');if(btn)btn.click();})();
+</script></body></html>

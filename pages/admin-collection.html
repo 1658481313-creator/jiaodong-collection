@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>藏品管理 - 胶东收藏后台管理系统</title>
+  <style id="ant-tokens">
+    :root {
+      /* ===== AntDesign v6 Tokens ===== */
+      --color-primary: #1677FF;
+      --color-primary-hover: #4096FF;
+      --color-primary-active: #0958D9;
+      --color-primary-bg: #E6F4FF;
+
+      --color-success: #52C41A;
+      --color-success-bg: #F6FFED;
+      --color-success-border: #B7EB8F;
+
+      --color-warning: #FAAD14;
+      --color-warning-bg: #FFFBE6;
+      --color-warning-border: #FFE58F;
+
+      --color-error: #FF4D4F;
+      --color-error-bg: #FFF2F0;
+      --color-error-border: #FFCCC7;
+
+      --color-text: rgba(0,0,0,0.88);
+      --color-text-secondary: rgba(0,0,0,0.65);
+      --color-text-tertiary: rgba(0,0,0,0.45);
+
+      --color-border: #D9D9D9;
+      --color-border-secondary: #F0F0F0;
+
+      --color-bg-layout: #F5F5F5;
+      --color-bg-container: #FFFFFF;
+      --table-header-bg: #FAFAFA;
+
+      --radius-sm: 6px;
+      --radius-md: 8px;
+
+      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-family);
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg-layout);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Table ===== */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .data-table thead th {
+      background: var(--table-header-bg);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      white-space: nowrap;
+    }
+    .data-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border-secondary);
+      font-size: 14px;
+      color: var(--color-text);
+      vertical-align: middle;
+    }
+    .data-table tbody tr {
+      transition: background-color 0.2s ease;
+    }
+    .data-table tbody tr:hover {
+      background: rgba(22, 119, 255, 0.02);
+    }
+    .data-table .col-id { width: 60px; }
+    .data-table .col-name { width: 18%; }
+    .data-table .col-category { width: 10%; }
+    .data-table .col-era { width: 10%; }
+    .data-table .col-desc { width: auto; }
+    .data-table .col-status { width: 10%; }
+    .data-table .col-action { width: 120px; }
+
+    /* ===== Status Badges ===== */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 22px;
+      white-space: nowrap;
+    }
+    .status-badge.published {
+      background: var(--color-success-bg);
+      color: var(--color-success);
+      border: 1px solid var(--color-success-border);
+    }
+    .status-badge.pending {
+      background: var(--color-warning-bg);
+      color: var(--color-warning);
+      border: 1px solid var(--color-warning-border);
+    }
+    .status-badge.draft {
+      background: rgba(0,0,0,0.04);
+      color: var(--color-text-tertiary);
+      border: 1px solid var(--color-border-secondary);
+    }
+
+    /* ===== Action Links ===== */
+    .action-link {
+      cursor: pointer;
+      font-size: 14px;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+    }
+    .action-link.edit { color: var(--color-primary); }
+    .action-link.edit:hover { color: var(--color-primary-hover); }
+    .action-link.delete { color: var(--color-error); margin-left: 12px; }
+    .action-link.delete:hover { opacity: 0.7; }
+
+    /* ===== Category Tabs ===== */
+    .category-tabs {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      padding-bottom: 2px;
+    }
+    .category-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-container);
+      color: var(--color-text);
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .category-tab:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .category-tab.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 4px 15px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-container);
+      color: var(--color-text);
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .btn:active { border-color: var(--color-primary-active); color: var(--color-primary-active); }
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); color: #fff; }
+    .btn-primary:active { background: var(--color-primary-active); border-color: var(--color-primary-active); color: #fff; }
+    .btn-danger {
+      color: var(--color-error);
+      border-color: var(--color-error);
+      background: var(--color-bg-container);
+    }
+    .btn-danger:hover { color: #fff; background: var(--color-error); border-color: var(--color-error); }
+    .btn-sm {
+      height: 28px;
+      padding: 2px 12px;
+      font-size: 13px;
+    }
+    .btn-lg {
+      height: 36px;
+      padding: 6px 20px;
+      font-size: 14px;
+    }
+
+    /* ===== Search Input ===== */
+    .search-input {
+      height: 32px;
+      width: 200px;
+      padding: 4px 11px 4px 32px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg-container);
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .search-input::placeholder { color: var(--color-text-tertiary); }
+    .search-input:hover { border-color: var(--color-primary-hover); }
+    .search-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+    }
+    .search-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      color: var(--color-text-tertiary);
+      pointer-events: none;
+      font-size: 14px;
+    }
+
+    /* ===== Pagination ===== */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 16px;
+    }
+    .pagination-info {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      padding: 0 8px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-container);
+      color: var(--color-text);
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .page-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .page-btn.active {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+    .page-size-select {
+      height: 32px;
+      padding: 4px 30px 4px 11px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg-container);
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+      appearance: auto;
+    }
+    .page-size-select:hover { border-color: var(--color-primary-hover); }
+    .page-size-select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1); }
+
+    /* ===== Modal ===== */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.2s ease;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal-card {
+      width: 600px;
+      max-height: 80vh;
+      background: var(--color-bg-container);
+      border-radius: var(--radius-md);
+      box-shadow: 0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12), 0 9px 28px 8px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      animation: slideUp 0.25s ease;
+      overflow: hidden;
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--color-border-secondary);
+      flex-shrink: 0;
+    }
+    .modal-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent;
+      color: var(--color-text-tertiary);
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.06); color: var(--color-text); }
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0;
+    }
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 12px 24px;
+      border-top: 1px solid var(--color-border-secondary);
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ===== Inline Edit Form (Modal Table) ===== */
+    .cat-edit-row td {
+      padding: 12px 16px !important;
+      background: var(--color-primary-bg) !important;
+      vertical-align: middle;
+    }
+    .edit-input {
+      height: 32px;
+      padding: 4px 11px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg-container);
+      outline: none;
+      width: 100%;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .edit-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+    }
+    .edit-input::placeholder { color: var(--color-text-tertiary); }
+    .edit-num-input {
+      height: 32px;
+      width: 80px;
+      padding: 4px 11px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      color: var(--color-text);
+      background: var(--color-bg-container);
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .edit-num-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+    }
+
+    /* ===== Delete Confirm Popline ===== */
+    .delete-confirm-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .delete-popline {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 4px;
+      background: var(--color-bg-container);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12);
+      padding: 12px 16px;
+      z-index: 10;
+      white-space: nowrap;
+      display: none;
+      animation: fadeIn 0.15s ease;
+    }
+    .delete-popline.visible { display: block; }
+    .delete-popline-text {
+      font-size: 14px;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .delete-popline-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+    /* ===== Table Container ===== */
+    .table-container {
+      background: var(--color-bg-container);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    /* ===== Truncated Text ===== */
+    .truncate-cell {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body style="height:100vh; overflow:hidden;">
+  <div style="display:flex; height:100vh;">
+    <!-- ===== Sidebar ===== -->
+    <aside style="width:208px; background:#001529; display:flex; flex-direction:column; height:100%; flex-shrink:0;">
+      <div style="height:48px; display:flex; align-items:center; gap:12px; padding:0 20px; border-bottom:1px solid rgba(255,255,255,0.08);">
+        <img src="../assets/logo.png" style="height:28px; width:auto; object-fit:contain;">
+        <span style="font-size:15px; font-weight:600; color:#fff;">胶东收藏</span>
+      </div>
+      <nav style="margin-top:8px; padding:0 12px; display:flex; flex-direction:column; gap:4px;">
+        <a href="dashboard.html" data-dom-id="nav-dashboard" style="display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:6px; font-size:14px; color:rgba(255,255,255,0.65); text-decoration:none; transition:all 0.2s;">▎仪表盘</a>
+        <a href="admin-collection.html" data-dom-id="

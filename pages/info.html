@@ -1,0 +1,585 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="胶东私人收藏平台服务帮助，包括平台服务说明、常见问题、入驻指南、隐私政策与使用条款。">
+    <title>服务帮助 - 胶东私人收藏</title>
+    <base href="/pages/">
+    <link rel="stylesheet" href="theme.css">
+    <style type="text/tailwindcss">
+@theme inline {
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-foreground);
+    --color-card: var(--color-card);
+    --color-primary: var(--color-primary);
+    --color-on-primary: var(--color-on-primary);
+    --color-border: var(--color-border);
+    --color-outline: var(--color-outline);
+    --color-muted-foreground: var(--color-muted-foreground);
+    --color-on-surface: var(--color-on-surface);
+    --color-on-surface-variant: var(--color-on-surface-variant);
+    --color-surface: var(--color-surface);
+    --color-surface-container-low: var(--color-surface-container-low);
+    --color-surface-container: var(--color-surface-container);
+    --color-success: var(--color-success);
+    --color-warning: var(--color-warning);
+    --color-error: var(--color-error);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-avatar: var(--radius-avatar);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  
+  @layer base {
+    body { background: var(--color-background); color: var(--color-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <style>
+    /* == Responsive == */
+@media (max-width: 1023px) {
+  .resp-full-width { flex-direction: column !important; }
+  .resp-detail-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 767px) {
+  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .resp-grid-3 { grid-template-columns: 1fr !important; }
+  .resp-grid-news { grid-template-columns: 1fr !important; }
+  .resp-hide-mobile { display: none !important; }
+  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
+  .resp-section-pt { padding-top: 32px !important; }
+  .resp-section-pb { padding-bottom: 32px !important; }
+  .resp-filter-min-h button { min-height: 40px !important; }
+  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .resp-banner-img { height: 200px !important; }
+  .resp-detail-info { flex-direction: column !important; }
+  .resp-contact-form { max-width: 100% !important; }
+  .resp-breadcrumb { font-size: 12px !important; }
+  .resp-card-gap { gap: 12px !important; }
+}
+
+/* Info page layout */
+.info-layout { display:grid; grid-template-columns:220px 1fr; gap:32px; }
+.info-nav { display:flex; flex-direction:column; gap:4px; position:sticky; top:80px; align-self:start; }
+.info-nav-btn { display:block; width:100%; text-align:left; padding:12px 16px; border-radius:8px; font-size:15px; font-weight:500; color:var(--text-primary-500); background:transparent; border:1px solid transparent; cursor:pointer; transition:all 0.15s; font-family:var(--font-body); }
+.info-nav-btn:hover { background:var(--surface-200); }
+.info-nav-btn.active { background:var(--navy-500); color:var(--surface-50); }
+.info-nav-btn[aria-current="true"] { background:var(--navy-500); color:var(--surface-50); }
+.info-section { display:none; }
+.info-section.active { display:block; }
+.info-section h2 { font-size:20px; font-weight:600; color:var(--text-primary-700); margin:0 0 16px; font-family:var(--font-heading); }
+.info-section h3 { font-size:17px; font-weight:600; color:var(--text-primary-700); margin:24px 0 12px; font-family:var(--font-heading); }
+.info-section p { font-size:15px; line-height:1.8; color:var(--text-primary-500); margin:0 0 12px; font-family:var(--font-body); }
+.info-section ul, .info-section ol { font-size:15px; line-height:1.8; color:var(--text-primary-500); padding-left:24px; margin:0 0 12px; }
+.info-section li { margin-bottom:6px; }
+
+/* FAQ accordion */
+.faq-item { border:1px solid var(--border-200); border-radius:8px; margin-bottom:8px; overflow:hidden; }
+.faq-question { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; font-size:15px; font-weight:600; color:var(--text-primary-700); cursor:pointer; background:var(--surface-50); border:none; width:100%; text-align:left; font-family:var(--font-body); }
+.faq-question:hover { background:var(--surface-200); }
+.faq-answer { display:none; padding:14px 16px; font-size:15px; line-height:1.8; color:var(--text-primary-500); border-top:1px solid var(--border-200); font-family:var(--font-body); }
+.faq-item.open .faq-answer { display:block; }
+.faq-item.open .faq-arrow { transform:rotate(180deg); }
+.faq-arrow { transition:transform 0.2s; flex-shrink:0; }
+
+/* Step guide */
+.step-guide { display:flex; flex-direction:column; gap:20px; }
+.step-item { display:flex; gap:16px; align-items:flex-start; }
+.step-number { width:36px; height:36px; border-radius:50%; background:var(--navy-500); color:var(--surface-50); display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700; flex-shrink:0; }
+.step-content { flex:1; }
+.step-content h3 { margin:0 0 4px; }
+.step-content p { margin:0; }
+
+/* Responsive */
+@media (max-width: 767px) {
+  .info-layout { grid-template-columns: 1fr !important; }
+  .info-nav { display: flex !important; flex-direction: row !important; overflow-x: auto; gap: 8px !important; padding-bottom: 12px; position: static !important; }
+  .info-nav-btn { white-space: nowrap; min-width: auto !important; width: auto !important; padding: 8px 14px !important; font-size: 14px !important; }
+}
+    </style>
+    </head>
+<body class="min-h-screen font-sans antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
+        <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
+            <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap block" style="height:50px;overflow:hidden;"><img src="../assets/logo.png" alt="胶东私人收藏" style="height:100%;width:auto;object-fit:contain;"></a>
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">首页</a>
+                <a href="collection.html" data-dom-id="nav-collection" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">藏品展示</a>
+                <a href="collectors.html" data-dom-id="nav-collector" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏家</a>
+                <a href="stories.html" data-dom-id="nav-story" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏故事</a>
+                <a href="updates.html" data-dom-id="nav-updates" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏动态</a>
+                <a href="info.html" data-dom-id="nav-info" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);font-weight:600;color:var(--navy-500);border-bottom:2px solid var(--navy-500);font-family:var(--font-body);" aria-current="page">服务帮助</a>
+                    <a href="contact.html" data-dom-id="nav-contact" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">入驻联系</a>
+            </nav>
+<button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center" style="width:40px;height:40px;border:none;background:none;cursor:pointer;padding:0;" aria-label="菜单" onclick="toggleMobileMenu()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+        </div>
+    </header>
+<div id="mobile-menu" class="lg:hidden" style="display:none;background:var(--surface-50);border-bottom:1px solid var(--border-200);padding:16px 24px;">
+  <nav class="flex flex-col gap-3">
+    <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
+    <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
+    <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
+    <a href="stories.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
+    <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
+    <a href="info.html" data-dom-id="nav-info" style="font-size:var(--font-size-body);font-weight:600;color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
+            <a href="contact.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">入驻联系</a>
+  </nav>
+</div>
+<script>
+function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=document.getElementById('mobile-menu-btn');if(m.style.display==='none'||!m.style.display){m.style.display='block';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';}else{m.style.display='none';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';}}
+</script>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="resp-padding-mobile" style="max-width:1180px;margin:0 auto;padding:32px 24px 0;">
+            <p class="resp-breadcrumb" style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">
+                <a href="index.html" style="color:var(--text-primary-300);text-decoration:none;">首页</a> &gt; 平台服务与帮助
+            </p>
+        </div>
+
+        <!-- Page Heading -->
+        <div class="resp-padding-mobile" style="max-width:1180px;margin:0 auto;padding:16px 24px 0;">
+            <h1 style="font-family:var(--font-heading);font-size:var(--font-size-h2);font-weight:700;color:var(--navy-500);">平台服务与帮助</h1>
+        </div>
+
+        <!-- Main Content: Left Nav + Right Content -->
+        <div class="resp-padding-mobile" style="max-width:1180px;margin:0 auto;padding:24px;">
+            <div class="info-layout">
+                <!-- Left Navigation -->
+                <div class="info-nav">
+                    <button class="info-nav-btn active" onclick="switchInfoTab('section-service', event)" aria-current="true">平台服务说明</button>
+                    <button class="info-nav-btn" onclick="switchInfoTab('section-faq', event)">常见问题</button>
+                    <button class="info-nav-btn" onclick="switchInfoTab('section-guide', event)">入驻指南</button>
+                    <button class="info-nav-btn" onclick="switchInfoTab('section-privacy', event)">隐私政策</button>
+                    <button class="info-nav-btn" onclick="switchInfoTab('section-terms', event)">使用条款</button>
+                </div>
+
+                <!-- Right Content Area -->
+                <div>
+                    <!-- Section 1: 平台服务说明 -->
+                    <div id="section-service" class="info-section active">
+                        <h2>平台服务说明</h2>
+                        <p>胶东私人收藏平台（以下简称"本平台"）是专注于胶东地区（烟台、威海、青岛及周边区域）私人藏品信息展示的服务型平台。我们致力于为民间收藏家搭建一个规范、专业、便捷的信息展示窗口，促进收藏文化在胶东地区的传承与交流。</p>
+
+                        <h3>一、平台定位</h3>
+                        <p>本平台是一个纯粹的信息展示平台，核心定位为"连接收藏家、展示收藏文化"。平台汇集胶东地区私人收藏家的精品藏品信息，以图文并茂的形式向公众展示，同时为收藏家之间建立有效的联系渠道。</p>
+
+                        <h3>二、核心服务</h3>
+                        <ul>
+                            <li><strong>藏品展示服务：</strong>为入驻收藏家提供规范的藏品信息展示空间，包括高清图片展示、藏品基本参数介绍、收藏背景说明等，让每一件藏品都能得到专业的呈现。</li>
+                            <li><strong>收藏家主页服务：</strong>为每位入驻收藏家建立专属的个人主页，展示收藏家的收藏方向、收藏经历、代表性藏品及联系方式等完整信息。</li>
+                            <li><strong>收藏动态资讯：</strong>定期发布胶东地区收藏界的最新动态、行业资讯、展览信息及文化活动通知，帮助收藏爱好者及时了解行业趋势。</li>
+                            <li><strong>收藏故事栏目：</strong>深度挖掘和呈现收藏家背后的故事，记录藏品传承历程、收藏心得与感悟，弘扬胶东收藏文化。</li>
+                            <li><strong>收藏家入驻服务：</strong>提供标准化、流程化的入驻审核机制，确保入驻收藏家的资质真实有效，维护平台的整体品质与信誉。</li>
+                        </ul>
+
+                        <h3>三、平台声明</h3>
+                        <p>为保障用户权益与平台运营的规范性，特此声明：</p>
+                        <ul>
+                            <li>本平台<strong>不参与任何形式的交易活动</strong>，不提供线上交易、竞价拍卖等交易撮合服务。</li>
+                            <li>本平台<strong>不对任何藏品的价值进行评估</strong>，不提供鉴定意见，不出具评估报告。</li>
+                            <li>本平台<strong>不对任何藏品的真伪做出保证</strong>，藏品信息的真实性由收藏家自行负责。</li>
+                            <li>本平台展示的所有藏品信息仅供参考，不构成任何交易建议或投资建议。</li>
+                            <li>用户通过本平台获取的联系信息进行线下沟通时，应自行判断和承担相关风险。</li>
+                        </ul>
+
+                        <h3>四、联系方式</h3>
+                        <p>如有任何疑问，欢迎通过以下方式联系我们：</p>
+                        <ul>
+                            <li>邮箱：contact@jiaodong-collection.com</li>
+                            <li>工作时间：周一至周五 9:00-17:00</li>
+                            <li>地址：山东省烟台市芝罘区</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 2: 常见问题 -->
+                    <div id="section-faq" class="info-section">
+                        <h2>常见问题</h2>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>如何浏览平台上的藏品？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>您可以通过首页导航栏中的"藏品展示"进入藏品列表页面。平台提供多种分类筛选功能，您可按藏品类别（瓷器、玉器、书画、铜器、钱币、文房、木器、杂项等）进行筛选，也可以通过关键词搜索快速找到感兴趣的藏品。点击藏品卡片即可查看详细信息。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>如何联系某位收藏家？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>在收藏家的个人主页中，我们会展示其公开的联系方式（如邮箱等）。您可以直接通过该方式与其取得联系。如果您无法找到联系方式，也可以通过平台的"入驻联系"页面留言，我们会协助转达您的联系意向。请注意，线下沟通的风险需由您自行承担。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>如何申请成为入驻收藏家？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>请前往"入驻联系"页面，填写入驻申请表单，包括您的姓名、联系电话、所在地区、收藏方向及收藏简介等信息。提交后平台将在1-3个工作日内完成审核。审核通过后，您将获得入驻资格，并可以开始上传藏品信息和完善个人主页。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>平台是否保证藏品的真实性？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>不。本平台是一个信息展示平台，不对任何藏品的真伪做出保证。平台展示的藏品信息（包括名称、年代、材质、描述等）均由收藏家自行提供，平台不承担鉴定和保证责任。如您对某件藏品感兴趣，建议您自行寻求专业鉴定机构的意见。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>如何举报问题内容或违规行为？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>如您发现平台上有虚假信息、侵权内容或违反平台规定的行为，请通过 contact@jiaodong-collection.com 向我们举报。请在邮件中尽可能详细地描述问题，并提供相关页面的链接或截图。我们将在收到举报后3个工作日内进行处理，并回复处理结果。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>入驻收藏家上传的藏品照片有什么要求？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>藏品照片应满足以下基本要求：1) 照片清晰，能真实反映藏品的品相和细节；2) 建议每件藏品上传3-5张不同角度的照片，包括全貌图、细节图和款识图（如适用）；3) 照片格式支持JPG、PNG，单张照片大小不超过5MB；4) 照片不得带有其他平台的水印或标识；5) 不得使用与藏品无关的图片。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>平台收费吗？入驻需要缴纳费用吗？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>目前，本平台的基础藏品展示服务是免费的。入驻收藏家可以免费展示藏品信息、建立个人主页。平台浏览对所有访客免费开放。未来如推出增值服务（如优先展示、推广位等），将提前公告收费标准，并征得收藏家同意后方可开通。我们承诺不会在未经通知的情况下收取任何费用。</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                <span>我可以在平台上交易藏品吗？</span>
+                                <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                            </button>
+                            <div class="faq-answer">
+                                <p>本平台不提供任何交易功能，不支持在线购买、竞价或拍卖。平台仅作为信息展示的媒介，帮助收藏家之间建立联系。如您与某位收藏家在线下达成交易意向，相关交易行为由双方自行完成，平台不参与、不担保、不承担交易过程中的任何责任。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3: 入驻指南 -->
+                    <div id="section-guide" class="info-section">
+                        <h2>入驻指南</h2>
+                        <p>感谢您对胶东私人收藏平台的关注。以下是入驻平台的完整流程，请按照步骤操作，顺利完成入驻。</p>
+
+                        <div class="step-guide">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>填写入驻申请表</h3>
+                                    <p>前往<a href="contact.html" style="color:var(--navy-500);text-decoration:none;font-weight:600;">入驻联系页面</a>，填写入驻申请表单。请确保您提供的信息真实、准确、完整，包括：姓名、联系电话、所在地区（烟台/威海/青岛/其他）、收藏方向（可多选）及收藏简介。带有 * 号的字段为必填项。</p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>平台审核</h3>
+                                    <p>提交申请后，平台工作人员将在 <strong>1-3个工作日</strong> 内完成审核。审核内容包括：申请人信息真实性、收藏方向的匹配度、基本资质验证等。审核结果将通过您留存的联系电话或邮箱通知您。</p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>上传藏品照片</h3>
+                                    <p>审核通过后，您将获得藏品上传权限。请按照平台要求上传藏品照片（每件藏品3-5张，包括全貌图、细节图），并填写藏品的基本信息，如名称、年代、材质、尺寸、描述等。照片应清晰、真实，不得使用他人图片。</p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>完善收藏家主页</h3>
+                                    <p>上传藏品的同时，请完善您的个人主页信息，包括：收藏经历简介、主要收藏方向、代表性藏品推荐等。一个完整、详实的个人主页有助于提升您的展示效果，让访客更好地了解您的收藏背景。</p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h3>正式上线展示</h3>
+                                    <p>完成以上步骤后，平台工作人员将进行最后的内容审核与排版优化，确认无误后即可正式上线。您的藏品将出现在平台"藏品展示"页面，您的个人主页也将在"收藏家"栏目中展示，供访客浏览与联系。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 style="margin-top:32px;">注意事项</h3>
+                        <ul>
+                            <li>所有提交的信息必须真实有效，如发现虚假信息，平台有权取消入驻资格。</li>
+                            <li>上传的藏品照片必须为本人藏品，不得盗用他人图片。</li>
+                            <li>平台保留对展示内容进行编辑和调整的权利，以确保信息规范和页面美观。</li>
+                            <li>如需修改已上线的信息，请联系平台工作人员协助处理。</li>
+                            <li>入驻收藏家应遵守平台的各项规定，维护平台的良好秩序。</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4: 隐私政策 -->
+                    <div id="section-privacy" class="info-section">
+                        <h2>隐私政策</h2>
+                        <p>本隐私政策旨在帮助您了解胶东私人收藏平台（以下简称"本平台"）如何收集、使用、存储和保护您的个人信息。请您在访问和使用本平台前仔细阅读本政策。使用本平台即表示您同意本隐私政策的条款。</p>
+
+                        <h3>一、信息收集</h3>
+                        <p>本平台可能收集以下类型的个人信息：</p>
+                        <ul>
+                            <li><strong>入驻申请信息：</strong>当您申请入驻时，我们需要收集您的姓名、联系电话、所在地区、收藏方向、收藏简介等信息。</li>
+                            <li><strong>藏品展示信息：</strong>您上传的藏品照片、描述、年代、材质等藏品相关信息。</li>
+                            <li><strong>日志信息：</strong>当您访问本平台时，我们可能自动收集您的浏览器类型、访问时间、浏览页面、IP地址等技术信息。</li>
+                            <li><strong>联系方式：</strong>如您通过表单或邮件联系我们，我们会记录您的联系方式和沟通内容。</li>
+                        </ul>
+
+                        <h3>二、信息使用</h3>
+                        <p>我们收集的个人信息将用于以下目的：</p>
+                        <ul>
+                            <li>审核和处理入驻申请</li>
+                            <li>在平台上展示收藏家和藏品信息</li>
+                            <li>提供平台功能和客户服务</li>
+                            <li>改善平台用户体验和功能优化</li>
+                            <li>发送与平台服务相关的重要通知</li>
+                        </ul>
+
+                        <h3>三、信息保护</h3>
+                        <p>本平台采取合理的技术和管理措施来保护您的个人信息安全，包括但不限于数据加密存储、访问权限控制、定期安全审计等。但请注意，互联网传输并非绝对安全，我们无法对数据传输的绝对安全性做出保证。</p>
+
+                        <h3>四、Cookie政策</h3>
+                        <p>本平台可能使用Cookie技术来改善用户体验。Cookie是一段存储在您设备上的小型数据文件，用于记录您的偏好设置和访问信息。您可以通过浏览器设置管理或禁用Cookie，但这可能影响部分平台功能的使用。</p>
+
+                        <h3>五、第三方共享</h3>
+                        <p>未经您的明确同意，本平台不会将您的个人信息出售或出租给第三方。但在以下情况下，我们可能会共享部分信息：</p>
+                        <ul>
+                            <li>根据法律法规或政府主管部门的要求</li>
+                            <li>为保护平台、用户或公众的权利、财产或安全</li>
+                            <li>与经授权的服务提供商合作（如服务器托管），且该等服务提供商受严格保密义务约束</li>
+                        </ul>
+
+                        <h3>六、用户权利</h3>
+                        <p>您对您的个人信息享有以下权利：</p>
+                        <ul>
+                            <li>查询和访问您的个人信息</li>
+                            <li>要求更正不准确的个人信息</li>
+                            <li>要求删除您的个人信息（在法律允许的范围内）</li>
+                            <li>撤回授权同意</li>
+                        </ul>
+                        <p>如需行使上述权利，请通过 contact@jiaodong-collection.com 与我们联系。</p>
+
+                        <h3>七、政策更新</h3>
+                        <p>本平台保留随时修改本隐私政策的权利。政策变更后，我们会在平台上发布更新版本。继续使用本平台即视为您同意修改后的隐私政策。建议您定期查阅本隐私政策，以了解最新的信息保护措施。</p>
+
+                        <h3>八、联系我们</h3>
+                        <p>如您对本隐私政策有任何疑问或建议，请通过以下方式联系：</p>
+                        <p>邮箱：contact@jiaodong-collection.com<br>工作时间：周一至周五 9:00-17:00</p>
+                        <p style="color:var(--text-primary-400);font-size:13px;">最后更新日期：2026年1月</p>
+                    </div>
+
+                    <!-- Section 5: 使用条款 -->
+                    <div id="section-terms" class="info-section">
+                        <h2>使用条款</h2>
+                        <p>欢迎使用胶东私人收藏平台（以下简称"本平台"）。请您在访问和使用本平台之前仔细阅读以下使用条款。访问或使用本平台即表示您同意接受以下条款的约束。</p>
+
+                        <h3>一、服务范围</h3>
+                        <p>本平台提供的服务包括但不限于：</p>
+                        <ul>
+                            <li>胶东地区私人藏品的信息展示与浏览</li>
+                            <li>收藏家个人主页的展示</li>
+                            <li>收藏动态与行业资讯的发布</li>
+                            <li>收藏故事的展示</li>
+                            <li>收藏家入驻申请与审核服务</li>
+                        </ul>
+                        <p>本平台不对上述服务的即时性、准确性或完整性做出任何明示或暗示的保证。平台保留随时修改、暂停或终止部分或全部服务的权利，无需事先通知。</p>
+
+                        <h3>二、用户义务</h3>
+                        <p>在使用本平台时，您同意遵守以下规定：</p>
+                        <ul>
+                            <li>遵守中华人民共和国相关法律法规，不得利用本平台从事违法活动</li>
+                            <li>提供真实、准确、完整的个人信息，不得冒用他人身份</li>
+                            <li>不得上传虚假、侵权或违反公序良俗的内容</li>
+                            <li>不得利用本平台发布广告、垃圾信息或恶意链接</li>
+                            <li>不得干扰平台的正常运行，包括但不限于恶意攻击、篡改数据等行为</li>
+                            <li>不得将平台展示的信息用于未经授权的商业目的</li>
+                        </ul>
+
+                        <h3>三、知识产权</h3>
+                        <p>本平台上的所有内容，包括但不限于平台设计、界面布局、Logo、图标、文字说明、程序代码等，均受中华人民共和国知识产权法律保护，归本平台或相关权利人所有。</p>
+                        <p>入驻收藏家上传的藏品照片和文字描述，其知识产权归原权利人所有。收藏家授权本平台在展示服务范围内使用上述内容。</p>
+                        <p>未经书面授权，任何单位和个人不得复制、转载、摘编本平台内容，或将其用于任何商业目的。</p>
+
+                        <h3>四、免责声明</h3>
+                        <p>本平台明确声明：</p>
+                        <ul>
+                            <li>本平台不参与任何藏品交易活动，不对交易行为承担任何责任</li>
+                            <li>本平台不对藏品的真伪、价值、品质做出任何判断或保证</li>
+                            <li>平台展示的藏品信息由收藏家自行提供，本平台不对其准确性、完整性负责</li>
+                            <li>用户因使用平台信息而做出的任何决策，由用户自行承担后果</li>
+                            <li>对于因不可抗力或技术故障导致的服务中断，本平台不承担责任</li>
+                        </ul>
+
+                        <h3>五、责任限制</h3>
+                        <p>在法律允许的最大范围内，本平台不对因使用或无法使用本平台而产生的任何直接、间接、附带、特殊或惩罚性损害承担责任，包括但不限于利润损失、数据丢失、业务中断等。</p>
+
+                        <h3>六、条款修改</h3>
+                        <p>本平台保留随时修改本使用条款的权利。修改后的条款将在平台上公布，并自公布之日起生效。继续使用本平台即视为您同意修改后的条款。如您不同意修改后的条款，请停止使用本平台。</p>
+
+                        <h3>七、适用法律</h3>
+                        <p>本使用条款的订立、执行、解释及争议解决均适用中华人民共和国法律。因本使用条款或使用本平台而产生的任何争议，双方应首先通过友好协商解决；协商不成的，任何一方均有权向本平台所在地有管辖权的人民法院提起诉讼。</p>
+
+                        <h3>八、其他条款</h3>
+                        <p>本使用条款中任何条款被认定为无效或不可执行的，不影响其他条款的效力。本平台未行使或延迟行使本条款项下的任何权利，不构成对该权利的放弃。</p>
+
+                        <p style="color:var(--text-primary-400);font-size:13px;margin-top:24px;">最后更新日期：2026年1月</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full" style="background:var(--surface-50);border-top:1px solid var(--border-200);">
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:var(--space-17) 0 32px 0;">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 resp-footer-grid">
+                <div class="col-span-2 lg:col-span-1">
+                    <p class="mb-3" style="font-size:18px;font-weight:700;color:var(--navy-500);font-family:var(--font-body);">胶东私人收藏</p>
+                    <p style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;">胶东地区私人藏品信息展示平台，提供收藏家之间的联系渠道。</p>
+                    <div class="mt-4 p-3" style="background:var(--surface-200);border-radius:var(--radius-sm);">
+                        <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);line-height:1.6;">本平台仅做信息展示与联系线索，不参与交易，不评估价值，不担保真伪。</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">藏品浏览</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="collection.html" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">全部藏品</a>
+                        <a href="collection.html?category=%E7%93%B7%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">瓷器</a>
+                        <a href="collection.html?category=%E7%8E%89%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">玉器</a>
+                        <a href="collection.html?category=%E4%B9%A6%E7%94%BB" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">书画</a>
+                        <a href="collection.html?category=%E9%92%B1%E5%B8%81" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">钱币</a>
+                        <a href="collection.html?category=%E9%93%9C%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">铜器</a>
+                        <a href="collection.html?category=%E6%9D%82%E9%A1%B9" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">杂项</a>
+                        <a href="collection.html?category=%E6%96%87%E6%88%BF" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">文房</a>
+                        <a href="collection.html?category=%E7%BB%87%E7%BB%A3" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">织绣</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">关于平台</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏家入驻</a>
+                        <a href="stories.html" data-dom-id="nav-story" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏故事</a>
+                        <a href="updates.html" data-dom-id="nav-updates" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏动态</a>
+                        <a href="info.html" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">平台服务说明</a>
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">联系我们</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">帮助与联系</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="info.html" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">常见问题</a>
+                        <a href="info.html" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">入驻指南</a>
+                        <a href="info.html" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">隐私政策</a>
+                        <a href="info.html" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">使用条款</a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="contact.html" data-dom-id="nav-contact" class="inline-flex items-center justify-center whitespace-nowrap" style="height:44px;padding-left:16px;padding-right:16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);text-decoration:none;">申请入驻</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:16px 0;border-top:1px solid var(--border-200);">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">&copy; 2026 胶东收藏版权所有&emsp;鲁B2-20090191-18&emsp;主办单位：胶东收藏</p>
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">胶东地区私人藏品信息展示平台</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Tab switching
+    function switchInfoTab(tabId, event) {
+        document.querySelectorAll('.info-section').forEach(function(s) { s.classList.remove('active'); });
+        document.querySelectorAll('.info-nav-btn').forEach(function(b) { b.classList.remove('active'); b.removeAttribute('aria-current'); });
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+        event.target.setAttribute('aria-current', 'true');
+        document.getElementById(tabId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Mobile: scroll active tab into view
+        if (window.innerWidth <= 767) {
+            event.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+        var item = btn.closest('.faq-item');
+        var wasOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('open'); });
+        // Toggle clicked
+        if (!wasOpen) item.classList.add('open');
+    }
+
+    // Hash-based tab navigation: #service, #faq, #guide, #privacy, #terms
+    (function() {
+        var hashMap = {
+            '#service': 'section-service',
+            '#faq': 'section-faq',
+            '#guide': 'section-guide',
+            '#privacy': 'section-privacy',
+            '#terms': 'section-terms'
+        };
+        var hash = window.location.hash;
+        if (hash && hashMap[hash]) {
+            var tabId = hashMap[hash];
+            document.querySelectorAll('.info-section').forEach(function(s) { s.classList.remove('active'); });
+            document.querySelectorAll('.info-nav-btn').forEach(function(b) { b.classList.remove('active'); b.removeAttribute('aria-current'); });
+            document.getElementById(tabId).classList.add('active');
+            var btns = document.querySelectorAll('.info-nav-btn');
+            var tabIds = ['section-service','section-faq','section-guide','section-privacy','section-terms'];
+            var idx = tabIds.indexOf(tabId);
+            if (idx >= 0 && btns[idx]) { btns[idx].classList.add('active'); btns[idx].setAttribute('aria-current', 'true'); }
+        }
+    })();
+    </script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

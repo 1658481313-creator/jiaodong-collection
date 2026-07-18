@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="阅读胶东私人收藏家的收藏故事，了解藏品背后的历史渊源与文化价值。">
+    <title>收藏故事 - 胶东私人收藏</title>
+    <base href="/pages/">
+    <link rel="stylesheet" href="theme.css">
+    <style type="text/tailwindcss">
+@theme inline {
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-foreground);
+    --color-card: var(--color-card);
+    --color-primary: var(--color-primary);
+    --color-on-primary: var(--color-on-primary);
+    --color-border: var(--color-border);
+    --color-outline: var(--color-outline);
+    --color-muted-foreground: var(--color-muted-foreground);
+    --color-on-surface: var(--color-on-surface);
+    --color-on-surface-variant: var(--color-on-surface-variant);
+    --color-surface: var(--color-surface);
+    --color-surface-container-low: var(--color-surface-container-low);
+    --color-surface-container: var(--color-surface-container);
+    --color-success: var(--color-success);
+    --color-warning: var(--color-warning);
+    --color-error: var(--color-error);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-avatar: var(--radius-avatar);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  
+  @layer base {
+    body { background: var(--color-background); color: var(--color-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      html { overflow-y: scroll; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <style>
+    /* == Responsive == */
+@media (max-width: 1023px) {
+  .resp-full-width { flex-direction: column !important; }
+  .resp-detail-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 767px) {
+  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .resp-grid-3 { grid-template-columns: 1fr !important; }
+  .resp-grid-news { grid-template-columns: 1fr !important; }
+  .resp-hide-mobile { display: none !important; }
+  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
+  .resp-section-pt { padding-top: 32px !important; }
+  .resp-section-pb { padding-bottom: 32px !important; }
+  .resp-filter-min-h button { min-height: 40px !important; }
+  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .resp-banner-img { height: 200px !important; }
+  .resp-detail-info { flex-direction: column !important; }
+  .resp-contact-form { max-width: 100% !important; }
+  .resp-breadcrumb { font-size: 12px !important; }
+  .resp-card-gap { gap: 12px !important; }
+}
+    </style>
+    </head>
+<body class="min-h-screen font-sans antialiased">
+
+    <!-- 1. Header -->
+    <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
+        <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
+            <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap block" style="height:50px;overflow:hidden;"><img src="../assets/logo.png" alt="胶东私人收藏" style="height:100%;width:auto;object-fit:contain;"></a>
+            <nav class="hidden lg:flex items-center gap-7">
+                <a href="index.html" data-dom-id="nav-home" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">首页</a>
+                <a href="collection.html" data-dom-id="nav-collection" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">藏品展示</a>
+                <a href="collectors.html" data-dom-id="nav-collector" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏家</a>
+                <a href="stories.html" data-dom-id="nav-story" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);font-weight:600;color:var(--navy-500);border-bottom:2px solid var(--navy-500);" aria-current="page">收藏故事</a>
+                <a href="updates.html" data-dom-id="nav-updates" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">收藏动态</a>
+                <a href="info.html" data-dom-id="nav-info" class="whitespace-nowrap" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);text-decoration:none;line-height:var(--line-height-nav);padding:4px 0;position:relative;transition:color var(--duration-fast) var(--easing-default);">服务帮助</a>
+                    <a href="contact.html" data-dom-id="nav-contact" class="whitespace-nowrap pb-0.5" style="font-size:var(--font-size-nav);color:var(--text-primary-500);font-family:var(--font-body);">入驻联系</a>
+            </nav>
+<button id="mobile-menu-btn" class="lg:hidden flex items-center justify-center" style="width:40px;height:40px;border:none;background:none;cursor:pointer;padding:0;" aria-label="菜单" onclick="toggleMobileMenu()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+        </div>
+    </header>
+<div id="mobile-menu" class="lg:hidden" style="display:none;background:var(--surface-50);border-bottom:1px solid var(--border-200);padding:16px 24px;">
+  <nav class="flex flex-col gap-3">
+    <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
+    <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
+    <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
+    <a href="stories.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
+    <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
+    <a href="info.html" style="font-size:var(--font-size-body);font-weight:500;color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
+            <a href="contact.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;">入驻联系</a>
+  </nav>
+</div>
+<script>
+function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=document.getElementById('mobile-menu-btn');if(m.style.display==='none'||!m.style.display){m.style.display='block';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';}else{m.style.display='none';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';}}
+</script>
+
+    <!-- Banner 轮播 -->
+    <div class="relative w-full overflow-hidden" style="height:320px;" data-dom-id="carousel-stories">
+        <div class="flex transition-opacity duration-300 resp-banner-img" id="storyCarousel">
+            <div class="relative w-full flex-shrink-0">
+                <img src="../assets/banner-story-1.jpg" alt="青花瓷器收藏" class="w-full" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="height:320px;object-fit:cover;">
+                <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(30,59,122,0.6) 0%, transparent 60%);"></div>
+                <div class="absolute bottom-0 left-0 p-8" style="max-width:560px;">
+                    <h2 style="font-size:24px;font-weight:700;color:#ffffff;font-family:var(--font-body);margin-bottom:8px;">方寸之间的历史：邮票收藏的故事</h2>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.85);font-family:var(--font-body);line-height:1.6;">一枚枚老邮票，承载着百年岁月的记忆</p>
+                </div>
+            </div>
+            <div class="relative w-full flex-shrink-0">
+                <img src="../assets/banner-story-2.jpg" loading="lazy" alt="鼻烟壶收藏" class="w-full" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="height:320px;object-fit:cover;">
+                <div class="absolute inset-0" style="background:linear-gradient(to right, rgba(30,59,122,0.6) 0%, transparent 60%);"></div>
+                <div class="absolute bottom-0 left-0 p-8" style="max-width:560px;">
+                    <h2 style="font-size:24px;font-weight:700;color:#ffffff;font-family:var(--font-body);margin-bottom:8px;">掌中乾坤：鼻烟壶与微型雕刻</h2>
+                    <p style="font-size:14px;color:rgba(255,255,255,0.85);font-family:var(--font-body);line-height:1.6;">方寸之间的匠心独运，感受中国传统工艺之美</p>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播指示点 -->
+        <div class="absolute bottom-4 left-1/2 flex gap-1.5" style="transform:translateX(-50%);">
+            <button onclick="goStoriesSlide(0)" class="w-2 h-2 rounded-full" style="background:#ffffff;opacity:1;width:24px;border-radius:4px;border:none;cursor:pointer;" id="stories-dot-0"></button>
+            <button onclick="goStoriesSlide(1)" class="w-2 h-2 rounded-full" style="background:#ffffff;opacity:0.5;width:8px;border:none;cursor:pointer;" id="stories-dot-1"></button>
+        </div>
+    </div>
+    <script>
+    var storiesCurrentSlide = 0;
+    var totalSlides = 2;
+    var carousel = document.getElementById('storyCarousel');
+    function goStoriesSlide(n) {
+        storiesCurrentSlide = n;
+        var slides = carousel.children;
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = i === n ? 'block' : 'none';
+        }
+        for (var j = 0; j < totalSlides; j++) {
+            var dot = document.getElementById('stories-dot-' + j);
+            if (j === n) { dot.style.opacity = '1'; dot.style.width = '24px'; dot.style.borderRadius = '4px'; }
+            else { dot.style.opacity = '0.5'; dot.style.width = '8px'; dot.style.borderRadius = '4px'; }
+        }
+    }
+    goStoriesSlide(0);
+    setInterval(function() { goStoriesSlide((storiesCurrentSlide + 1) % totalSlides); }, 5000);
+    </script>
+
+    <main>
+        <!-- 2. 面包屑 -->
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding-top:24px;">
+            <p style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">
+                <a href="index.html" data-dom-id="nav-home" style="color:var(--text-primary-300);text-decoration:none;">首页</a> &gt; 收藏故事
+            </p>
+        </div>
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);margin-top:20px;">
+            <h1 style="font-family:var(--font-heading);font-size:var(--font-size-h2);font-weight:var(--font-weight-h2);color:var(--text-primary-700);margin:0;">收藏故事</h1>
+        </div>
+
+        <!-- 3. 分类筛选栏 -->
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);margin-top:24px;">
+            <div class="flex flex-nowrap gap-2.5 resp-filter-min-h" id="storyFilterBar">
+                <button onclick="filterStories('全部', this)" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding:0 16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-nav);font-family:var(--font-body);border-radius:var(--radius-sm);border:none;cursor:pointer;" aria-pressed="true">全部</button>
+                <button onclick="filterStories('藏品故事', this)" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding:0 16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">藏品故事</button>
+                <button onclick="filterStories('藏家故事', this)" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding:0 16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" aria-pressed="false">藏家故事</button>
+            </div>
+        </div>
+
+        <!-- 4. 新闻列表（单列全宽文章列表） -->
+        <section class="mx-auto px-6 resp-card-gap" style="max-width:var(--size-content-width);margin-top:24px;">
+
+            <!-- 文章 1 -->
+            <a href="update-detail.html" data-dom-id="link-article-1" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-porcelain-journey.jpg" loading="lazy" alt="青花瓷器收藏之旅 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;" data-dom-id="interaction-id-x7ei86s">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-11-15</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">从窑火到案头：一件青花罐的百年旅程</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">这件明代青花缠枝莲纹罐，历经百年辗转，从景德镇窑火中诞生，最终落户胶东民间收藏家之手。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 1.2k</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 2 -->
+            <a href="update-detail.html" data-dom-id="link-article-2" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-copper-coin-history.jpg" loading="lazy" alt="铜钱历史故事 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-10-28</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">铜钱里的时光：清代货币与胶东商贸</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">透过清代铜钱与老票据，探索胶东地区百年商贸的兴衰流转，感受钱币中沉淀的历史记忆。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 856</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 3 -->
+            <a href="update-detail.html" data-dom-id="link-article-3" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-blue-porcelain-memory.jpg" loading="lazy" alt="青花瓷记忆 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏家故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-09-12</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">玉佩传家：一位威海藏家的收藏哲学</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">走进威海刘女士的收藏世界，听她讲述玉器与书画的传承之道，感悟收藏背后的生活哲学。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 1.5k</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 4 -->
+            <a href="update-detail.html" data-dom-id="link-article-4" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-folk-collection.jpg" loading="lazy" alt="民间收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-08-05</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">民窑之美：胶东地区民间瓷器巡礼</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">胶东民窑瓷器承载着质朴的民间审美，本文带你一览其中的精品，感受民间匠人的智慧与技艺。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 923</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 6 -->
+            <a href="update-detail.html" data-dom-id="link-article-6" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-jade-collection.jpg" loading="lazy" alt="玉石收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏家故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-02-15</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">青岛藏家刘女士：玉器与书画的交融之美</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">刘女士分享了她二十余年的玉器与书画收藏经历，讲述如何在胶东地区寻觅文人书画与和田玉器。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 1.1k</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 11 -->
+            <a href="update-detail.html" data-dom-id="link-article-11" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-museum-visit.jpg" loading="lazy" alt="参观博物馆 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏家故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-01-08</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">父子接力：胶东地区三代收藏人家族</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">记录一个胶东收藏世家的故事，三代人接力守护地域文化遗产的感人事迹。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 2.1k</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 13 -->
+            <a href="update-detail.html" data-dom-id="link-article-13" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-tea-culture.jpg" loading="lazy" alt="茶文化收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2023-12-18</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">紫砂壶：茶文化与收藏的完美结合</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">宜兴紫砂壶既是茶具也是收藏品，讲述紫砂壶的收藏文化与市场趋势。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 987</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article 15 -->
+            <a href="update-detail.html" data-dom-id="link-article-15" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-silk-painting.jpg" loading="lazy" alt="丝绸绘画 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2023-12-05</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">丝绸收藏：中国丝绸的千年之美</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">中国丝绸是世界闻名的文化瑰宝，探索丝绸织品在收藏市场中的独特地位。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 823</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 20 -->
+            <a href="update-detail.html" data-dom-id="link-article-20" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-folk-art.jpg" loading="lazy" alt="民间艺术 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏品故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2023-11-01</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">民间艺术收藏的魅力</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">剪纸、年画、泥塑等民间艺术品越来越受到收藏界关注，探索其独特的收藏价值。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 542</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 25 -->
+            <a href="update-detail.html" data-dom-id="link-article-25" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-scroll-painting.jpg" loading="lazy" alt="卷轴书画 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏家故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-03-18</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">从古玩市场到私人博物馆：一位青岛藏家的二十年</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">青岛藏家陈先生从周末逛古玩市场的爱好者，到建立私人收藏展室的资深藏家，二十年间经历了怎样的转变？</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 341</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 文章 26 -->
+            <a href="update-detail.html" data-dom-id="link-article-26" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
+                <img src="../assets/story-folk-textile.jpg" loading="lazy" alt="" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
+                    <div style="flex:1;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span style="font-size:11px;color:var(--navy-500);background:var(--surface-200);padding:2px 8px;border-radius:4px;">藏家故事</span>
+                            <span style="font-size:12px;color:var(--text-primary-300);">2024-03-22</span>
+                        </div>
+                        <h3 style="font-size:18px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);line-height:1.5;margin-bottom:6px;">胶东刺绣收藏：守护一门即将消失的手艺</h3>
+                        <p style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">威海藏家周女士致力于收集胶东传统刺绣作品，从婚嫁用品到日常绣片，为这门濒临失传的手艺留下了珍贵档案。</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-2 w-full">
+                        <span style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">阅读 289</span>
+                        <span style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);font-family:var(--font-body);">阅读全文 &rarr;</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="flex items-center justify-center gap-3" style="margin-top:24px;padding-bottom:24px;" id="story-pagination">
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full" style="background:var(--surface-50);border-top:1px solid var(--border-200);">
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:var(--space-17) 0 32px 0;">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 resp-footer-grid">
+                <div class="col-span-2 lg:col-span-1">
+                    <p class="mb-3" style="font-size:18px;font-weight:700;color:var(--navy-500);font-family:var(--font-body);">胶东私人收藏</p>
+                    <p style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);line-height:1.7;">胶东地区私人藏品信息展示平台，提供收藏家之间的联系渠道。</p>
+                    <div class="mt-4 p-3" style="background:var(--surface-200);border-radius:var(--radius-sm);">
+                        <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);line-height:1.6;">本平台仅做信息展示与联系线索，不参与交易，不评估价值，不担保真伪。</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">藏品浏览</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="collection.html" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">全部藏品</a>
+                        <a href="collection.html?category=%E7%93%B7%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">瓷器</a>
+                        <a href="collection.html?category=%E7%8E%89%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">玉器</a>
+                        <a href="collection.html?category=%E4%B9%A6%E7%94%BB" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">书画</a>
+                        <a href="collection.html?category=%E9%92%B1%E5%B8%81" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">钱币</a>
+                        <a href="collection.html?category=%E9%93%9C%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">铜器</a>
+                        <a href="collection.html?category=%E6%9D%82%E9%A1%B9" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">杂项</a>
+                        <a href="collection.html?category=%E6%96%87%E6%88%BF" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">文房</a>
+                        <a href="collection.html?category=%E7%BB%87%E7%BB%A3" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">织绣</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">关于平台</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏家入驻</a>
+                        <a href="stories.html" data-dom-id="nav-story" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏故事</a>
+                        <a href="updates.html" data-dom-id="nav-updates" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">收藏动态</a>
+                        <a href="info.html#service" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">平台服务说明</a>
+                        <a href="contact.html" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">联系我们</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="mb-4" style="font-size:14px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">帮助与联系</p>
+                    <div class="flex flex-col gap-3">
+                        <a href="info.html#faq" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">常见问题</a>
+                        <a href="info.html#guide" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">入驻指南</a>
+                        <a href="info.html#privacy" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">隐私政策</a>
+                        <a href="info.html#terms" data-dom-id="nav-contact" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">使用条款</a>
+                    </div>
+                    <div class="mt-4">
+                        <a href="contact.html" data-dom-id="nav-contact" class="inline-flex items-center justify-center whitespace-nowrap" style="height:44px;padding-left:16px;padding-right:16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);text-decoration:none;">申请入驻</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding:16px 0;border-top:1px solid var(--border-200);">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">&copy; 2026 胶东收藏版权所有&emsp;鲁B2-20090191-18&emsp;主办单位：胶东收藏</p>
+                <p style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">胶东地区私人藏品信息展示平台</p>
+            </div>
+        </div>
+    </footer>
+<script>
+    var storyCurrentPage = 1;
+    var storyCurrentCategory = '全部';
+    var STORY_PER_PAGE = 12;
+
+    function getFilteredStoryCards() {
+        var cards = document.querySelectorAll('.story-card');
+        var filtered = [];
+        cards.forEach(function(card) {
+            var cat = card.getAttribute('data-card-category');
+            if (storyCurrentCategory === '全部' || cat === storyCurrentCategory) {
+                filtered.push(card);
+            }
+        });
+        return filtered;
+    }
+
+    function updateStoryPagination() {
+        var filtered = getFilteredStoryCards();
+        var totalPages = Math.ceil(filtered.length / STORY_PER_PAGE);
+        if (totalPages <= 1) totalPages = 0;
+        var container = document.getElementById('story-pagination');
+        container.innerHTML = '';
+        for (var i = 1; i <= totalPages; i++) {
+            (function(pg) {
+                var btn = document.createElement('button');
+                btn.textContent = pg;
+                btn.className = 'inline-flex items-center justify-center whitespace-nowrap';
+                btn.style.cssText = 'width:40px;height:40px;font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);cursor:pointer;';
+                btn.addEventListener('click', function() { goToStoryPage(pg); });
+                container.appendChild(btn);
+            })(i);
+        }
+        var buttons = container.querySelectorAll('button');
+        buttons.forEach(function(b, i) {
+            if (i + 1 === storyCurrentPage) {
+                b.style.background = 'var(--navy-500)';
+                b.style.color = 'var(--surface-50)';
+                b.style.border = 'none';
+            } else {
+                b.style.background = 'var(--surface-50)';
+                b.style.color = 'var(--text-primary-500)';
+                b.style.border = '1px solid var(--border-200)';
+            }
+        });
+    }
+
+    function goToStoryPage(page) {
+        storyCurrentPage = page;
+        var filtered = getFilteredStoryCards();
+        var start = (page - 1) * STORY_PER_PAGE;
+        var end = start + STORY_PER_PAGE;
+
+        document.querySelectorAll('.story-card').forEach(function(card) {
+            card.setAttribute('hidden', '');
+            card.style.borderBottom = '1px solid var(--border-200)';
+        });
+
+        var visibleCards = [];
+        for (var i = start; i < end && i < filtered.length; i++) {
+            filtered[i].removeAttribute('hidden');
+            visibleCards.push(filtered[i]);
+        }
+
+        if (visibleCards.length > 0) {
+            visibleCards[visibleCards.length - 1].style.borderBottom = 'none';
+        }
+
+        updateStoryPagination();
+        var section = document.querySelector('.story-card') ? document.querySelector('.story-card').closest('section') : null;
+        if (section) {
+            var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 20;
+            window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        }
+    }
+    function filterStories(category, btn) {
+        storyCurrentCategory = category;
+        storyCurrentPage = 1;
+
+        var buttons = document.querySelectorAll('#storyFilterBar button');
+        buttons.forEach(function(b) {
+            if (b === btn) {
+                b.style.background = 'var(--navy-500)';
+                b.style.color = 'var(--surface-50)';
+                b.style.border = 'none';
+            } else {
+                b.style.background = 'var(--surface-50)';
+                b.style.color = 'var(--text-primary-500)';
+                b.style.border = '1px solid var(--border-200)';
+            }
+        });
+        goToStoryPage(1);
+    }
+    (function(){goToStoryPage(1);})();
+</script>
+<script>lucide.createIcons();</script></body></html>

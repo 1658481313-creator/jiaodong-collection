@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="胶东收藏后台管理系统登录页面">
+    <title>管理后台登录 - 胶东收藏后台管理系统</title>
+    <style id="theme-vars">
+:root {
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-xs: var(--radius-2);
+  --radius-sm: var(--radius-4);
+  --radius-md: var(--radius-6);
+  --radius-lg: var(--radius-8);
+  --border-radius: var(--radius-6);
+  --border-radius-sm: var(--radius-4);
+  --border-radius-lg: var(--radius-8);
+  --border-radius-xs: var(--radius-2);
+  --border-width-default: 1px;
+  --spacer-0: 0px;
+  --spacer-4: 4px;
+  --spacer-8: 8px;
+  --spacer-12: 12px;
+  --spacer-16: 16px;
+  --spacer-20: 20px;
+  --spacer-24: 24px;
+  --spacer-32: 32px;
+  --spacer-48: 48px;
+  --margin-xxs: var(--spacer-4);
+  --margin-xs: var(--spacer-8);
+  --margin-sm: var(--spacer-12);
+  --margin-md: var(--spacer-16);
+  --margin-lg: var(--spacer-24);
+  --margin-xl: var(--spacer-32);
+  --margin-xxl: var(--spacer-48);
+  --padding-xxs: var(--spacer-4);
+  --padding-xs: var(--spacer-8);
+  --padding-sm: var(--spacer-12);
+  --padding-md: var(--spacer-16);
+  --padding-lg: var(--spacer-24);
+  --padding-xl: var(--spacer-32);
+  --icon-size-12: 12px;
+  --icon-size-14: 14px;
+  --icon-size-16: 16px;
+  --icon-size-20: 20px;
+  --icon-size-24: 24px;
+  --font-family-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  --font-family-base: var(--font-family-default);
+  --font-family-mono: var(--font-family-code);
+  --font-weight-default: 400;
+  --font-weight-strong: 600;
+  --font-weight-medium: 500;
+  --body-sm-font-family: var(--font-family-default);
+  --body-sm-font-size: 12px;
+  --body-sm-font-weight: 400;
+  --body-sm-line-height: 20px;
+  --body-sm-letter-spacing: 0;
+  --body-base-font-family: var(--font-family-default);
+  --body-base-font-size: 14px;
+  --body-base-font-weight: 400;
+  --body-base-line-height: 22px;
+  --body-base-letter-spacing: 0;
+  --body-lg-font-family: var(--font-family-default);
+  --body-lg-font-size: 16px;
+  --body-lg-font-weight: 400;
+  --body-lg-line-height: 24px;
+  --body-lg-letter-spacing: 0;
+  --heading-h4-font-family: var(--font-family-default);
+  --heading-h4-font-size: 20px;
+  --heading-h4-font-weight: 600;
+  --heading-h4-line-height: 28px;
+  --heading-h4-letter-spacing: 0;
+  --heading-h3-font-family: var(--font-family-default);
+  --heading-h3-font-size: 24px;
+  --heading-h3-font-weight: 600;
+  --heading-h3-line-height: 32px;
+  --heading-h3-letter-spacing: 0;
+  --heading-h2-font-family: var(--font-family-default);
+  --heading-h2-font-size: 30px;
+  --heading-h2-font-weight: 600;
+  --heading-h2-line-height: 38px;
+  --heading-h2-letter-spacing: 0;
+  --heading-h1-font-family: var(--font-family-default);
+  --heading-h1-font-size: 38px;
+  --heading-h1-font-weight: 600;
+  --heading-h1-line-height: 46px;
+  --heading-h1-letter-spacing: 0;
+  --heading-sm-font-family: var(--font-family-default);
+  --heading-sm-font-size: 16px;
+  --heading-sm-font-weight: 600;
+  --heading-sm-line-height: 24px;
+  --heading-sm-letter-spacing: 0;
+  --control-height-sm: 24px;
+  --control-height: 32px;
+  --control-height-lg: 40px;
+  --motion-duration-fast: 0.1s;
+  --motion-duration-mid: 0.2s;
+  --motion-duration-slow: 0.3s;
+  --motion-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --motion-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --box-shadow: 0 6px 16px 0 rgba(0,0,0,0.08), 0 3px 6px -4px rgba(0,0,0,0.12), 0 9px 28px 8px rgba(0,0,0,0.05);
+  --box-shadow-tertiary: 0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 6px -1px rgba(0,0,0,0.02), 0 2px 4px 0 rgba(0,0,0,0.02);
+  --bg-container: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+  --bg-layout: #F5F5F5;
+  --bg-mask: rgba(0,0,0,0.45);
+  --bg-spotlight: rgba(0,0,0,0.85);
+  --bg-solid: rgb(0,0,0);
+  --bg-solid-hover: rgba(0,0,0,0.75);
+  --bg-solid-active: rgba(0,0,0,0.95);
+  --bg-blur: transparent;
+  --bg-container-disabled: rgba(0,0,0,0.04);
+  --bg-sider: #FFFFFF;
+  --bg-header: #FFFFFF;
+  --color-fill: rgba(0,0,0,0.15);
+  --color-fill-secondary: rgba(0,0,0,0.06);
+  --color-fill-tertiary: rgba(0,0,0,0.04);
+  --color-fill-quaternary: rgba(0,0,0,0.02);
+  --color-primary: #1677FF;
+  --color-primary-hover: #4096FF;
+  --color-primary-active: #0958D9;
+  --color-primary-bg: #E6F4FF;
+  --color-primary-bg-hover: #BAE0FF;
+  --color-primary-border: #91CAFF;
+  --color-primary-border-hover: #69B1FF;
+  --color-primary-text: #1677FF;
+  --color-primary-text-hover: #4096FF;
+  --color-primary-text-active: #0958D9;
+  --color-primary-disabled: rgba(22, 119, 255, 0.5);
+  --color-primary-text-disabled: rgba(22, 119, 255, 0.25);
+  --color-text: rgba(0,0,0,0.88);
+  --color-text-secondary: rgba(0,0,0,0.65);
+  --color-text-tertiary: rgba(0,0,0,0.45);
+  --color-text-quaternary: rgba(0,0,0,0.25);
+  --color-text-heading: rgba(0,0,0,0.88);
+  --color-text-disabled: rgba(0,0,0,0.25);
+  --color-text-placeholder: rgba(0,0,0,0.25);
+  --color-text-label: rgba(0,0,0,0.65);
+  --color-border: #D9D9D9;
+  --color-border-secondary: #F0F0F0;
+  --color-border-disabled: #D9D9D9;
+  --color-split: rgba(5,5,5,0.06);
+  --icon-default: var(--color-text-secondary);
+  --icon-hover: var(--color-text);
+  --icon-active: var(--color-text);
+  --icon-disabled: var(--color-text-disabled);
+  --color-success: #52C41A;
+  --color-success-hover: #73D13D;
+  --color-success-active: #389E0D;
+  --color-success-bg: #F6FFED;
+  --color-success-bg-hover: #D9F7BE;
+  --color-success-border: #B7EB8F;
+  --color-success-border-hover: #95DE64;
+  --color-success-text: #52C41A;
+  --color-success-text-hover: #73D13D;
+  --color-success-text-active: #389E0D;
+  --color-warning: #FAAD14;
+  --color-warning-hover: #FFC53D;
+  --color-warning-active: #D48806;
+  --color-warning-bg: #FFFBE6;
+  --color-warning-bg-hover: #FFF1B8;
+  --color-warning-border: #FFE58F;
+  --color-warning-border-hover: #FFD666;
+  --color-warning-text: #FAAD14;
+  --color-warning-text-hover: #FFC53D;
+  --color-warning-text-active: #D48806;
+  --color-warning-affix: #FAAD14;
+  --color-error: #FF4D4F;
+  --color-error-hover: #FF7875;
+  --color-error-active: #D9363E;
+  --color-error-bg: #FFF2F0;
+  --color-error-bg-hover: #FFCCC7;
+  --color-error-border: #FFCCC7;
+  --color-error-border-hover: #FFA39E;
+  --color-error-text: #FF4D4F;
+  --color-error-text-hover: #FF7875;
+  --color-error-text-active: #D9363E;
+  --color-error-affix: #FF4D4F;
+  --color-info: #1677FF;
+  --color-info-hover: #4096FF;
+  --color-info-active: #0958D9;
+  --color-info-bg: #E6F4FF;
+  --color-info-bg-hover: #BAE0FF;
+  --color-info-border: #91CAFF;
+  --color-info-border-hover: #69B1FF;
+  --color-info-text: #1677FF;
+  --color-info-text-hover: #4096FF;
+  --color-info-text-active: #0958D9;
+  --control-item-bg-hover: rgba(0,0,0,0.04);
+  --control-item-bg-active: #E6F4FF;
+  --control-item-bg-active-hover: #BAE0FF;
+  --color-fill-content-hover: rgba(0,0,0,0.15);
+  --color-link: #1677FF;
+  --color-link-hover: #4096FF;
+  --color-link-active: #0958D9;
+  --link-decoration: none;
+  --link-hover-decoration: none;
+  --color-red: #F5222D;
+  --color-orange: #FA8C16;
+  --color-yellow: #FADB14;
+  --color-gold: #FAAD14;
+  --color-volcano: #FA541C;
+  --color-geekblue: #2F54EB;
+  --color-blue: #1677FF;
+  --color-purple: #722ED1;
+  --color-cyan: #13C2C2;
+  --color-green: #52C41A;
+  --color-magenta: #EB2F96;
+  --color-pink: #EB2F96;
+  --color-lime: #A0D911;
+  --sider-width: 208px;
+  --sider-collapsed-width: 48px;
+  --header-height: 48px;
+  --content-padding: 24px;
+  --content-padding-mobile: 16px;
+  --table-header-bg: #FAFAFA;
+  --table-cell-padding: 16px;
+  --table-row-hover-bg: #FAFAFA;
+  --table-border: #F0F0F0;
+  --font-family: var(--font-family-default);
+  --font-size: var(--body-base-font-size);
+  --font-weight: var(--font-weight-default);
+  --line-height: var(--body-base-line-height);
+}
+    </style>
+    <style type="text/tailwindcss">
+@theme inline {
+    --color-background: var(--bg-layout);
+    --color-foreground: var(--color-text);
+    --color-card: var(--bg-container);
+    --color-muted: var(--color-fill-tertiary);
+    --color-muted-foreground: var(--color-text-tertiary);
+    --color-primary: var(--color-primary);
+    --color-border: var(--color-border);
+    --color-error: var(--color-error);
+    --color-link: var(--color-link);
+    --radius-sm: var(--radius-sm);
+    --radius-md: var(--radius-md);
+    --radius-lg: var(--radius-lg);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @layer base {
+    body { background: var(--bg-layout); color: var(--color-text); }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--bg-layout); }
+      .text-foreground { color: var(--color-text); }
+      .bg-card { background-color: var(--bg-container); }
+      .text-muted { color: var(--color-text-tertiary); }
+      .border-border { border-color: var(--color-border); }
+    </style>
+</head>
+<body class="h-screen overflow-hidden m-0" style="font-family: var(--font-family-default);">
+  <main class="flex h-full">
+    <!-- Left branding panel -->
+    <div class="hidden lg:flex w-[60%] relative items-center justify-center overflow-hidden" style="background: var(--bg-layout);">
+      <!-- Main centered content -->
+      <div class="relative z-10 text-center px-16 max-w-lg">
+        <!-- Logo -->
+        <img src="../assets/logo.png" alt="胶东收藏" class="mx-auto mb-8" style="height: 80px; width: auto; object-fit: contain;">
+
+        <p style="font-size: var(--body-lg-font-size); line-height: var(--body-lg-line-height); color: var(--color-text-secondary); letter-spacing: 0.08em;">
+          传承文化 · 珍藏历史
+        </p>
+      </div>
+    </div>
+
+    <!-- Right login form panel -->
+    <div class="w-full lg:w-[40%] flex items-center justify-center" style="background: var(--bg-layout);">
+      <div class="w-full max-w-[400px] mx-4 rounded-lg p-8 lg:p-10" style="background: var(--bg-container); box-shadow: var(--box-shadow-tertiary); border-radius: var(--radius-8);">
+        <!-- Brand header -->
+        <div class="mb-8 text-center">
+          <p style="font-size: var(--heading-sm-font-size); font-weight: var(--heading-sm-font-weight); color: var(--color-text-secondary);">
+            后台管理系统
+          </p>
+        </div>
+
+        <!-- Login form -->
+        <div class="flex flex-col gap-5">
+          <!-- Username field -->
+          <div class="flex flex-col gap-2">
+            <label style="font-size: var(--body-base-font-size); color: var(--color-text);">用户名</label>
+            <input type="text" placeholder="请输入用户名"
+                   class="w-full h-10 px-[11px] rounded-md border outline-none transition-[border-color,box-shadow] bg-[var(--bg-container)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:shadow-[0_0_0_2px_rgba(22,119,255,0.1)] placeholder:text-[var(--color-text-placeholder)]"
+                   style="font-size: var(--body-base-font-size);">
+          </div>
+
+          <!-- Password field -->
+          <div class="flex flex-col gap-2">
+            <label style="font-size: var(--body-base-font-size); color: var(--color-text);">密码</label>
+            <input type="password" placeholder="请输入密码"
+                   class="w-full h-10 px-[11px] rounded-md border outline-none transition-[border-color,box-shadow] bg-[var(--bg-container)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:shadow-[0_0_0_2px_rgba(22,119,255,0.1)] placeholder:text-[var(--color-text-placeholder)]"
+                   style="font-size: var(--body-base-font-size);">
+          </div>
+
+          <!-- Remember me checkbox -->
+          <div class="flex items-center gap-2">
+            <input type="checkbox" class="accent-[var(--color-primary)]" style="width: 16px; height: 16px;">
+            <label style="font-size: var(--body-base-font-size); color: var(--color-text); cursor: pointer;">记住我</label>
+          </div>
+
+          <!-- Login button -->
+          <button type="button"
+                  class="w-full h-10 rounded-lg cursor-pointer transition-colors duration-[var(--motion-duration-mid)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] active:bg-[var(--color-primary-active)] text-[var(--bg-container)] border-0"
+                  style="font-size: var(--body-lg-font-size); font-weight: var(--font-weight-strong);">
+            登录
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
