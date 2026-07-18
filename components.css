@@ -1,0 +1,658 @@
+/* ═══════════════════════════════════════════════════════════════
+   components.css — 胶东收藏 Design System Component Definitions
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ==========================================================================
+   TopNav 页头导航
+   ========================================================================== */
+.jd-topnav {
+  display: flex;
+  align-items: center;
+  height: var(--size-nav-height);
+  padding: 0 var(--space-16);
+  background: var(--surface-50);
+  border-bottom: 1px solid var(--border-200);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.jd-topnav__brand {
+  font-size: var(--font-size-brand);
+  font-weight: var(--font-weight-brand);
+  color: var(--navy-500);
+  margin-right: auto;
+  text-decoration: none;
+  line-height: var(--line-height-brand);
+}
+.jd-topnav__links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.jd-topnav__link {
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-nav);
+  color: var(--text-primary-500);
+  text-decoration: none;
+  line-height: var(--line-height-nav);
+  padding: 4px 0;
+  position: relative;
+  transition: color var(--duration-fast) var(--easing-default);
+}
+.jd-topnav__link:hover { color: var(--navy-500); }
+.jd-topnav__link--active {
+  color: var(--navy-500);
+}
+.jd-topnav__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -28px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--navy-500);
+  border-radius: 1px;
+}
+
+/* ==========================================================================
+   Button 按钮
+   ========================================================================== */
+.jd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--size-button-min-height);
+  padding: 0 var(--size-button-padding-x);
+  font-family: var(--font-body);
+  font-size: var(--font-size-button);
+  font-weight: var(--font-weight-button);
+  line-height: var(--line-height-button);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-default);
+  white-space: nowrap;
+}
+/* Primary */
+.jd-btn--primary {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+.jd-btn--primary:hover {
+  background: var(--color-primary-hover);
+  box-shadow: var(--shadow-2);
+}
+.jd-btn--primary:active {
+  transform: scale(0.99);
+}
+/* Secondary */
+.jd-btn--secondary {
+  background: var(--surface-50);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.jd-btn--secondary:hover {
+  background: var(--surface-200);
+}
+/* Disabled */
+.jd-btn:disabled,
+.jd-btn--disabled {
+  background: #EEF1F4;
+  color: #9AA5B2;
+  border-color: var(--border-200);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Text Link */
+.jd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-more-link);
+  font-weight: var(--font-weight-more-link);
+  color: var(--color-primary);
+  text-decoration: none;
+  line-height: var(--line-height-more-link);
+  transition: color var(--duration-fast) var(--easing-default);
+}
+.jd-link:hover { color: var(--color-primary-hover); }
+.jd-link__arrow {
+  width: 14px;
+  height: 14px;
+}
+
+/* ==========================================================================
+   FilterTag 分类标签与筛选器
+   ========================================================================== */
+.jd-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  font-family: var(--font-body);
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--text-primary-600);
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--easing-default);
+  white-space: nowrap;
+}
+.jd-filter-tag:hover {
+  border-color: var(--navy-300);
+  color: var(--navy-500);
+}
+.jd-filter-tag--active {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  border-color: var(--color-primary);
+}
+.jd-filter-tag--active:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+.jd-filter-tag:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.jd-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   ArtifactCard 藏品卡片
+   ========================================================================== */
+.jd-artifact-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--easing-default);
+}
+.jd-artifact-card:hover {
+  border-color: rgba(35, 69, 136, 0.30);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-2px);
+}
+.jd-artifact-card__image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--surface-200);
+  overflow: hidden;
+  position: relative;
+}
+.jd-artifact-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.jd-artifact-card__image--contain img {
+  object-fit: contain;
+}
+.jd-artifact-card__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-primary-300);
+  font-size: var(--font-size-caption);
+}
+.jd-artifact-card__body {
+  padding: var(--size-card-body-padding);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.jd-artifact-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+.jd-artifact-card__meta-tag {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--text-primary-400);
+}
+.jd-artifact-card__title {
+  font-size: var(--font-size-art-name);
+  font-weight: var(--font-weight-art-name);
+  color: var(--text-primary-700);
+  line-height: var(--line-height-art-name);
+  margin: 0 0 var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.jd-artifact-card__desc {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  color: var(--text-primary-500);
+  line-height: var(--line-height-body);
+  margin: 0 0 var(--space-5);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.jd-artifact-card__footer {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   CollectorCard 收藏家卡片
+   ========================================================================== */
+.jd-collector-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-md);
+  padding: var(--size-card-body-padding);
+  transition: all var(--duration-normal) var(--easing-default);
+}
+.jd-collector-card:hover {
+  border-color: rgba(35, 69, 136, 0.30);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-2px);
+}
+.jd-collector-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.jd-collector-card__avatar {
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  border-radius: var(--radius-avatar);
+  background: var(--navy-100);
+  color: var(--navy-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.jd-collector-card__info {
+  flex: 1;
+  min-width: 0;
+}
+.jd-collector-card__name {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  color: var(--text-primary-700);
+  line-height: var(--line-height-h3);
+  margin: 0 0 2px;
+}
+.jd-collector-card__region {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-caption);
+  color: var(--text-primary-400);
+  margin: 0;
+}
+.jd-collector-card__direction {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--navy-500);
+  margin-bottom: var(--space-3);
+}
+.jd-collector-card__bio {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  color: var(--text-primary-500);
+  line-height: var(--line-height-body);
+  margin: 0 0 var(--space-6);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* ==========================================================================
+   NewsCard 动态卡片
+   ========================================================================== */
+.jd-news-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-md);
+  padding: var(--size-card-body-padding);
+  transition: all var(--duration-normal) var(--easing-default);
+}
+.jd-news-card:hover {
+  border-color: rgba(35, 69, 136, 0.30);
+  box-shadow: var(--shadow-1);
+  transform: translateY(-2px);
+}
+.jd-news-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+.jd-news-card__type {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  border-radius: var(--radius-sm);
+}
+.jd-news-card__type--announcement {
+  background: var(--navy-50);
+  color: var(--navy-500);
+}
+.jd-news-card__type--new {
+  background: #EDF8F2;
+  color: #15803d;
+}
+.jd-news-card__type--event {
+  background: #FFF8E8;
+  color: #805B16;
+}
+.jd-news-card__time {
+  font-size: var(--font-size-caption);
+  color: var(--text-primary-300);
+}
+.jd-news-card__title {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-h3);
+  color: var(--text-primary-700);
+  line-height: var(--line-height-h3);
+  margin: 0 0 var(--space-3);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.jd-news-card__summary {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  color: var(--text-primary-500);
+  line-height: var(--line-height-body);
+  margin: 0 0 var(--space-5);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+.jd-news-card__source {
+  font-size: var(--font-size-caption);
+  color: var(--text-primary-300);
+  margin: 0;
+}
+
+/* ==========================================================================
+   StatCard 数据统计卡
+   ========================================================================== */
+.jd-stat-band {
+  background: var(--surface-200);
+  padding: var(--space-13);
+  border-radius: var(--radius-md);
+}
+.jd-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.jd-stat-card {
+  background: var(--surface-50);
+  border-radius: var(--radius-md);
+  padding: var(--space-9) var(--space-6);
+  text-align: center;
+}
+.jd-stat-card__number {
+  font-size: var(--font-size-stat);
+  font-weight: var(--font-weight-stat);
+  color: var(--navy-500);
+  line-height: var(--line-height-stat);
+  margin: 0 0 var(--space-3);
+}
+.jd-stat-card__label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-caption);
+  color: var(--text-primary-400);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Notice 平台定位与风险提示
+   ========================================================================== */
+.jd-notice {
+  background: var(--surface-200);
+  border-left: 3px solid var(--navy-500);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-9);
+}
+.jd-notice__title {
+  font-size: var(--font-size-note-title);
+  font-weight: var(--font-weight-note-title);
+  color: var(--navy-500);
+  margin: 0 0 var(--space-3);
+}
+.jd-notice__body {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-caption);
+  color: var(--text-primary-500);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Form 表单
+   ========================================================================== */
+.jd-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.jd-form-label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--text-primary-700);
+}
+.jd-form-input {
+  min-height: var(--size-button-min-height);
+  padding: 0 var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--font-size-button);
+  color: var(--text-primary-700);
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: all var(--duration-fast) var(--easing-default);
+}
+.jd-form-input:hover {
+  border-color: var(--navy-300);
+}
+.jd-form-input:focus {
+  border-color: var(--navy-500);
+  box-shadow: 0 0 0 3px rgba(35, 69, 136, 0.14);
+}
+.jd-form-input--error {
+  border-color: var(--color-error);
+}
+.jd-form-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.14);
+}
+.jd-form-input:disabled {
+  background: #EEF1F4;
+  color: #9AA5B2;
+  cursor: not-allowed;
+}
+.jd-form-textarea {
+  min-height: 120px;
+  padding: var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--font-size-button);
+  color: var(--text-primary-700);
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-sm);
+  outline: none;
+  resize: vertical;
+  transition: all var(--duration-fast) var(--easing-default);
+}
+.jd-form-textarea:hover {
+  border-color: var(--navy-300);
+}
+.jd-form-textarea:focus {
+  border-color: var(--navy-500);
+  box-shadow: 0 0 0 3px rgba(35, 69, 136, 0.14);
+}
+.jd-form-error {
+  font-size: var(--font-size-caption);
+  color: var(--color-error);
+  margin: 0;
+}
+
+/* ==========================================================================
+   ImagePlaceholder 图片占位
+   ========================================================================== */
+.jd-image-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-caption);
+  color: var(--text-primary-300);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+.jd-image-placeholder--ceramic { background: #EAF6FC; }
+.jd-image-placeholder--jade { background: #F4FAFD; }
+.jd-image-placeholder--bronze { background: #E7F2FA; }
+.jd-image-placeholder--light { background: var(--surface-200); }
+.jd-image-placeholder--error {
+  background: #FFF1F1;
+  color: var(--color-error);
+  border: 1px dashed var(--color-error);
+}
+.jd-image-placeholder__text {
+  font-size: var(--font-size-caption);
+}
+/* Skeleton loading */
+.jd-skeleton {
+  background: linear-gradient(90deg, var(--surface-200) 25%, var(--surface-400) 50%, var(--surface-200) 75%);
+  background-size: 200% 100%;
+  animation: jd-skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes jd-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ==========================================================
+   Banner Carousel 横幅轮播
+   ========================================================== */
+.jd-banner-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.jd-banner-carousel__track {
+  width: 100%;
+}
+
+.jd-banner-carousel__slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.jd-banner-carousel__img {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.jd-banner-carousel__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.jd-banner-carousel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(30, 59, 122, 0.6) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.jd-banner-carousel__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 32px;
+  max-width: 560px;
+}
+
+.jd-banner-carousel__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.jd-banner-carousel__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+.jd-banner-carousel__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.jd-banner-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  opacity: 0.5;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--duration-normal) var(--easing-default),
+              width var(--duration-normal) var(--easing-default);
+}
+
+.jd-banner-carousel__dot--active {
+  opacity: 1;
+  width: 24px;
+}

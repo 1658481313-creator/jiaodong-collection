@@ -1,0 +1,245 @@
+/* Source: structured-spec */
+/* @group-priority: navy, artifact-blue, artifact-jade, artifact-bronze */
+/* @light-only */
+
+:root {
+  /* === Brand Color Scales === */
+
+  /* navy */
+  --navy-50: #eef3fa;
+  --navy-100: #d4e0f1;
+  --navy-200: #a8c1e3;
+  --navy-300: #7da2d5;
+  --navy-400: #5183c7;
+  /* @primary */
+  --navy-500: #1e3b7a;
+  --navy-600: #1a336b;
+  --navy-700: #152a5c;
+  --navy-800: #10214d;
+  --navy-900: #0b173e;
+
+  /* artifact-blue */
+  --artifact-blue-50: #eef8fd;
+  --artifact-blue-100: #d4effb;
+  --artifact-blue-200: #a9dff7;
+  --artifact-blue-300: #7ecff3;
+  --artifact-blue-400: #53bfef;
+  --artifact-blue-500: #4db5e6;
+  --artifact-blue-600: #3d91b8;
+  --artifact-blue-700: #2d6d8a;
+  --artifact-blue-800: #1e495c;
+  --artifact-blue-900: #0e252e;
+
+  /* artifact-jade */
+  --artifact-jade-50: #f5fbfe;
+  --artifact-jade-100: #e0f4fb;
+  --artifact-jade-200: #c2eaf7;
+  --artifact-jade-300: #a3e0f3;
+  --artifact-jade-400: #85d6ef;
+  --artifact-jade-500: #6dceea;
+  --artifact-jade-600: #57a5bb;
+  --artifact-jade-700: #417c8c;
+  --artifact-jade-800: #2b535d;
+  --artifact-jade-900: #162a2e;
+
+  /* artifact-bronze */
+  --artifact-bronze-50: #eaf4fb;
+  --artifact-bronze-100: #d5e9f7;
+  --artifact-bronze-200: #abd3ef;
+  --artifact-bronze-300: #81bde7;
+  --artifact-bronze-400: #57a7df;
+  --artifact-bronze-500: #4a9bd5;
+  --artifact-bronze-600: #3b7caa;
+  --artifact-bronze-700: #2c5b7f;
+  --artifact-bronze-800: #1d3c54;
+  --artifact-bronze-900: #0e1e2a;
+
+  /* text-primary */
+  --text-primary-900: #0a1019;
+  --text-primary-800: #0f1a28;
+  --text-primary-700: #15233a;
+  --text-primary-600: #2a3d56;
+  --text-primary-500: #3f5772;
+  --text-primary-400: #5b6d84;
+  --text-primary-300: #8496a8;
+  --text-primary-200: #adb9c7;
+  --text-primary-100: #d5dbe3;
+  --text-primary-50: #eef1f5;
+
+  /* surface */
+  --surface-50: #ffffff;
+  --surface-100: #f9fbfc;
+  --surface-200: #F2F9FC;
+  --surface-300: #F1F8FB;
+  --surface-400: #e4eef4;
+  --surface-500: #d1dfe9;
+  --surface-600: #b0c4d3;
+  --surface-700: #8fa9bd;
+  --surface-800: #6e8ea7;
+  --surface-900: #4d7391;
+
+  /* border */
+  --border-50: #f5f5f4;
+  --border-100: #E3E3E1;
+  --border-200: #E0E6ED;
+  --border-300: #E0E0E0;
+  --border-400: #c8ccd3;
+  --border-500: #a0a8b4;
+  --border-600: #788495;
+  --border-700: #506076;
+  --border-800: #384a5e;
+  --border-900: #203446;
+
+  /* === Semantic Aliases === */
+
+  /* === Surface & Background === */
+  --color-background: var(--surface-50);
+  --color-foreground: var(--text-primary-700);
+  --color-surface: var(--surface-50);
+  --color-surface-container-low: var(--surface-200);
+  --color-surface-container: var(--surface-300);
+  --color-card: var(--surface-50);
+
+  /* === Text === */
+  --color-on-surface: var(--text-primary-700);
+  --color-on-surface-variant: var(--text-primary-400);
+  --color-muted-foreground: var(--text-primary-400);
+
+  /* === Brand/Primary === */
+  --color-primary: var(--navy-500);
+  --color-primary-hover: #163066;
+  --color-on-primary: #ffffff;
+
+  /* === Borders === */
+  --color-outline: var(--border-200);
+  --color-outline-variant: var(--border-100);
+  --color-border: var(--border-200);
+
+  /* === Functional Status === */
+  --color-success: #15803d;
+  --color-warning: #a16207;
+  --color-error: #dc2626;
+
+  /* === Radius === */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-avatar: 22px;
+  --radius-full: 9999px;
+
+  /* === Typography === */
+  --font-display: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  --font-heading: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  --font-body: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+
+  --font-size-display: 58px;
+  --font-size-h1: 58px;
+  --font-size-h2: 32px;
+  --font-size-h3: 20px;
+  --font-size-body: 17px;
+  --font-size-lead: 17px;
+  --font-size-stat: 30px;
+  --font-size-art-name: 26px;
+  --font-size-carousel-title: 22px;
+  --font-size-button: 15px;
+  --font-size-nav: 14px;
+  --font-size-brand: 20px;
+  --font-size-note-title: 14px;
+  --font-size-eyebrow: 13px;
+  --font-size-label: 13px;
+  --font-size-more-link: 14px;
+  --font-size-caption: 13px;
+
+  --font-weight-display: 700;
+  --font-weight-h1: 700;
+  --font-weight-h2: 700;
+  --font-weight-h3: 700;
+  --font-weight-body: 400;
+  --font-weight-lead: 400;
+  --font-weight-stat: 600;
+  --font-weight-art-name: 700;
+  --font-weight-carousel-title: 700;
+  --font-weight-button: 700;
+  --font-weight-nav: 400;
+  --font-weight-brand: 700;
+  --font-weight-note-title: 700;
+  --font-weight-eyebrow: 700;
+  --font-weight-label: 700;
+  --font-weight-more-link: 500;
+  --font-weight-caption: 400;
+
+  --line-height-display: 1.08;
+  --line-height-h1: 1.08;
+  --line-height-h2: 1.25;
+  --line-height-h3: 1.45;
+  --line-height-body: 1.9;
+  --line-height-lead: 1.9;
+  --line-height-stat: 1.1;
+  --line-height-art-name: 1.46;
+  --line-height-button: 1;
+  --line-height-nav: 1;
+  --line-height-brand: 1;
+  --line-height-eyebrow: 1;
+  --line-height-label: 1;
+  --line-height-more-link: 1;
+
+  /* === Spacing === */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 16px;
+  --space-7: 18px;
+  --space-8: 20px;
+  --space-9: 24px;
+  --space-10: 28px;
+  --space-11: 30px;
+  --space-12: 36px;
+  --space-13: 40px;
+  --space-14: 42px;
+  --space-15: 44px;
+  --space-16: 52px;
+  --space-17: 64px;
+  --space-18: 72px;
+  --space-19: 80px;
+  --space-20: 130px;
+
+  /* === Sizing === */
+  --size-button-min-height: 44px;
+  --size-button-padding-x: 20px;
+  --size-avatar: 44px;
+  --size-nav-height: 72px;
+  --size-card-body-padding: 18px;
+  --size-content-width: 1180px;
+  --size-page-width: 1440px;
+
+  /* === Shadows === */
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.08); /* Card Hover */
+  --shadow-2: 0 2px 4px rgba(30, 59, 122, 0.12); /* Button Hover */
+
+  /* === Motion === */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --easing-default: ease;
+
+  /* === Font Family Alias === */
+  --font-family-base: var(--font-body);
+}
+
+/* === Typography Classes === */
+.jd-display { font-family: var(--font-display); font-size: 3.625rem; font-weight: var(--font-weight-display); line-height: var(--line-height-display); }
+.jd-h1 { font-family: var(--font-heading); font-size: 3.625rem; font-weight: var(--font-weight-h1); line-height: var(--line-height-h1); }
+.jd-h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: var(--font-weight-h2); line-height: var(--line-height-h2); }
+.jd-h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: var(--font-weight-h3); line-height: var(--line-height-h3); }
+.jd-body { font-family: var(--font-body); font-size: 1.0625rem; font-weight: var(--font-weight-body); line-height: var(--line-height-body); }
+.jd-lead { font-family: var(--font-body); font-size: 1.0625rem; font-weight: var(--font-weight-lead); line-height: var(--line-height-lead); }
+.jd-stat { font-family: var(--font-body); font-size: 1.875rem; font-weight: var(--font-weight-stat); line-height: var(--line-height-stat); }
+.jd-art-name { font-family: var(--font-body); font-size: 1.625rem; font-weight: var(--font-weight-art-name); line-height: var(--line-height-art-name); }
+.jd-button { font-family: var(--font-body); font-size: 0.9375rem; font-weight: var(--font-weight-button); line-height: var(--line-height-button); }
+.jd-nav { font-family: var(--font-body); font-size: 0.875rem; font-weight: var(--font-weight-nav); line-height: var(--line-height-nav); }
+.jd-brand { font-family: var(--font-body); font-size: 1.25rem; font-weight: var(--font-weight-brand); line-height: var(--line-height-brand); }
+.jd-eyebrow { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-eyebrow); line-height: var(--line-height-eyebrow); }
+.jd-label { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-label); line-height: var(--line-height-label); }
+.jd-more-link { font-family: var(--font-body); font-size: 0.875rem; font-weight: var(--font-weight-more-link); line-height: var(--line-height-more-link); }
+.jd-caption { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-caption); line-height: 1.4; }

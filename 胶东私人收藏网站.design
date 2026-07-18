@@ -1,0 +1,1344 @@
+{
+  "data": [
+    {
+      "id": "page-index",
+      "title": "首页",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783793500000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "transitionLabel": "浏览藏品"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-collection",
+      "title": "藏品展示",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783827150000,
+      "canvasData": {
+        "x": 620,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/collection.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "nav-index",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "back-index",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "link-collection-detail-1",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-2",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-3",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-4",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-5",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-6",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-7",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          },
+          {
+            "domId": "link-collection-detail-8",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看详情"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-collection-detail",
+      "title": "藏品详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783828000000,
+      "canvasData": {
+        "x": 0,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/collection-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "返回藏品列表"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-collection-detail-5",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "同分类推荐"
+          },
+          {
+            "domId": "link-collection-detail-8",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "同分类推荐"
+          },
+          {
+            "domId": "link-collection-detail-2",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "同分类推荐"
+          },
+          {
+            "domId": "link-collection-detail-1",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "同分类推荐"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-stories",
+      "title": "收藏故事",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783828030000,
+      "canvasData": {
+        "x": 620,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/stories.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-article-1",
+            "targetPageId": "page-article",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-article-2",
+            "targetPageId": "page-article",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-article-3",
+            "targetPageId": "page-article",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-article-4",
+            "targetPageId": "page-article",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-article-5",
+            "targetPageId": "page-article",
+            "hideEdge": true
+          },
+          {
+            "domId": "interaction-id-x7ei86s",
+            "targetPageId": "page-article"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-updates",
+      "title": "收藏动态",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783828040000,
+      "canvasData": {
+        "x": 0,
+        "y": 2953,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/updates.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-article-7",
+            "targetPageId": "page-article",
+            "hideEdge": true,
+            "transitionLabel": "阅读全文"
+          },
+          {
+            "domId": "link-article-8",
+            "targetPageId": "page-article",
+            "hideEdge": true,
+            "transitionLabel": "阅读全文"
+          },
+          {
+            "domId": "link-article-9",
+            "targetPageId": "page-article",
+            "hideEdge": true,
+            "transitionLabel": "阅读全文"
+          },
+          {
+            "domId": "link-article-10",
+            "targetPageId": "page-article",
+            "hideEdge": true,
+            "transitionLabel": "阅读全文"
+          },
+          {
+            "domId": "link-update-1",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-update-2",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-update-3",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-update-4",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-update-5",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true
+          },
+          {
+            "domId": "link-article-6",
+            "targetPageId": "page-update-detail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-collectors",
+      "title": "收藏家",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783828010000,
+      "canvasData": {
+        "x": 1240,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/collectors.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-collector-detail-1",
+            "targetPageId": "page-collector-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看收藏家"
+          },
+          {
+            "domId": "link-collector-detail-2",
+            "targetPageId": "page-collector-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看收藏家"
+          },
+          {
+            "domId": "link-collector-detail-3",
+            "targetPageId": "page-collector-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看收藏家"
+          },
+          {
+            "domId": "link-collector-detail-4",
+            "targetPageId": "page-collector-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看收藏家"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-contact",
+      "title": "入驻联系",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783828020000,
+      "canvasData": {
+        "x": 1860,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/contact.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-018",
+      "title": "收藏故事轮播图-青花瓷器",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783828100000,
+      "canvasData": {
+        "x": 0,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-story-1.jpg"
+      }
+    },
+    {
+      "id": "image-019",
+      "title": "收藏故事轮播图-玉器收藏",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783828101000,
+      "canvasData": {
+        "x": 620,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-story-2.jpg"
+      }
+    },
+    {
+      "id": "image-020",
+      "title": "收藏动态轮播图-古玩市场",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783828102000,
+      "canvasData": {
+        "x": 1240,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-updates-1.jpg"
+      }
+    },
+    {
+      "id": "image-021",
+      "title": "收藏动态轮播图-青铜器展览",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783828103000,
+      "canvasData": {
+        "x": 1860,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-updates-2.jpg"
+      }
+    },
+    {
+      "id": "image-002",
+      "title": "青花缠枝莲纹罐藏品图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821000000,
+      "canvasData": {
+        "x": 2480,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-blue-porcelain-jar.jpg"
+      }
+    },
+    {
+      "id": "image-003",
+      "title": "和田白玉透雕龙纹佩藏品图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821001000,
+      "canvasData": {
+        "x": 3100,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-jade-dragon-pendant.jpg"
+      }
+    },
+    {
+      "id": "image-004",
+      "title": "清代铜钱组藏品图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821002000,
+      "canvasData": {
+        "x": 3720,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-qing-coins.jpg"
+      }
+    },
+    {
+      "id": "image-005",
+      "title": "设色山水画轴藏品图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821003000,
+      "canvasData": {
+        "x": 4340,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-landscape-scroll.jpg"
+      }
+    },
+    {
+      "id": "image-006",
+      "title": "首屏藏品展示横幅",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821004000,
+      "canvasData": {
+        "x": 4960,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/hero-collection-display.jpg"
+      }
+    },
+    {
+      "id": "image-007",
+      "title": "收藏故事横幅",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783821005000,
+      "canvasData": {
+        "x": 5580,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-banner-porcelain.jpg"
+      }
+    },
+    {
+      "id": "image-008",
+      "title": "博物馆展厅",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822000000,
+      "canvasData": {
+        "x": 6200,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/news-museum-exhibition.jpg"
+      }
+    },
+    {
+      "id": "image-009",
+      "title": "玉石市场",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822001000,
+      "canvasData": {
+        "x": 6820,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/news-jade-market.jpg"
+      }
+    },
+    {
+      "id": "image-010",
+      "title": "藏家书房",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822002000,
+      "canvasData": {
+        "x": 7440,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/news-collector-interview.jpg"
+      }
+    },
+    {
+      "id": "image-011",
+      "title": "古窑遗址",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822003000,
+      "canvasData": {
+        "x": 8060,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/news-kiln-heritage.jpg"
+      }
+    },
+    {
+      "id": "image-012",
+      "title": "青花瓷修复",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822004000,
+      "canvasData": {
+        "x": 8680,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-porcelain-journey.jpg"
+      }
+    },
+    {
+      "id": "image-013",
+      "title": "铜钱与账册",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822005000,
+      "canvasData": {
+        "x": 9300,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-copper-coin-history.jpg"
+      }
+    },
+    {
+      "id": "image-014",
+      "title": "青花瓷碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822006000,
+      "canvasData": {
+        "x": 9920,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-blue-porcelain-memory.jpg"
+      }
+    },
+    {
+      "id": "image-015",
+      "title": "民俗收藏",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822007000,
+      "canvasData": {
+        "x": 10540,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-folk-collection.jpg"
+      }
+    },
+    {
+      "id": "image-016",
+      "title": "藏家陈列柜",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822008000,
+      "canvasData": {
+        "x": 11160,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-collector-study.jpg"
+      }
+    },
+    {
+      "id": "image-017",
+      "title": "古钱币串",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783822009000,
+      "canvasData": {
+        "x": 11780,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/story-ancient-coin.jpg"
+      }
+    },
+    {
+      "id": "image-022",
+      "title": "banner-collectors-1",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783842000000,
+      "canvasData": {
+        "x": 12400,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-collectors-1.jpg"
+      }
+    },
+    {
+      "id": "image-023",
+      "title": "banner-collectors-2",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783842100000,
+      "canvasData": {
+        "x": 13020,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-collectors-2.jpg"
+      }
+    },
+    {
+      "id": "image-024",
+      "title": "banner-contact-1",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783842200000,
+      "canvasData": {
+        "x": 13640,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-contact-1.jpg"
+      }
+    },
+    {
+      "id": "image-025",
+      "title": "banner-contact-2",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783842300000,
+      "canvasData": {
+        "x": 14260,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/banner-contact-2.jpg"
+      }
+    },
+    {
+      "id": "page-collector-detail",
+      "title": "收藏家详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783843000000,
+      "canvasData": {
+        "x": 2480,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/collector-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家列表"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-collection-detail-1",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看藏品"
+          },
+          {
+            "domId": "link-collection-detail-2",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看藏品"
+          },
+          {
+            "domId": "link-collection-detail-3",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看藏品"
+          },
+          {
+            "domId": "link-collection-detail-4",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看藏品"
+          },
+          {
+            "domId": "link-article-1",
+            "targetPageId": "page-article",
+            "hideEdge": true,
+            "transitionLabel": "阅读全文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-update-detail",
+      "title": "动态详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1783843100000,
+      "canvasData": {
+        "x": 620,
+        "y": 2953,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/update-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-article-7",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true,
+            "transitionLabel": "相关阅读"
+          },
+          {
+            "domId": "link-article-8",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true,
+            "transitionLabel": "相关阅读"
+          },
+          {
+            "domId": "link-article-9",
+            "targetPageId": "page-update-detail",
+            "hideEdge": true,
+            "transitionLabel": "相关阅读"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-story-detail",
+      "title": "故事详情",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1784170000000,
+      "canvasData": {
+        "x": 3100,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/story-detail.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          },
+          {
+            "domId": "nav-info",
+            "targetPageId": "page-info",
+            "hideEdge": true,
+            "transitionLabel": "服务帮助"
+          },
+          {
+            "domId": "link-collection-detail-1",
+            "targetPageId": "page-collection-detail",
+            "hideEdge": true,
+            "transitionLabel": "查看相关藏品"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-026",
+      "title": "藏家书房环境",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783843200000,
+      "canvasData": {
+        "x": 14880,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collector-wang-studio.jpg"
+      }
+    },
+    {
+      "id": "image-030",
+      "title": "翠青釉梅瓶",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783870643223,
+      "canvasData": {
+        "x": 15500,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-green-glaze-vase.jpg"
+      }
+    },
+    {
+      "id": "image-031",
+      "title": "青花花卉盘",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783870643223,
+      "canvasData": {
+        "x": 16120,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-blue-white-plate.jpg"
+      }
+    },
+    {
+      "id": "image-032",
+      "title": "五彩人物纹罐",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783870643223,
+      "canvasData": {
+        "x": 16740,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-five-color-jar.jpg"
+      }
+    },
+    {
+      "id": "image-033",
+      "title": "龙泉窑青釉碗",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1783870643223,
+      "canvasData": {
+        "x": 17360,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/collection-celadon-bowl.jpg"
+      }
+    },
+    {
+      "id": "page-info",
+      "title": "服务帮助",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1784130900000,
+      "canvasData": {
+        "x": 3720,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/info.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回首页"
+          },
+          {
+            "domId": "nav-collection",
+            "targetPageId": "page-collection",
+            "hideEdge": true,
+            "transitionLabel": "藏品展示"
+          },
+          {
+            "domId": "nav-collector",
+            "targetPageId": "page-collectors",
+            "hideEdge": true,
+            "transitionLabel": "收藏家"
+          },
+          {
+            "domId": "nav-story",
+            "targetPageId": "page-stories",
+            "hideEdge": true,
+            "transitionLabel": "收藏故事"
+          },
+          {
+            "domId": "nav-updates",
+            "targetPageId": "page-updates",
+            "hideEdge": true,
+            "transitionLabel": "收藏动态"
+          },
+          {
+            "domId": "nav-contact",
+            "targetPageId": "page-contact",
+            "hideEdge": true,
+            "transitionLabel": "入驻联系"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-logo",
+      "title": "项目Logo",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1784270000000,
+      "canvasData": {
+        "x": 17980,
+        "y": 14442
+      },
+      "devMetadata": {
+        "imageSrc": "assets/logo.png"
+      }
+    },
+    {
+      "id": "page-admin-login",
+      "title": "管理后台登录",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1784268000000,
+      "canvasData": {
+        "x": 4340,
+        "y": 7733,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/admin-login.html",
+        "interactions": []
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "胶东私人收藏网站",
+    "designLibrary": {
+      "name": "胶东收藏",
+      "id": "VC3AI487-C81IC",
+      "version": 17,
+      "scope": "workspace",
+      "path": ".design_library/胶东收藏",
+      "versionSource": "metadata.json"
+    },
+    "windowSize": {
+      "width": 800,
+      "height": 600
+    },
+    "visualEditorEnabled": true
+  }
+}

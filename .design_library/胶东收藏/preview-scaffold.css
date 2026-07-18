@@ -1,0 +1,103 @@
+/* ==========================================================
+   胶东收藏 Design Library — Preview Scaffold
+   Shared layout for individual component preview pages.
+   ========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+.pv-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.pv-header {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--border-200);
+  margin-bottom: 48px;
+}
+.pv-header h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-h2);
+  line-height: var(--line-height-h2);
+  color: var(--text-primary-700);
+  margin-bottom: 8px;
+}
+.pv-header p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--text-primary-400);
+  max-width: 720px;
+}
+
+.pv-section {
+  margin-bottom: 56px;
+}
+.pv-section:last-child {
+  margin-bottom: 0;
+}
+.pv-section__title {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--text-primary-400);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.pv-demo {
+  background: var(--surface-50);
+  border: 1px solid var(--border-200);
+  border-radius: var(--radius-md);
+  padding: 40px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.row + .row {
+  margin-top: 24px;
+}
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pv-label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-label);
+  color: var(--text-primary-400);
+  margin-bottom: 12px;
+}
+
+/* Full-width demo area (no padding) */
+.pv-demo--full {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Form demo constrained width */
+.pv-demo .form-demo {
+  max-width: 520px;
+}
+
+/* Footer credit */
+.pv-footer {
+  padding: 40px 0 0;
+  text-align: center;
+}
+.pv-footer p {
+  font-size: var(--font-size-caption);
+  color: var(--text-primary-300);
+}

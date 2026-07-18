@@ -79,6 +79,10 @@
   .resp-breadcrumb { font-size: 12px !important; }
   .resp-card-gap { gap: 12px !important; }
 }
+@media (max-width: 767px) {
+  .story-card-img { width: 120px !important; min-width: 120px !important; }
+  .story-card { flex-direction: column !important; }
+}
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
@@ -190,7 +194,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 1 -->
             <a href="update-detail.html" data-dom-id="link-article-1" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-porcelain-journey.jpg" loading="lazy" alt="青花瓷器收藏之旅 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-porcelain-journey.jpg" loading="lazy" alt="青花瓷器收藏之旅 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;" data-dom-id="interaction-id-x7ei86s">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -208,7 +212,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 2 -->
             <a href="update-detail.html" data-dom-id="link-article-2" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-copper-coin-history.jpg" loading="lazy" alt="铜钱历史故事 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-copper-coin-history.jpg" loading="lazy" alt="铜钱历史故事 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -226,7 +230,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 3 -->
             <a href="update-detail.html" data-dom-id="link-article-3" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-blue-porcelain-memory.jpg" loading="lazy" alt="青花瓷记忆 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-blue-porcelain-memory.jpg" loading="lazy" alt="青花瓷记忆 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -244,7 +248,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 4 -->
             <a href="update-detail.html" data-dom-id="link-article-4" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-folk-collection.jpg" loading="lazy" alt="民间收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-folk-collection.jpg" loading="lazy" alt="民间收藏 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -262,7 +266,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 6 -->
             <a href="update-detail.html" data-dom-id="link-article-6" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-jade-collection.jpg" loading="lazy" alt="玉石收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-jade-collection.jpg" loading="lazy" alt="玉石收藏 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -280,7 +284,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 11 -->
             <a href="update-detail.html" data-dom-id="link-article-11" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-museum-visit.jpg" loading="lazy" alt="参观博物馆 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-museum-visit.jpg" loading="lazy" alt="参观博物馆 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -298,7 +302,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 13 -->
             <a href="update-detail.html" data-dom-id="link-article-13" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-tea-culture.jpg" loading="lazy" alt="茶文化收藏 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-tea-culture.jpg" loading="lazy" alt="茶文化收藏 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -316,7 +320,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- Article 15 -->
             <a href="update-detail.html" data-dom-id="link-article-15" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-silk-painting.jpg" loading="lazy" alt="丝绸绘画 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-silk-painting.jpg" loading="lazy" alt="丝绸绘画 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -334,7 +338,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 20 -->
             <a href="update-detail.html" data-dom-id="link-article-20" data-card-category="藏品故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-folk-art.jpg" loading="lazy" alt="民间艺术 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-folk-art.jpg" loading="lazy" alt="民间艺术 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -352,7 +356,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 25 -->
             <a href="update-detail.html" data-dom-id="link-article-25" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-scroll-painting.jpg" loading="lazy" alt="卷轴书画 配图" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-scroll-painting.jpg" loading="lazy" alt="卷轴书画 配图" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -370,7 +374,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 
             <!-- 文章 26 -->
             <a href="update-detail.html" data-dom-id="link-article-26" data-card-category="藏家故事" class="flex gap-5 story-card" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;display:flex;">
-                <img src="assets/story-folk-textile.jpg" loading="lazy" alt="" class="flex-shrink-0" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
+                <img src="assets/story-folk-textile.jpg" loading="lazy" alt="" class="flex-shrink-0 story-card-img" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);">
                 <div class="flex flex-col justify-between flex-1 min-w-0" style="width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-2">
@@ -413,6 +417,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                         <a href="collection.html?category=%E9%92%B1%E5%B8%81" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">钱币</a>
                         <a href="collection.html?category=%E9%93%9C%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">铜器</a>
                         <a href="collection.html?category=%E6%9D%82%E9%A1%B9" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">杂项</a>
+                        <a href="collection.html?category=%E6%9C%A8%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">木器</a>
                         <a href="collection.html?category=%E6%96%87%E6%88%BF" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">文房</a>
                         <a href="collection.html?category=%E7%BB%87%E7%BB%A3" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">织绣</a>
                     </div>

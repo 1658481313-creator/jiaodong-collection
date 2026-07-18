@@ -78,6 +78,10 @@
   .resp-breadcrumb { font-size: 12px !important; }
   .resp-card-gap { gap: 12px !important; }
 }
+@media (max-width: 767px) {
+  .news-card-img { width: 120px !important; min-width: 120px !important; }
+  .news-card { flex-direction: column !important; }
+}
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
@@ -192,8 +196,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         <section class="mx-auto px-6" style="max-width:var(--size-content-width);margin-top:24px;">
 
             <!-- Article 1 -->
-            <a href="update-detail.html" data-dom-id="link-update-1" data-card-category="展览信息" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-museum-exhibition.jpg" loading="lazy" alt="胶东博物馆新展" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-1" data-card-category="展览信息" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-museum-exhibition.jpg" loading="lazy" alt="胶东博物馆新展" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -210,8 +214,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 2 -->
-            <a href="update-detail.html" data-dom-id="link-update-2" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-jade-market.jpg" loading="lazy" alt="烟台玉石市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-2" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-jade-market.jpg" loading="lazy" alt="烟台玉石市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -228,8 +232,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 3 -->
-            <a href="update-detail.html" data-dom-id="link-update-3" data-card-category="平台采访" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-collector-interview.jpg" loading="lazy" alt="走近胶东收藏家" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-3" data-card-category="平台采访" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-collector-interview.jpg" loading="lazy" alt="走近胶东收藏家" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -246,8 +250,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 4 -->
-            <a href="update-detail.html" data-dom-id="link-update-4" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-kiln-heritage.jpg" loading="lazy" alt="古窑遗址保护" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-4" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-kiln-heritage.jpg" loading="lazy" alt="古窑遗址保护" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -264,8 +268,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 5 -->
-            <a href="update-detail.html" data-dom-id="link-update-5" data-card-category="展览信息" class="update-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
-                <img src="assets/story-ancient-coin.jpg" loading="lazy" alt="济南古玩交流会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-5" data-card-category="展览信息" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
+                <img src="assets/story-ancient-coin.jpg" loading="lazy" alt="济南古玩交流会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -282,8 +286,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 6 -->
-            <a href="update-detail.html" data-dom-id="link-update-6" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-auction-record.jpg" loading="lazy" alt="北京秋拍" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-6" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-auction-record.jpg" loading="lazy" alt="北京秋拍" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -300,8 +304,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 7 -->
-            <a href="update-detail.html" data-dom-id="link-update-7" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-digital-museum.jpg" loading="lazy" alt="数字博物馆" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-7" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-digital-museum.jpg" loading="lazy" alt="数字博物馆" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -318,8 +322,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 8 -->
-            <a href="update-detail.html" data-dom-id="link-update-8" data-card-category="展览信息" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-porcelain-exhibition.jpg" loading="lazy" alt="御窑遗址瓷器" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-8" data-card-category="展览信息" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-porcelain-exhibition.jpg" loading="lazy" alt="御窑遗址瓷器" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -336,8 +340,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 9 -->
-            <a href="update-detail.html" data-dom-id="link-update-9" data-card-category="平台采访" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-collector-forum.jpg" loading="lazy" alt="收藏家交流会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-9" data-card-category="平台采访" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-collector-forum.jpg" loading="lazy" alt="收藏家交流会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -354,8 +358,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 10 -->
-            <a href="update-detail.html" data-dom-id="link-update-10" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-cultural-heritage.jpg" loading="lazy" alt="非遗保护" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-10" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-cultural-heritage.jpg" loading="lazy" alt="非遗保护" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -372,8 +376,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 11 -->
-            <a href="update-detail.html" data-dom-id="link-update-11" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-market-report.jpg" loading="lazy" alt="市场年度报告" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-11" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-market-report.jpg" loading="lazy" alt="市场年度报告" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -390,8 +394,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 12 -->
-            <a href="update-detail.html" data-dom-id="link-update-12" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding: 20px 0; border-bottom: 1px solid var(--border-200); text-decoration: none; color: inherit;">
-                <img src="assets/news-calligraphy-auction.jpg" loading="lazy" alt="书法拍卖" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-12" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding: 20px 0; border-bottom: 1px solid var(--border-200); text-decoration: none; color: inherit;">
+                <img src="assets/news-calligraphy-auction.jpg" loading="lazy" alt="书法拍卖" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -408,8 +412,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 13 -->
-            <a href="update-detail.html" data-dom-id="link-update-13" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-jade-exhibition.jpg" loading="lazy" alt="和田玉市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-13" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-jade-exhibition.jpg" loading="lazy" alt="和田玉市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -426,8 +430,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 14 -->
-            <a href="update-detail.html" data-dom-id="link-update-14" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-online-platform.jpg" loading="lazy" alt="线上收藏平台" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-14" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-online-platform.jpg" loading="lazy" alt="线上收藏平台" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -444,8 +448,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 15 -->
-            <a href="update-detail.html" data-dom-id="link-update-15" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-restoration-workshop.jpg" loading="lazy" alt="古书画修复" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-15" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-restoration-workshop.jpg" loading="lazy" alt="古书画修复" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -462,8 +466,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 16 -->
-            <a href="update-detail.html" data-dom-id="link-update-16" data-card-category="平台采访" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-treasure-hunt.jpg" loading="lazy" alt="乡村淘宝" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-16" data-card-category="平台采访" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-treasure-hunt.jpg" loading="lazy" alt="乡村淘宝" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -480,8 +484,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 17 -->
-            <a href="update-detail.html" data-dom-id="link-update-17" data-card-category="展览信息" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-museum-collaboration.jpg" loading="lazy" alt="博物馆合作" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-17" data-card-category="展览信息" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-museum-collaboration.jpg" loading="lazy" alt="博物馆合作" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -498,8 +502,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 18 -->
-            <a href="update-detail.html" data-dom-id="link-update-18" data-card-category="平台采访" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-young-collectors.jpg" loading="lazy" alt="年轻收藏家" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-18" data-card-category="平台采访" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-young-collectors.jpg" loading="lazy" alt="年轻收藏家" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -516,8 +520,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 19 -->
-            <a href="update-detail.html" data-dom-id="link-update-19" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-export-regulation.jpg" loading="lazy" alt="文物出境管理" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-19" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-export-regulation.jpg" loading="lazy" alt="文物出境管理" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -534,8 +538,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 20 -->
-            <a href="update-detail.html" data-dom-id="link-update-20" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
-                <img src="assets/news-autumn-auction.jpg" loading="lazy" alt="秋季拍卖预告" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-20" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
+                <img src="assets/news-autumn-auction.jpg" loading="lazy" alt="秋季拍卖预告" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -552,8 +556,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 21 -->
-            <a href="update-detail.html" data-dom-id="link-update-21" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-winter-auction.jpg" loading="lazy" alt="冬拍前瞻" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-21" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-winter-auction.jpg" loading="lazy" alt="冬拍前瞻" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -570,8 +574,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 22 -->
-            <a href="update-detail.html" data-dom-id="link-update-22" data-card-category="市场动态" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-porcelain-market.jpg" loading="lazy" alt="瓷器市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-22" data-card-category="市场动态" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-porcelain-market.jpg" loading="lazy" alt="瓷器市场" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -588,8 +592,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 23 -->
-            <a href="update-detail.html" data-dom-id="link-update-23" data-card-category="行业资讯" class="update-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
-                <img src="assets/news-jade-authentication.jpg" loading="lazy" alt="玉器鉴定" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-23" data-card-category="行业资讯" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;border-bottom:1px solid var(--border-200);text-decoration:none;color:inherit;">
+                <img src="assets/news-jade-authentication.jpg" loading="lazy" alt="玉器鉴定" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -606,8 +610,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </a>
 
             <!-- Article 24 -->
-            <a href="update-detail.html" data-dom-id="link-update-24" data-card-category="平台采访" class="update-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
-                <img src="assets/news-collector-club.jpg" loading="lazy" alt="收藏家协会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+            <a href="update-detail.html" data-dom-id="link-update-24" data-card-category="平台采访" class="update-card news-card flex gap-5 items-start" style="padding:20px 0;text-decoration:none;color:inherit;">
+                <img src="assets/news-collector-club.jpg" loading="lazy" alt="收藏家协会" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" class="news-card-img" style="width:220px;height:148px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
                 <div class="flex flex-col justify-between min-w-0" style="gap:6px;width:100%;">
                     <div style="flex:1;">
                         <div class="flex items-center gap-2 mb-1">
@@ -650,6 +654,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                         <a href="collection.html?category=%E9%92%B1%E5%B8%81" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">钱币</a>
                         <a href="collection.html?category=%E9%93%9C%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">铜器</a>
                         <a href="collection.html?category=%E6%9D%82%E9%A1%B9" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">杂项</a>
+                        <a href="collection.html?category=%E6%9C%A8%E5%99%A8" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">木器</a>
                         <a href="collection.html?category=%E6%96%87%E6%88%BF" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">文房</a>
                         <a href="collection.html?category=%E7%BB%87%E7%BB%A3" data-dom-id="nav-collection" style="font-size:var(--font-size-eyebrow);color:var(--text-primary-400);font-family:var(--font-body);text-decoration:none;">织绣</a>
                     </div>
@@ -688,7 +693,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 <script>
     var updateCurrentPage = 1;
     var updateCurrentCategory = '全部';
-    var UPDATE_PER_PAGE = 12;
+    var UPDATE_PER_PAGE = 8;
 
     function getFilteredCards() {
         var cards = document.querySelectorAll('.update-card');
@@ -723,7 +728,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         buttons.forEach(function(b, i) {
             if (i + 1 === updateCurrentPage) {
                 b.style.background = 'var(--navy-500)';
-                b.style.color = 'white';
+                b.style.color = 'var(--surface-50)';
                 b.style.border = 'none';
             } else {
                 b.style.background = 'var(--surface-50)';

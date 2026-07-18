@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>收藏动态 — 布局演示版</title>
+    <title>收藏动态 — 方案A演示版</title>
     <link rel="stylesheet" href="theme.css">
     <style>
         body { max-width: 1180px; margin: 0 auto; padding: 40px 24px; font-family: var(--font-body); background: var(--surface-50); color: var(--text-primary-700); }
 
-        /* === 演示说明条 === */
         .demo-banner {
             background: var(--navy-50);
             border: 1px solid var(--navy-200);
@@ -21,7 +20,6 @@
         }
         .demo-banner strong { color: var(--navy-500); }
 
-        /* === Section Header === */
         .section-header {
             display: flex;
             align-items: baseline;
@@ -48,11 +46,10 @@
             margin-bottom: 28px;
         }
 
-        /* === 分类筛选栏（保持不变） === */
         .filter-bar {
             display: flex;
             gap: 10px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
             overflow-x: auto;
         }
         .filter-bar button {
@@ -76,280 +73,226 @@
         }
 
         /* ==============================================
-           新布局：时间线递进（大→中→紧凑）
+           轮播主体：左图右文（方案A：右侧顶部对齐+内容充实）
            ============================================== */
-
-        /* --- 第一层：最新一条 — 全宽大图卡片 --- */
-        .news-hero {
+        .news-carousel-wrap {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 5fr 7fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        /* --- 左侧：图片轮播（不变） --- */
+        .news-carousel {
+            position: relative;
             border: 1px solid var(--border-200);
             border-radius: var(--radius-md);
             overflow: hidden;
             background: var(--surface-50);
-            transition: border-color var(--duration-normal) var(--easing-default),
-                        box-shadow var(--duration-normal) var(--easing-default);
-            text-decoration: none;
-            color: inherit;
         }
-        .news-hero:hover {
-            border-color: rgba(35, 69, 136, 0.30);
-            box-shadow: var(--shadow-1);
-        }
-        .news-hero__image {
+        .news-carousel__slides {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
             overflow: hidden;
-            min-height: 320px;
         }
-        .news-hero__image img {
+        .news-carousel__slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.6s var(--easing-default);
+        }
+        .news-carousel__slide.active { opacity: 1; z-index: 1; }
+        .news-carousel__slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s var(--easing-default);
         }
-        .news-hero:hover .news-hero__image img { transform: scale(1.03); }
-        .news-hero__body {
-            padding: 32px 36px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .news-carousel__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 50px 20px 40px;
+            background: linear-gradient(to top, rgba(10,16,25,0.65), transparent);
+            z-index: 2;
         }
-        .news-hero__meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-        .news-tag {
+        .news-carousel__overlay-tag {
             display: inline-flex;
             align-items: center;
-            height: 24px;
+            height: 22px;
             padding: 0 8px;
-            background: var(--surface-200);
-            color: var(--navy-500);
-            font-size: 12px;
+            background: rgba(255,255,255,0.18);
+            color: #fff;
+            font-size: 11px;
             font-weight: 600;
-            border-radius: var(--radius-sm);
+            border-radius: 4px;
+            margin-bottom: 6px;
         }
-        .news-date {
-            font-size: 13px;
-            color: var(--text-primary-300);
-        }
-        .news-hero__title {
-            font-family: var(--font-heading);
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-primary-700);
-            line-height: 1.4;
-            margin: 0 0 14px;
-        }
-        .news-hero__desc {
+        .news-carousel__overlay-title {
             font-size: 15px;
-            color: var(--text-primary-400);
-            line-height: 1.75;
-            margin: 0;
-        }
-
-        /* --- 第二层：次新两条 — 并排竖图卡片 --- */
-        .news-pair {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-            margin-top: 18px;
-        }
-        .news-pair-card {
-            border: 1px solid var(--border-200);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--surface-50);
-            text-decoration: none;
-            color: inherit;
-            transition: border-color var(--duration-normal) var(--easing-default),
-                        box-shadow var(--duration-normal) var(--easing-default);
-        }
-        .news-pair-card:hover {
-            border-color: rgba(35, 69, 136, 0.30);
-            box-shadow: var(--shadow-1);
-        }
-        .news-pair-card__image {
-            overflow: hidden;
-            aspect-ratio: 4/3;
-        }
-        .news-pair-card__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s var(--easing-default);
-        }
-        .news-pair-card:hover .news-pair-card__image img { transform: scale(1.05); }
-        .news-pair-card__body {
-            padding: 16px 20px 20px;
-        }
-        .news-pair-card__title {
-            font-size: 16px;
             font-weight: 700;
-            color: var(--text-primary-700);
-            line-height: 1.45;
-            margin: 0 0 8px;
+            color: #fff;
+            line-height: 1.4;
+            margin: 0;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        .news-pair-card__meta {
+        .news-carousel__indicators {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
-        /* --- 第三层：更早条目 — 紧凑横排列表（无图） --- */
-        .news-compact {
-            margin-top: 18px;
-            border: 1px solid var(--border-200);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--surface-50);
+        .news-carousel__dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s, transform 0.2s;
         }
-        .news-compact-item {
+        .news-carousel__dot.active {
+            background: #ffffff;
+            transform: scale(1.25);
+        }
+        .news-carousel__dot:hover { background: rgba(255,255,255,0.7); }
+        .news-carousel__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.85);
+            color: var(--text-primary-700);
+            font-size: 18px;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 16px;
-            padding: 14px 24px;
-            border-bottom: 1px solid var(--border-100);
-            text-decoration: none;
-            color: inherit;
-            transition: background var(--duration-fast) var(--easing-default);
+            justify-content: center;
+            box-shadow: var(--shadow-1);
+            transition: background 0.15s;
         }
-        .news-compact-item:last-child { border-bottom: none; }
-        .news-compact-item:hover { background: var(--surface-200); }
-        .news-compact-item__date {
-            font-size: 13px;
-            color: var(--text-primary-300);
-            white-space: nowrap;
-            min-width: 78px;
-            font-variant-numeric: tabular-nums;
-        }
-        .news-compact-item__title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary-700);
-            flex: 1;
-            min-width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .news-compact-item__tag {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--navy-500);
-            background: var(--surface-200);
-            padding: 3px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
+        .news-carousel__arrow:hover { background: #fff; }
+        .news-carousel__arrow--prev { left: 10px; }
+        .news-carousel__arrow--next { right: 10px; }
 
-        /* === 对比区域：收藏故事（保持原样） === */
-        .comparison-label {
-            display: inline-block;
-            background: var(--navy-500);
-            color: var(--surface-50);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 12px;
-            border-radius: var(--radius-sm);
-            margin-bottom: 24px;
-            margin-top: 56px;
-        }
-        .stories-grid {
-            display: grid;
-            gap: 24px;
-            grid-template-columns: 5fr 7fr;
-            align-items: stretch;
-        }
-        .story-featured {
+        /* --- 右侧：方案A — 顶部对齐 + 大标题 + 充实摘要 + 实心按钮 --- */
+        .news-detail-a {
             border: 1px solid var(--border-200);
             border-radius: var(--radius-md);
-            overflow: hidden;
             background: var(--surface-50);
-        }
-        .story-featured img { width: 100%; height: 380px; object-fit: cover; display: block; }
-        .story-featured__body { padding: 20px; }
-        .story-featured__title {
-            font-size: 18px; font-weight: 700; color: var(--text-primary-700); line-height: 1.45; margin: 0 0 10px;
-        }
-        .story-featured__desc {
-            font-size: 14px; color: var(--text-primary-400); line-height: 1.75; margin: 0;
-        }
-        .story-list {
+            padding: 0;
             display: flex;
             flex-direction: column;
-            border: 1px solid var(--border-200);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--surface-50);
+            /* 顶部对齐，不居中 */
         }
-        .story-list-item {
-            display: flex;
-            gap: 16px;
-            padding: 16px;
-            border-bottom: 1px solid var(--border-200);
-            text-decoration: none;
-            color: inherit;
+        /* 顶部装饰条（海军蓝细线） */
+        .news-detail-a__accent {
+            height: 4px;
+            background: var(--navy-500);
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            flex-shrink: 0;
+        }
+        .news-detail-a__body {
+            padding: 32px 36px;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
-        .story-list-item:last-child { border-bottom: none; }
-        .story-list-item__thumb {
-            width: 120px; flex-shrink: 0; overflow: hidden; border-radius: var(--radius-sm);
+        .news-detail-a__meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
         }
-        .story-list-item__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .story-list-item__title {
-            font-size: 15px; font-weight: 700; color: var(--text-primary-700); margin: 0 0 6px;
-            display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden;
+        .news-tag {
+            display: inline-flex;
+            align-items: center;
+            height: 26px;
+            padding: 0 10px;
+            background: var(--navy-50);
+            color: var(--navy-500);
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
         }
-        .story-list-item__desc {
-            font-size: 13px; color: var(--text-primary-400); line-height: 1.6; margin: 0;
-            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        .news-date {
+            font-size: 14px;
+            color: var(--text-primary-300);
         }
+        .news-detail-a__title {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-primary-700);
+            line-height: 1.35;
+            margin: 0 0 20px;
+            transition: opacity 0.25s;
+        }
+        .news-detail-a__desc {
+            font-size: 15px;
+            color: var(--text-primary-500);
+            line-height: 1.9;
+            margin: 0 0 28px;
+            flex: 1;
+            transition: opacity 0.25s;
+        }
+        /* 底部右对齐文字链接 */
+        .news-detail-a__footer {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 4px;
+            margin-top: auto;
+        }
+        .news-detail-a__link {
+            font-size: var(--font-size-more-link);
+            font-weight: var(--font-weight-more-link);
+            color: var(--navy-500);
+            text-decoration: none;
+            font-family: var(--font-body);
+            transition: color 0.15s;
+        }
+        .news-detail-a__link:hover { color: var(--color-primary-hover); }
 
         /* === 响应式 === */
         @media (max-width: 767px) {
-            .news-hero { grid-template-columns: 1fr; }
-            .news-hero__image { min-height: 200px; }
-            .news-hero__body { padding: 20px; }
-            .news-hero__title { font-size: 20px; }
-            .news-pair { grid-template-columns: 1fr; }
-            .news-compact-item { flex-wrap: wrap; gap: 8px; }
-            .news-compact-item__date { min-width: auto; }
-            .stories-grid { grid-template-columns: 1fr; }
+            .news-carousel-wrap { grid-template-columns: 1fr; }
+            .news-carousel__slides { aspect-ratio: 16/9; }
+            .news-detail-a__body { padding: 20px 24px; }
+            .news-detail-a__title { font-size: 22px; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .news-hero, .news-pair-card, .news-compact-item { transition: none; }
-            .news-hero__image img, .news-pair-card__image img { transition: none; }
+            .news-carousel__slide { transition: none; }
+            .news-detail-a__title, .news-detail-a__desc { transition: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 演示说明 -->
     <div class="demo-banner">
-        <strong>收藏动态 — 新布局演示版</strong><br>
-        布局结构：最新1条全宽大图 → 次新2条并排竖图 → 更早条目紧凑无图列表。<br>
-        与下方「收藏故事（保持原样）」对比，两个区块视觉节奏完全不同。
+        <strong>收藏动态 — 方案A演示版</strong><br>
+        优化点：右侧顶部对齐（不再垂直居中）+ 标题 26px + 摘要更充实（3-4句）+ 实心按钮 + 顶部海军蓝装饰条
     </div>
 
-    <!-- ============================== -->
-    <!-- 收藏动态（新布局） -->
-    <!-- ============================== -->
     <div class="section-header">
         <h2>收藏动态</h2>
         <a href="#" class="more-link">更多 &rarr;</a>
     </div>
     <p class="section-subtitle">平台采访与收藏界资讯</p>
 
-    <!-- 分类筛选栏 -->
     <div class="filter-bar">
         <button class="active">全部</button>
         <button>平台采访</button>
@@ -358,170 +301,147 @@
         <button>市场动态</button>
     </div>
 
-    <!-- 第一层：最新一条 — 全宽大图卡片 -->
-    <a href="update-detail.html" class="news-hero">
-        <div class="news-hero__image">
-            <img src="assets/news-museum-exhibition.jpg" alt="胶东博物馆新展" loading="lazy">
+    <div class="news-carousel-wrap">
+        <!-- 左侧：图片轮播 -->
+        <div class="news-carousel" id="newsCarousel">
+            <div class="news-carousel__slides" id="carouselSlides">
+                <div class="news-carousel__slide active" data-index="0">
+                    <img src="assets/news-museum-exhibition.jpg" alt="胶东博物馆新展">
+                    <div class="news-carousel__overlay">
+                        <span class="news-carousel__overlay-tag">展览信息</span>
+                        <p class="news-carousel__overlay-title">胶东博物馆新展：海上丝路与民间收藏</p>
+                    </div>
+                </div>
+                <div class="news-carousel__slide" data-index="1">
+                    <img src="assets/news-auction-record.jpg" alt="北京秋拍">
+                    <div class="news-carousel__overlay">
+                        <span class="news-carousel__overlay-tag">拍卖资讯</span>
+                        <p class="news-carousel__overlay-title">北京秋拍：胶东藏家藏品创高价</p>
+                    </div>
+                </div>
+                <div class="news-carousel__slide" data-index="2">
+                    <img src="assets/news-jade-market.jpg" alt="烟台玉石市场">
+                    <div class="news-carousel__overlay">
+                        <span class="news-carousel__overlay-tag">市场动态</span>
+                        <p class="news-carousel__overlay-title">烟台玉石市场春季行情分析</p>
+                    </div>
+                </div>
+                <div class="news-carousel__slide" data-index="3">
+                    <img src="assets/news-collector-interview.jpg" alt="赵先生票证">
+                    <div class="news-carousel__overlay">
+                        <span class="news-carousel__overlay-tag">平台采访</span>
+                        <p class="news-carousel__overlay-title">走近胶东收藏家：赵先生的票证世界</p>
+                    </div>
+                </div>
+                <div class="news-carousel__slide" data-index="4">
+                    <img src="assets/news-kiln-heritage.jpg" alt="古窑遗址保护">
+                    <div class="news-carousel__overlay">
+                        <span class="news-carousel__overlay-tag">行业资讯</span>
+                        <p class="news-carousel__overlay-title">古窑遗址保护与民间收藏的共生</p>
+                    </div>
+                </div>
+            </div>
+            <button class="news-carousel__arrow news-carousel__arrow--prev" id="carouselPrev" aria-label="上一条">&#8249;</button>
+            <button class="news-carousel__arrow news-carousel__arrow--next" id="carouselNext" aria-label="下一条">&#8250;</button>
+            <div class="news-carousel__indicators" id="carouselDots"></div>
         </div>
-        <div class="news-hero__body">
-            <div class="news-hero__meta">
-                <span class="news-tag">展览信息</span>
-                <span class="news-date">2024-11-10</span>
-            </div>
-            <h3 class="news-hero__title">胶东博物馆新展：海上丝路与民间收藏</h3>
-            <p class="news-hero__desc">本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。</p>
-        </div>
-    </a>
 
-    <!-- 第二层：次新两条 — 并排竖图卡片 -->
-    <div class="news-pair">
-        <a href="update-detail.html" class="news-pair-card">
-            <div class="news-pair-card__image">
-                <img src="assets/news-auction-record.jpg" alt="北京秋拍" loading="lazy">
-            </div>
-            <div class="news-pair-card__body">
-                <div class="news-pair-card__meta">
-                    <span class="news-tag">拍卖资讯</span>
-                    <span class="news-date">2024-09-28</span>
+        <!-- 右侧：方案A文字详情 -->
+        <div class="news-detail-a" id="newsDetail">
+            <div class="news-detail-a__accent"></div>
+            <div class="news-detail-a__body">
+                <div class="news-detail-a__meta">
+                    <span class="news-tag" id="detailTag">展览信息</span>
+                    <span class="news-date" id="detailDate">2024-11-10</span>
                 </div>
-                <h4 class="news-pair-card__title">北京秋拍：胶东藏家藏品创高价</h4>
-            </div>
-        </a>
-        <a href="update-detail.html" class="news-pair-card">
-            <div class="news-pair-card__image">
-                <img src="assets/news-jade-market.jpg" alt="烟台玉石市场" loading="lazy">
-            </div>
-            <div class="news-pair-card__body">
-                <div class="news-pair-card__meta">
-                    <span class="news-tag">市场动态</span>
-                    <span class="news-date">2024-10-22</span>
+                <h3 class="news-detail-a__title" id="detailTitle">胶东博物馆新展：海上丝路与民间收藏</h3>
+                <p class="news-detail-a__desc" id="detailDesc">本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出，为观众了解海上丝绸之路文化提供了难得的窗口。展期将持续至2025年3月。</p>
+                <div class="news-detail-a__footer">
+                    <a href="update-detail.html" class="news-detail-a__link">阅读全文 &rarr;</a>
                 </div>
-                <h4 class="news-pair-card__title">烟台玉石市场春季行情分析</h4>
-            </div>
-        </a>
-    </div>
-
-    <!-- 第三层：更早条目 — 紧凑无图列表 -->
-    <div class="news-compact">
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-09-08</span>
-            <span class="news-compact-item__title">走近胶东收藏家：赵先生的票证世界</span>
-            <span class="news-compact-item__tag">平台采访</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-08-15</span>
-            <span class="news-compact-item__title">古窑遗址保护与民间收藏的共生</span>
-            <span class="news-compact-item__tag">行业资讯</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-07-28</span>
-            <span class="news-compact-item__title">济南古玩交流会：胶东收藏家的参展纪实</span>
-            <span class="news-compact-item__tag">展览信息</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-02-15</span>
-            <span class="news-compact-item__title">景德镇御窑遗址出土瓷器首次展出</span>
-            <span class="news-compact-item__tag">展览信息</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-02-10</span>
-            <span class="news-compact-item__title">第三届胶东收藏家交流会在烟台举办</span>
-            <span class="news-compact-item__tag">平台采访</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-02-05</span>
-            <span class="news-compact-item__title">非遗保护与收藏：传统工艺的新机遇</span>
-            <span class="news-compact-item__tag">行业资讯</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-01-28</span>
-            <span class="news-compact-item__title">2024年古玩市场年度报告发布</span>
-            <span class="news-compact-item__tag">市场动态</span>
-        </a>
-        <a href="update-detail.html" class="news-compact-item">
-            <span class="news-compact-item__date">2024-01-20</span>
-            <span class="news-compact-item__title">民国书法作品拍卖行情分析</span>
-            <span class="news-compact-item__tag">市场动态</span>
-        </a>
-    </div>
-
-    <!-- ============================== -->
-    <!-- 收藏故事（保持原样，作为对比） -->
-    <!-- ============================== -->
-    <div class="comparison-label">对比区域：收藏故事（保持原样）</div>
-    <div class="section-header">
-        <h2>收藏故事</h2>
-        <a href="#" class="more-link">更多 &rarr;</a>
-    </div>
-    <p class="section-subtitle">藏品背后的故事与收藏家的心路历程</p>
-
-    <div class="stories-grid">
-        <div class="story-featured">
-            <img src="assets/story-blue-porcelain.jpg" alt="青花缠枝莲纹罐" loading="lazy">
-            <div class="story-featured__body">
-                <div class="news-hero__meta">
-                    <span class="news-tag">藏品故事</span>
-                    <span class="news-date">2024-11-15</span>
-                </div>
-                <h3 class="story-featured__title">从窑火到案头：一件青花罐的百年旅程</h3>
-                <p class="story-featured__desc">这件明代青花缠枝莲纹罐，历经百年辗转，从景德镇窑火中诞生，最终落户胶东民间收藏家之手。</p>
             </div>
         </div>
-        <div class="story-list">
-            <a href="#" class="story-list-item">
-                <div class="story-list-item__thumb">
-                    <img src="assets/story-ancient-coin.jpg" alt="清代铜钱" loading="lazy">
-                </div>
-                <div style="min-width:0; display:flex; flex-direction:column; justify-content:center;">
-                    <div class="news-pair-card__meta" style="margin-bottom:4px;">
-                        <span class="news-tag" style="height:22px;font-size:11px;padding:0 6px;">藏品故事</span>
-                        <span class="news-date" style="font-size:12px;">2024-10-28</span>
-                    </div>
-                    <h4 class="story-list-item__title">铜钱里的时光：清代货币与胶东商贸</h4>
-                    <p class="story-list-item__desc">透过清代铜钱与老票据，探索胶东地区百年商贸的兴衰流转。</p>
-                </div>
-            </a>
-            <a href="#" class="story-list-item">
-                <div class="story-list-item__thumb">
-                    <img src="assets/story-folk-porcelain.jpg" alt="民窑瓷器" loading="lazy">
-                </div>
-                <div style="min-width:0; display:flex; flex-direction:column; justify-content:center;">
-                    <div class="news-pair-card__meta" style="margin-bottom:4px;">
-                        <span class="news-tag" style="height:22px;font-size:11px;padding:0 6px;">藏品故事</span>
-                        <span class="news-date" style="font-size:12px;">2024-08-05</span>
-                    </div>
-                    <h4 class="story-list-item__title">民窑之美：胶东地区民间瓷器巡礼</h4>
-                    <p class="story-list-item__desc">胶东民窑瓷器承载着质朴的民间审美，本文带你一览其中的精品。</p>
-                </div>
-            </a>
-            <a href="#" class="story-list-item">
-                <div class="story-list-item__thumb">
-                    <img src="assets/story-collector-liu.jpg" alt="刘女士" loading="lazy">
-                </div>
-                <div style="min-width:0; display:flex; flex-direction:column; justify-content:center;">
-                    <div class="news-pair-card__meta" style="margin-bottom:4px;">
-                        <span class="news-tag" style="height:22px;font-size:11px;padding:0 6px;">藏家故事</span>
-                        <span class="news-date" style="font-size:12px;">2024-02-15</span>
-                    </div>
-                    <h4 class="story-list-item__title">青岛藏家刘女士：玉器与书画的交融之美</h4>
-                    <p class="story-list-item__desc">刘女士分享了她二十余年的玉器与书画收藏经历。</p>
-                </div>
-            </a>
-            <a href="#" class="story-list-item">
-                <div class="story-list-item__thumb">
-                    <img src="assets/story-family.jpg" alt="三代收藏" loading="lazy">
-                </div>
-                <div style="min-width:0; display:flex; flex-direction:column; justify-content:center;">
-                    <div class="news-pair-card__meta" style="margin-bottom:4px;">
-                        <span class="news-tag" style="height:22px;font-size:11px;padding:0 6px;">藏家故事</span>
-                        <span class="news-date" style="font-size:12px;">2024-01-08</span>
-                    </div>
-                    <h4 class="story-list-item__title">父子接力：胶东地区三代收藏人家族</h4>
-                    <p class="story-list-item__desc">记录一个胶东收藏世家的故事，三代人接力守护地域文化遗产。</p>
-                </div>
-            </a>
-        </div>
     </div>
+
+    <script>
+    (function() {
+        var newsData = [
+            {
+                tag: '展览信息', date: '2024-11-10',
+                title: '胶东博物馆新展：海上丝路与民间收藏',
+                desc: '本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出，为观众了解海上丝绸之路文化提供了难得的窗口。展期将持续至2025年3月，期间还将举办多场专题讲座和鉴赏活动。'
+            },
+            {
+                tag: '拍卖资讯', date: '2024-09-28',
+                title: '北京秋拍：胶东藏家藏品创高价',
+                desc: '在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交，引发业界广泛关注。本次拍卖共汇集胶东藏家精品二十余件，总成交额突破五千万元。业内人士认为，这一成绩反映出胶东地区私人收藏的整体品质正在获得市场的高度认可。'
+            },
+            {
+                tag: '市场动态', date: '2024-10-22',
+                title: '烟台玉石市场春季行情分析',
+                desc: '今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。据烟台玉石协会统计，一季度成交额同比增长12%，其中高端籽料涨幅尤为明显。多位业内人士建议收藏者关注材质与工艺并重的精品，避免盲目追逐热点品种。'
+            },
+            {
+                tag: '平台采访', date: '2024-09-08',
+                title: '走近胶东收藏家：赵先生的票证世界',
+                desc: '赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了胶东地区社会变迁的鲜活历史。他的收藏涵盖粮票、布票、肉票、车票等十余个门类，总数超过三千张。这些票证不仅是历史的物证，更是一部微缩的胶东社会经济变迁史，为研究者提供了珍贵的第一手资料。'
+            },
+            {
+                tag: '行业资讯', date: '2024-08-15',
+                title: '古窑遗址保护与民间收藏的共生',
+                desc: '探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。近年来，随着多处古窑遗址的发现与发掘，民间收藏家手中的相关藏品日益受到考古界重视。多位专家呼吁建立更完善的合作机制，让民间收藏成为遗址保护与研究的重要补充力量。'
+            }
+        ];
+
+        var current = 0;
+        var total = newsData.length;
+        var slides = document.querySelectorAll('.news-carousel__slide');
+        var dotsContainer = document.getElementById('carouselDots');
+        var detailTag = document.getElementById('detailTag');
+        var detailDate = document.getElementById('detailDate');
+        var detailTitle = document.getElementById('detailTitle');
+        var detailDesc = document.getElementById('detailDesc');
+
+        for (var i = 0; i < total; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'news-carousel__dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-index', i);
+            dotsContainer.appendChild(dot);
+        }
+        var dots = dotsContainer.querySelectorAll('.news-carousel__dot');
+
+        function goTo(index) {
+            if (index < 0) index = total - 1;
+            if (index >= total) index = 0;
+            current = index;
+            for (var i = 0; i < slides.length; i++) slides[i].classList.toggle('active', i === current);
+            for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === current);
+            var d = newsData[current];
+            detailTitle.style.opacity = '0';
+            detailDesc.style.opacity = '0';
+            setTimeout(function() {
+                detailTag.textContent = d.tag;
+                detailDate.textContent = d.date;
+                detailTitle.textContent = d.title;
+                detailDesc.textContent = d.desc;
+                detailTitle.style.opacity = '1';
+                detailDesc.style.opacity = '1';
+            }, 150);
+        }
+
+        document.getElementById('carouselPrev').addEventListener('click', function() { goTo(current - 1); });
+        document.getElementById('carouselNext').addEventListener('click', function() { goTo(current + 1); });
+        dotsContainer.addEventListener('click', function(e) {
+            if (e.target.classList.contains('news-carousel__dot')) goTo(parseInt(e.target.getAttribute('data-index')));
+        });
+
+        var autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+        var carousel = document.getElementById('newsCarousel');
+        carousel.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
+        carousel.addEventListener('mouseleave', function() { autoTimer = setInterval(function() { goTo(current + 1); }, 5000); });
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) clearInterval(autoTimer);
+    })();
+    </script>
 
 </body>
 </html>

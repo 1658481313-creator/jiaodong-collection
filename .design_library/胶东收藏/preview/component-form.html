@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>表单 Form</title>
+  <link rel="stylesheet" href="preview-scaffold.css">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+</head>
+<body>
+  <div class="pv-page">
+
+    <div class="pv-header">
+      <h1>表单 Form</h1>
+      <p>联系表单，含输入框、文本域及错误状态展示。</p>
+    </div>
+
+    <!-- Section: Input States -->
+    <div class="pv-section">
+      <div class="pv-section__title">输入框状态</div>
+      <div class="pv-demo">
+        <div class="row">
+          <div class="col" style="flex:1; max-width: 220px;">
+            <div class="pv-label">Default / 默认</div>
+            <input class="jd-form-input" type="text" placeholder="请输入姓名">
+          </div>
+          <div class="col" style="flex:1; max-width: 220px;">
+            <div class="pv-label">Hover / 悬停</div>
+            <input class="jd-form-input" type="text" placeholder="请输入姓名" style="border-color: var(--navy-300);">
+          </div>
+          <div class="col" style="flex:1; max-width: 220px;">
+            <div class="pv-label">Focused / 聚焦</div>
+            <input class="jd-form-input" type="text" placeholder="请输入姓名" style="border-color: #234588; box-shadow: 0 0 0 3px rgba(35, 69, 136, 0.14);">
+          </div>
+          <div class="col" style="flex:1; max-width: 220px;">
+            <div class="pv-label">Error / 错误</div>
+            <input class="jd-form-input jd-form-input--error" type="tel" value="138">
+            <div class="jd-form-error">请输入正确的手机号码</div>
+          </div>
+          <div class="col" style="flex:1; max-width: 220px;">
+            <div class="pv-label">Disabled / 禁用</div>
+            <input class="jd-form-input" type="text" placeholder="不可编辑" disabled style="opacity: 0.5; cursor: not-allowed;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Textarea -->
+    <div class="pv-section">
+      <div class="pv-section__title">文本域</div>
+      <div class="pv-demo">
+        <div class="form-demo">
+          <textarea class="jd-form-textarea" placeholder="请详细描述您想咨询的内容…"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Full Form -->
+    <div class="pv-section">
+      <div class="pv-section__title">完整表单示例</div>
+      <div class="pv-demo">
+        <div class="form-demo">
+          <div class="jd-form-group">
+            <label class="jd-form-label">姓名</label>
+            <input class="jd-form-input" type="text" placeholder="请输入您的姓名">
+          </div>
+          <div class="jd-form-group">
+            <label class="jd-form-label">联系电话</label>
+            <input class="jd-form-input" type="tel" placeholder="请输入手机号码">
+          </div>
+          <div class="jd-form-group">
+            <label class="jd-form-label">留言内容</label>
+            <textarea class="jd-form-textarea" placeholder="请详细描述您想咨询的内容…"></textarea>
+          </div>
+          <div class="jd-form-group" style="margin-bottom: 0;">
+            <button class="jd-btn jd-btn--primary" style="width: 100%;">提交信息</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pv-footer">
+      <p>胶东收藏 Design Library &middot; Component Preview</p>
+    </div>
+
+  </div>
+</body>
+</html>

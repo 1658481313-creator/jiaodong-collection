@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>按钮 Button</title>
+  <link rel="stylesheet" href="preview-scaffold.css">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../components.css">
+</head>
+<body>
+  <div class="pv-page">
+
+    <div class="pv-header">
+      <h1>按钮 Button</h1>
+      <p>主要、次要、文字链接与禁用态按钮。</p>
+    </div>
+
+    <!-- Section: Primary -->
+    <div class="pv-section">
+      <div class="pv-section__title">Primary 主要按钮</div>
+      <div class="pv-demo">
+        <div class="row">
+          <div class="col">
+            <div class="pv-label">Default / 默认</div>
+            <button class="jd-btn jd-btn--primary">浏览藏品</button>
+          </div>
+          <div class="col">
+            <div class="pv-label">Hover / 悬停</div>
+            <button class="jd-btn jd-btn--primary" style="background: var(--color-primary-hover); border-color: var(--color-primary-hover); box-shadow: var(--shadow-2);">浏览藏品</button>
+          </div>
+          <div class="col">
+            <div class="pv-label">Disabled / 禁用</div>
+            <button class="jd-btn jd-btn--primary jd-btn--disabled">浏览藏品</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Secondary -->
+    <div class="pv-section">
+      <div class="pv-section__title">Secondary 次要按钮</div>
+      <div class="pv-demo">
+        <div class="row">
+          <div class="col">
+            <div class="pv-label">Default / 默认</div>
+            <button class="jd-btn jd-btn--secondary">联系平台</button>
+          </div>
+          <div class="col">
+            <div class="pv-label">Hover / 悬停</div>
+            <button class="jd-btn jd-btn--secondary" style="background: var(--surface-200);">联系平台</button>
+          </div>
+          <div class="col">
+            <div class="pv-label">Disabled / 禁用</div>
+            <button class="jd-btn jd-btn--secondary jd-btn--disabled">联系平台</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Text Link -->
+    <div class="pv-section">
+      <div class="pv-section__title">Text Link 文字链接</div>
+      <div class="pv-demo">
+        <div class="row">
+          <div class="col">
+            <a class="jd-link" href="#">浏览藏品 <span class="jd-link__arrow">&rarr;</span></a>
+          </div>
+          <div class="col">
+            <a class="jd-link" href="#">查看详情 <span class="jd-link__arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Disabled -->
+    <div class="pv-section">
+      <div class="pv-section__title">Disabled 禁用按钮</div>
+      <div class="pv-demo">
+        <div class="row">
+          <div class="col">
+            <div class="pv-label">Primary Disabled</div>
+            <button class="jd-btn jd-btn--primary jd-btn--disabled">提交信息</button>
+          </div>
+          <div class="col">
+            <div class="pv-label">Secondary Disabled</div>
+            <button class="jd-btn jd-btn--secondary jd-btn--disabled">查看详情</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pv-footer">
+      <p>胶东收藏 Design Library &middot; Component Preview</p>
+    </div>
+
+  </div>
+</body>
+</html>
