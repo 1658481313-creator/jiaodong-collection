@@ -223,7 +223,7 @@
   --duration-fast: 150ms;
   --duration-normal: 300ms;
   --duration-slow: 500ms;
-  --easing-default: ease;
+  --easing-default: cubic-bezier(.16,1,.3,1);
 
   /* === Font Family Alias === */
   --font-family-base: var(--font-body);
@@ -337,4 +337,19 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 .collection-card:hover img {
   transform: scale(1.05);
+}
+
+/* === 移动端菜单过渡动画 === */
+.mobile-nav-menu {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s var(--easing-default), opacity 0.2s var(--easing-default);
+}
+.mobile-nav-menu.open {
+  max-height: 500px;
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-menu { transition: none; }
 }
