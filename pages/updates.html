@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" class="light">
 <head>
     <meta charset="UTF-8">
@@ -81,6 +81,7 @@
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
+    <a href="#main" class="skip-link">跳到主要内容</a>
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
         <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
@@ -157,10 +158,12 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         }
     }
     goUpdatesSlide(0);
-    setInterval(function() { goUpdatesSlide((updatesCurrentSlide + 1) % totalSlides); }, 5000);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(function() { goUpdatesSlide((updatesCurrentSlide + 1) % totalSlides); }, 5000);
+    }
     </script>
 
-    <main>
+    <main id="main">
         <!-- 1. Breadcrumb -->
         <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding-top:24px;">
             <p style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">

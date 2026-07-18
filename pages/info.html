@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" class="light">
 <head>
     <meta charset="UTF-8">
@@ -120,6 +120,7 @@
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
+    <a href="#main" class="skip-link">跳到主要内容</a>
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
         <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
@@ -153,7 +154,7 @@
 function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=document.getElementById('mobile-menu-btn');if(m.style.display==='none'||!m.style.display){m.style.display='block';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';}else{m.style.display='none';b.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';}}
 </script>
 
-    <main>
+    <main id="main">
         <!-- Breadcrumb -->
         <div class="resp-padding-mobile" style="max-width:1180px;margin:0 auto;padding:32px 24px 0;">
             <p class="resp-breadcrumb" style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">
@@ -226,7 +227,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                                 <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
                             </button>
                             <div class="faq-answer">
-                                <p>您可以通过首页导航栏中的"藏品展示"进入藏品列表页面。平台提供多种分类筛选功能，您可按藏品类别（瓷器、玉器、书画、铜器、钱币、文房、木器、杂项等）进行筛选，也可以通过关键词搜索快速找到感兴趣的藏品。点击藏品卡片即可查看详细信息。</p>
+                                <p>您可以通过首页导航栏中的"藏品展示"进入藏品列表页面。平台提供多种分类筛选功能，您可按藏品类别（瓷器、玉器、书画、铜器、钱币、文房、杂项、织绣等）进行筛选，也可以通过关键词搜索快速找到感兴趣的藏品。点击藏品卡片即可查看详细信息。</p>
                             </div>
                         </div>
 

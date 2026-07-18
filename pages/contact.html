@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" class="light">
 <head>
     <meta charset="UTF-8">
@@ -82,6 +82,7 @@
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
+    <a href="#main" class="skip-link">跳到主要内容</a>
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);">
         <div class="mx-auto flex items-center justify-between px-6" style="max-width:var(--size-content-width);height:var(--size-nav-height);">
@@ -155,10 +156,12 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         }
     }
     goContactSlide(0);
-    setInterval(function() { goContactSlide((contactSlide + 1) % contactTotal); }, 5000);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(function() { goContactSlide((contactSlide + 1) % contactTotal); }, 5000);
+    }
     </script>
 
-    <main>
+    <main id="main">
         <!-- 1. Breadcrumb -->
         <div class="mx-auto px-6" style="max-width:var(--size-content-width);padding-top:24px;">
             <p style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);">
@@ -222,9 +225,7 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                                 <label class="flex items-center gap-2" style="font-size:15px;color:var(--text-primary-500);font-family:var(--font-body);cursor:pointer;">
                                     <input type="checkbox" value="文房" style="width:16px;height:16px;accent-color:var(--navy-500);"> 文房
                                 </label>
-                                <label class="flex items-center gap-2" style="font-size:15px;color:var(--text-primary-500);font-family:var(--font-body);cursor:pointer;">
-                                    <input type="checkbox" value="木器" style="width:16px;height:16px;accent-color:var(--navy-500);"> 木器
-                                </label>
+
                                 <label class="flex items-center gap-2" style="font-size:15px;color:var(--text-primary-500);font-family:var(--font-body);cursor:pointer;">
                                     <input type="checkbox" value="杂项" style="width:16px;height:16px;accent-color:var(--navy-500);"> 杂项
                                 </label>
