@@ -307,11 +307,29 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   box-shadow: var(--shadow-1);
   transform: translateY(-2px);
 }
+
+/* === 列表项 hover（收藏故事/收藏动态） === */
+.story-card,
+.story-featured,
+.update-card {
+  transition: background var(--duration-normal) var(--easing-default),
+              box-shadow var(--duration-normal) var(--easing-default),
+              transform var(--duration-normal) var(--easing-default);
+}
+.story-card:hover,
+.story-featured:hover,
+.update-card:hover {
+  background: var(--surface-200) !important;
+  box-shadow: var(--shadow-1);
+  transform: translateY(-1px);
+}
 @media (prefers-reduced-motion: reduce) {
-  .home-card, .collector-card, .collection-card {
+  .home-card, .collector-card, .collection-card,
+  .story-card, .story-featured, .update-card {
     transition: none;
   }
-  .home-card:hover, .collector-card:hover, .collection-card:hover {
+  .home-card:hover, .collector-card:hover, .collection-card:hover,
+  .story-card:hover, .story-featured:hover, .update-card:hover {
     transform: none;
     box-shadow: none;
   }
@@ -320,15 +338,6 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 /* === 分页按钮 hover === */
 .pagination-btn-inactive:hover {
   background: var(--surface-200) !important;
-}
-
-/* === 列表项 hover === */
-.news-card:hover,
-.story-card:hover,
-.story-featured:hover {
-  background: var(--surface-200) !important;
-  border-color: rgba(35, 69, 136, 0.30);
-  box-shadow: var(--shadow-1);
 }
 
 /* === 收藏动态右侧详情卡片 hover === */
