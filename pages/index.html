@@ -172,10 +172,10 @@
             </div>
             <!-- Collection cards grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4" id="home-collection-grid">
-                <!-- Card 1 — 首卡突出（大展柜） -->
-                <a href="collection-detail.html" data-dom-id="link-collection-detail-1" data-card-category="瓷器" class="group block home-card sm:col-span-2 lg:col-span-2" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+                <!-- Card 1 -->
+                <a href="collection-detail.html" data-dom-id="link-collection-detail-1" data-card-category="瓷器" class="group block home-card" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
                     <div class="overflow-hidden" style="border-radius:var(--radius-md) var(--radius-md) 0 0;">
-                        <img src="assets/collection-blue-porcelain-jar.jpg" loading="lazy" alt="明代青花缠枝莲纹罐" class="w-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="aspect-ratio:16/9;">
+                        <img src="assets/collection-blue-porcelain-jar.jpg" loading="lazy" alt="明代青花缠枝莲纹罐" class="w-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="aspect-ratio:4/3;">
                     </div>
                     <div class="p-4.5" style="padding:var(--size-card-body-padding);">
                         <div class="flex items-center justify-between mb-2.5">
@@ -912,9 +912,7 @@
         </footer>
     <script>
     function filterHomeCollection(category, btn) {
-        var grid = document.getElementById('home-collection-grid');
-        var cards = Array.from(grid.querySelectorAll('.home-card'));
-        cards.forEach(function(card) { card.classList.remove('sm:col-span-2', 'lg:col-span-2'); });
+        var cards = document.querySelectorAll('.home-card');
         cards.forEach(function(card) {
             if (category === '全部' || card.getAttribute('data-card-category') === category) {
                 card.removeAttribute('hidden');
@@ -922,18 +920,6 @@
                 card.setAttribute('hidden', '');
             }
         });
-        // 首张可见卡片自动获得突出展示
-        var visible = cards.filter(function(c) { return !c.hasAttribute('hidden'); });
-        if (visible.length > 0) {
-            visible[0].classList.add('sm:col-span-2', 'lg:col-span-2');
-            var img = visible[0].querySelector('img');
-            if (img) img.style.aspectRatio = '16/9';
-        }
-        // 其余可见卡片恢复标准比例
-        for (var i = 1; i < visible.length; i++) {
-            var img = visible[i].querySelector('img');
-            if (img) img.style.aspectRatio = '4/3';
-        }
         var buttons = document.querySelectorAll('#home-filter-bar button');
         buttons.forEach(function(b) {
             if (b === btn) {
