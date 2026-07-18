@@ -423,7 +423,7 @@
                         <!-- JS动态生成slides -->
                     </div>
                     <!-- 底部信息叠加层 -->
-                    <div id="carouselOverlay" style="position:absolute;bottom:0;left:0;right:0;padding:40px 20px 16px;background:linear-gradient(to top,rgba(10,16,25,0.65),transparent);z-index:2;">
+                    <div id="carouselOverlay" style="position:absolute;bottom:0;left:0;right:0;padding:50px 20px 40px;background:linear-gradient(to top,rgba(10,16,25,0.65),transparent);z-index:2;">
                         <span id="overlayTag" style="display:inline-flex;align-items:center;height:22px;padding:0 8px;background:rgba(255,255,255,0.18);color:#fff;font-size:11px;font-weight:600;border-radius:4px;margin-bottom:6px;"></span>
                         <p id="overlayTitle" style="font-size:15px;font-weight:700;color:#fff;line-height:1.4;margin:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;"></p>
                     </div>
@@ -431,17 +431,26 @@
                     <button id="carouselPrev" style="position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.85);color:var(--text-primary-700);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-1);transition:background 0.15s;" aria-label="上一条">&#8249;</button>
                     <button id="carouselNext" style="position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.85);color:var(--text-primary-700);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-1);transition:background 0.15s;left:auto;right:10px;" aria-label="下一条">&#8250;</button>
                     <!-- 指示器 -->
-                    <div id="carouselDots" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 0;"></div>
+                    <div id="carouselDots" style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:4;display:flex;align-items:center;gap:8px;"></div>
                 </div>
                 <!-- 右侧：对应文字详情 -->
-                <div id="newsDetail" style="border:1px solid var(--border-200);border-radius:var(--radius-md);background:var(--surface-50);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
-                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-                        <span id="detailTag" style="display:inline-flex;align-items:center;height:24px;padding:0 8px;background:var(--navy-50);color:var(--navy-500);font-size:12px;font-weight:600;border-radius:var(--radius-sm);font-family:var(--font-body);"></span>
-                        <span id="detailDate" style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);"></span>
+                <div id="newsDetail" style="border:1px solid var(--border-200);border-radius:var(--radius-md);background:var(--surface-50);padding:0;display:flex;flex-direction:column;">
+                    <div style="height:4px;background:var(--navy-500);border-radius:var(--radius-md) var(--radius-md) 0 0;flex-shrink:0;"></div>
+                    <div style="padding:32px 36px;flex:1;display:flex;flex-direction:column;">
+                        <!-- meta -->
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                            <span id="detailTag" style="display:inline-flex;align-items:center;height:26px;padding:0 10px;background:var(--navy-50);color:var(--navy-500);font-size:12px;font-weight:700;border-radius:var(--radius-sm);font-family:var(--font-body);"></span>
+                            <span id="detailDate" style="font-size:14px;color:var(--text-primary-300);font-family:var(--font-body);"></span>
+                        </div>
+                        <!-- title -->
+                        <h3 id="detailTitle" style="font-family:var(--font-heading);font-size:26px;font-weight:700;color:var(--text-primary-700);line-height:1.35;margin:0 0 20px;transition:opacity 0.25s;"></h3>
+                        <!-- desc -->
+                        <p id="detailDesc" style="font-size:15px;color:var(--text-primary-500);line-height:1.9;margin:0;flex:1;transition:opacity 0.25s;font-family:var(--font-body);"></p>
+                        <!-- footer -->
+                        <div style="display:flex;justify-content:flex-end;padding-top:4px;margin-top:16px;">
+                            <a href="updates.html" style="font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);text-decoration:none;font-family:var(--font-body);transition:color 0.15s;">阅读全文 &rarr;</a>
+                        </div>
                     </div>
-                    <h3 id="detailTitle" style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--text-primary-700);line-height:1.4;margin:0 0 16px;transition:opacity 0.3s;"></h3>
-                    <p id="detailDesc" style="font-size:15px;color:var(--text-primary-400);line-height:1.85;margin:0 0 20px;transition:opacity 0.3s;font-family:var(--font-body);"></p>
-                    <a id="detailLink" href="update-detail.html" style="display:inline-flex;align-items:center;gap:4px;font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);text-decoration:none;align-self:flex-start;transition:color 0.15s;font-family:var(--font-body);">阅读全文 &rarr;</a>
                 </div>
             </div>
         </section>
@@ -716,20 +725,20 @@
     }
     // ===== 收藏动态轮播 =====
     var allNewsData = [
-        { type:'展览信息', date:'2024-11-10', title:'胶东博物馆新展：海上丝路与民间收藏', desc:'本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出。', img:'assets/news-museum-exhibition.jpg', alt:'胶东博物馆新展' },
-        { type:'拍卖资讯', date:'2024-09-28', title:'北京秋拍：胶东藏家藏品创高价', desc:'在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交。本次拍卖吸引了来自全国各地的藏家参与。', img:'assets/news-auction-record.jpg', alt:'北京秋拍' },
-        { type:'市场动态', date:'2024-10-22', title:'烟台玉石市场春季行情分析', desc:'今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。业内人士分析，中小型收藏品市场需求有望进一步扩大。', img:'assets/news-jade-market.jpg', alt:'烟台玉石市场' },
-        { type:'平台采访', date:'2024-09-08', title:'走近胶东收藏家：赵先生的票证世界', desc:'赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了一段段鲜活的历史记忆。他的收藏不仅记录了胶东地区的社会变迁，也为研究地方经济史提供了珍贵资料。', img:'assets/news-collector-interview.jpg', alt:'走近胶东收藏家' },
-        { type:'行业资讯', date:'2024-08-15', title:'古窑遗址保护与民间收藏的共生', desc:'探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。多位专家呼吁建立更完善的合作机制。', img:'assets/news-kiln-heritage.jpg', alt:'古窑遗址保护' },
-        { type:'展览信息', date:'2024-07-28', title:'济南古玩交流会：胶东收藏家的参展纪实', desc:'多位胶东收藏家携珍品参展，展现了胶东地区深厚的收藏底蕴与活跃的收藏氛围。', img:'assets/story-ancient-coin.jpg', alt:'济南古玩交流会' },
-        { type:'市场动态', date:'2024-02-25', title:'北京秋拍预展：胶东精品抢先看', desc:'在刚结束的北京秋拍中，多位胶东藏家的藏品以超出估价数倍的价格成交，引发市场关注。', img:'assets/news-auction-record.jpg', alt:'北京秋拍预展' },
-        { type:'行业资讯', date:'2024-02-20', title:'数字博物馆：让收藏走进千家万户', desc:'随着数字技术的发展，越来越多的私人收藏开始通过线上虚拟博物馆向公众展示。', img:'assets/news-digital-museum.jpg', alt:'数字博物馆' },
-        { type:'展览信息', date:'2024-02-15', title:'景德镇御窑遗址出土瓷器首次展出', desc:'景德镇御窑遗址新出土的明清官窑瓷器首次在山东博物馆展出，吸引大批观众。', img:'assets/news-porcelain-exhibition.jpg', alt:'御窑遗址瓷器' },
-        { type:'平台采访', date:'2024-02-10', title:'第三届胶东收藏家交流会在烟台举办', desc:'第三届胶东收藏家交流会在烟台成功举办，来自三地的百余名收藏家参与交流。', img:'assets/news-collector-forum.jpg', alt:'收藏家交流会' },
-        { type:'行业资讯', date:'2024-02-05', title:'非遗保护与收藏：传统工艺的新机遇', desc:'非物质文化遗产保护法的修订为传统工艺品收藏带来新的发展机遇。', img:'assets/news-cultural-heritage.jpg', alt:'非遗保护' },
-        { type:'市场动态', date:'2024-01-28', title:'2024年古玩市场年度报告发布', desc:'年度报告显示，瓷器、玉器品类持续领跑市场，书画板块回暖明显。', img:'assets/news-market-report.jpg', alt:'市场年度报告' },
-        { type:'市场动态', date:'2024-01-20', title:'民国书法作品拍卖行情分析', desc:'民国时期名家书法作品近年来受到市场追捧，价格稳步上升，分析其投资前景。', img:'assets/news-calligraphy-auction.jpg', alt:'书法拍卖' },
-        { type:'市场动态', date:'2024-01-15', title:'和田玉市场走势与收藏建议', desc:'和田玉市场近期价格波动较大，专家建议收藏者关注籽料与山料的价值差异。', img:'assets/news-jade-exhibition.jpg', alt:'和田玉市场' }
+        { type:'展览信息', date:'2024-11-10', title:'胶东博物馆新展：海上丝路与民间收藏', desc:'本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出，为观众了解海上丝绸之路文化提供了难得的窗口。展期将持续至2025年3月。', img:'assets/news-museum-exhibition.jpg', alt:'胶东博物馆新展' },
+        { type:'拍卖资讯', date:'2024-09-28', title:'北京秋拍：胶东藏家藏品创高价', desc:'在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交。本次拍卖共汇集胶东藏家精品二十余件，总成交额突破五千万元。业内人士认为，这一成绩反映出胶东地区私人收藏的整体品质正在获得市场的高度认可。', img:'assets/news-auction-record.jpg', alt:'北京秋拍' },
+        { type:'市场动态', date:'2024-10-22', title:'烟台玉石市场春季行情分析', desc:'今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。业内人士分析，中小型收藏品市场需求有望进一步扩大。从价格走势来看，精品籽料继续保持坚挺，而中低端产品则呈现温和上涨态势，市场结构正逐步优化。', img:'assets/news-jade-market.jpg', alt:'烟台玉石市场' },
+        { type:'平台采访', date:'2024-09-08', title:'走近胶东收藏家：赵先生的票证世界', desc:'赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了一段段鲜活的历史记忆。他的收藏不仅记录了胶东地区的社会变迁，也为研究地方经济史提供了珍贵资料。目前其藏品总量已逾万枚，是国内票证收藏领域的重要代表人物之一。', img:'assets/news-collector-interview.jpg', alt:'走近胶东收藏家' },
+        { type:'行业资讯', date:'2024-08-15', title:'古窑遗址保护与民间收藏的共生', desc:'探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。多位专家呼吁建立更完善的合作机制，让民间收藏家在遗址保护中发挥更大作用。近年来已有多个成功案例证明，公众参与能够有效提升遗址保护的广度与深度。', img:'assets/news-kiln-heritage.jpg', alt:'古窑遗址保护' },
+        { type:'展览信息', date:'2024-07-28', title:'济南古玩交流会：胶东收藏家的参展纪实', desc:'多位胶东收藏家携珍品参展，展现了胶东地区深厚的收藏底蕴与活跃的收藏氛围。本次交流会设置了陶瓷、书画、杂项等多个专题展区，吸引了来自全国各地的藏家和爱好者前来交流。不少参展者表示，胶东地区的藏品品质令人印象深刻，期待未来有更多合作机会。', img:'assets/story-ancient-coin.jpg', alt:'济南古玩交流会' },
+        { type:'市场动态', date:'2024-02-25', title:'北京秋拍预展：胶东精品抢先看', desc:'在刚结束的北京秋拍中，多位胶东藏家的藏品以超出估价数倍的价格成交，引发市场关注。预展期间，来自胶东的书画和瓷器精品备受瞩目，多位买家提前锁定目标。市场分析人士指出，胶东藏品在京城拍场上的亮眼表现，标志着区域收藏正在走向更广阔的舞台。', img:'assets/news-auction-record.jpg', alt:'北京秋拍预展' },
+        { type:'行业资讯', date:'2024-02-20', title:'数字博物馆：让收藏走进千家万户', desc:'随着数字技术的发展，越来越多的私人收藏开始通过线上虚拟博物馆向公众展示。三维扫描和高清摄影等技术的成熟，让线上观展体验越来越接近实物。业内预估，未来三年内将有超过五百家私人收藏馆完成数字化转型，收藏文化的传播将不再受地域限制。', img:'assets/news-digital-museum.jpg', alt:'数字博物馆' },
+        { type:'展览信息', date:'2024-02-15', title:'景德镇御窑遗址出土瓷器首次展出', desc:'景德镇御窑遗址新出土的明清官窑瓷器首次在山东博物馆展出，吸引大批观众。本次共展出修复完整及可复原器物六十余件，时间跨度从永乐到崇祯，系统展现了御窑瓷器的工艺演变。展览配套举办了多场学术讲座，让观众深入了解官窑瓷器的烧造技艺与文化内涵。', img:'assets/news-porcelain-exhibition.jpg', alt:'御窑遗址瓷器' },
+        { type:'平台采访', date:'2024-02-10', title:'第三届胶东收藏家交流会在烟台举办', desc:'第三届胶东收藏家交流会在烟台成功举办，来自三地的百余名收藏家参与交流。活动设置了藏品鉴赏、经验分享和自由交换等环节，现场气氛热烈。多位资深藏家表示，此类交流活动对于提升区域收藏水平、增进藏家之间的友谊具有重要意义，希望未来能持续举办。', img:'assets/news-collector-forum.jpg', alt:'收藏家交流会' },
+        { type:'行业资讯', date:'2024-02-05', title:'非遗保护与收藏：传统工艺的新机遇', desc:'非物质文化遗产保护法的修订为传统工艺品收藏带来新的发展机遇。随着政策支持力度加大，传统手工艺品的艺术价值和市场价值都得到了重新评估。收藏界人士认为，非遗类藏品兼具文化传承与投资潜力，将成为未来收藏市场的重要增长板块。', img:'assets/news-cultural-heritage.jpg', alt:'非遗保护' },
+        { type:'市场动态', date:'2024-01-28', title:'2024年古玩市场年度报告发布', desc:'年度报告显示，瓷器、玉器品类持续领跑市场，书画板块回暖明显。值得关注的是，年轻藏家群体的快速壮大成为年度最大亮点，三十岁以下新入场藏家占比首次超过两成。报告预测，数字化交易平台的普及将进一步降低收藏门槛，推动市场持续扩容。', img:'assets/news-market-report.jpg', alt:'市场年度报告' },
+        { type:'市场动态', date:'2024-01-20', title:'民国书法作品拍卖行情分析', desc:'民国时期名家书法作品近年来受到市场追捧，价格稳步上升，分析其投资前景。于右任、沈尹默、林散之等名家的作品在各大拍卖会上屡创佳绩。专家建议收藏者关注作品来源清晰、著录明确的高品质作品，同时注意辨别市场中的仿品和赝品风险。', img:'assets/news-calligraphy-auction.jpg', alt:'书法拍卖' },
+        { type:'市场动态', date:'2024-01-15', title:'和田玉市场走势与收藏建议', desc:'和田玉市场近期价格波动较大，专家建议收藏者关注籽料与山料的价值差异。受原料产地政策收紧影响，优质籽料供给持续减少，价格维持在高位运行。相比之下，山料及俄料的价格则相对平稳，对于入门级收藏者而言是更为务实的选择。', img:'assets/news-jade-exhibition.jpg', alt:'和田玉市场' }
     ];
 
     var newsCurrentSlide = 0;
@@ -759,7 +768,13 @@
 
             // 创建dot
             var dot = document.createElement('span');
-            dot.style.cssText = 'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background 0.15s,transform 0.15s;background:' + (idx === 0 ? 'var(--navy-500)' : 'var(--border-300)') + ';' + (idx === 0 ? 'transform:scale(1.2);' : '');
+            dot.style.cssText = 'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background 0.15s,transform 0.15s;background:' + (idx === 0 ? '#ffffff' : 'rgba(255,255,255,0.4)') + ';' + (idx === 0 ? 'transform:scale(1.25);' : '');
+            dot.addEventListener('mouseenter', function() {
+                if (this.style.background !== '#ffffff') this.style.background = 'rgba(255,255,255,0.7)';
+            });
+            dot.addEventListener('mouseleave', function() {
+                if (this.style.background !== '#ffffff') this.style.background = 'rgba(255,255,255,0.4)';
+            });
             dot.setAttribute('data-idx', String(idx));
             dot.addEventListener('click', function() {
                 newsGoTo(parseInt(this.getAttribute('data-idx'), 10));
@@ -819,8 +834,8 @@
         if (dots) {
             var spans = dots.querySelectorAll('span');
             spans.forEach(function(dot, i) {
-                dot.style.background = (i === idx) ? 'var(--navy-500)' : 'var(--border-300)';
-                dot.style.transform = (i === idx) ? 'scale(1.2)' : 'scale(1)';
+                dot.style.background = (i === idx) ? '#ffffff' : 'rgba(255,255,255,0.4)';
+                dot.style.transform = (i === idx) ? 'scale(1.25)' : 'scale(1)';
             });
         }
 
