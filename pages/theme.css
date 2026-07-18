@@ -386,3 +386,17 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   body::before { display: none; }
 }
+
+/* === 首卡突出（大展柜） — 打破等分网格节奏 === */
+.featured-card {
+  grid-column: span 2;
+}
+.featured-card img {
+  aspect-ratio: 16/9 !important;
+  height: auto !important;
+}
+@media (max-width: 767px) {
+  .featured-card {
+    grid-column: span 2;
+  }
+}

@@ -171,11 +171,11 @@
                 <button data-category="织绣" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterHomeCollection('织绣', this)" aria-pressed="false">织绣</button>
             </div>
             <!-- Collection cards grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4">
-                <!-- Card 1 -->
-                <a href="collection-detail.html" data-dom-id="link-collection-detail-1" data-card-category="瓷器" class="group block home-card" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4" id="home-collection-grid">
+                <!-- Card 1 — 首卡突出（大展柜） -->
+                <a href="collection-detail.html" data-dom-id="link-collection-detail-1" data-card-category="瓷器" class="group block home-card sm:col-span-2 lg:col-span-2" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
                     <div class="overflow-hidden" style="border-radius:var(--radius-md) var(--radius-md) 0 0;">
-                        <img src="assets/collection-blue-porcelain-jar.jpg" loading="lazy" alt="明代青花缠枝莲纹罐" class="w-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="aspect-ratio:4/3;">
+                        <img src="assets/collection-blue-porcelain-jar.jpg" loading="lazy" alt="明代青花缠枝莲纹罐" class="w-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="aspect-ratio:16/9;">
                     </div>
                     <div class="p-4.5" style="padding:var(--size-card-body-padding);">
                         <div class="flex items-center justify-between mb-2.5">
@@ -253,9 +253,9 @@
                 <button data-collector-region="青岛" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterCollector('青岛', this)">青岛</button>
             </div>
             <!-- Collector cards -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4">
-                <!-- Collector 1: 王 -->
-                <a href="collector-detail.html" data-dom-id="link-collector-detail-1" data-card-region="烟台" class="block p-6 collector-card" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4" id="home-collector-grid">
+                <!-- Collector 1: 王 — 首卡突出（大展柜） -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-1" data-card-region="烟台" class="block p-6 collector-card sm:col-span-2 lg:col-span-2" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
                     <div class="flex items-center gap-3 mb-1">
                         <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">王</div>
                         <div class="min-w-0">
@@ -912,7 +912,9 @@
         </footer>
     <script>
     function filterHomeCollection(category, btn) {
-        var cards = document.querySelectorAll('.home-card');
+        var grid = document.getElementById('home-collection-grid');
+        var cards = Array.from(grid.querySelectorAll('.home-card'));
+        cards.forEach(function(card) { card.classList.remove('sm:col-span-2', 'lg:col-span-2'); });
         cards.forEach(function(card) {
             if (category === '全部' || card.getAttribute('data-card-category') === category) {
                 card.removeAttribute('hidden');
@@ -920,6 +922,18 @@
                 card.setAttribute('hidden', '');
             }
         });
+        // 首张可见卡片自动获得突出展示
+        var visible = cards.filter(function(c) { return !c.hasAttribute('hidden'); });
+        if (visible.length > 0) {
+            visible[0].classList.add('sm:col-span-2', 'lg:col-span-2');
+            var img = visible[0].querySelector('img');
+            if (img) img.style.aspectRatio = '16/9';
+        }
+        // 其余可见卡片恢复标准比例
+        for (var i = 1; i < visible.length; i++) {
+            var img = visible[i].querySelector('img');
+            if (img) img.style.aspectRatio = '4/3';
+        }
         var buttons = document.querySelectorAll('#home-filter-bar button');
         buttons.forEach(function(b) {
             if (b === btn) {
@@ -934,7 +948,9 @@
         });
     }
     function filterCollector(region, btn) {
-        var cards = document.querySelectorAll('.collector-card');
+        var grid = document.getElementById('home-collector-grid');
+        var cards = Array.from(grid.querySelectorAll('.collector-card'));
+        cards.forEach(function(card) { card.classList.remove('sm:col-span-2', 'lg:col-span-2'); });
         cards.forEach(function(card) {
             if (region === '全部' || card.getAttribute('data-card-region') === region) {
                 card.removeAttribute('hidden');
@@ -942,6 +958,11 @@
                 card.setAttribute('hidden', '');
             }
         });
+        // 首张可见卡片自动获得突出展示
+        var visible = cards.filter(function(c) { return !c.hasAttribute('hidden'); });
+        if (visible.length > 0) {
+            visible[0].classList.add('sm:col-span-2', 'lg:col-span-2');
+        }
         var buttons = document.querySelectorAll('#collector-filter-bar button');
         buttons.forEach(function(b) {
             if (b === btn) {

@@ -602,7 +602,9 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         collectorCurrentPage = page;
         var cards = document.querySelectorAll('.collector-card-filter');
 
+        // 先清除所有 featured 状态
         cards.forEach(function(card) {
+            card.classList.remove('featured-card');
             var reg = card.getAttribute('data-card-region');
             var pg = parseInt(card.getAttribute('data-page'));
             var showByRegion = collectorCurrentRegion === '全部' || reg === collectorCurrentRegion;
@@ -613,6 +615,12 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                 card.setAttribute('hidden', '');
             }
         });
+
+        // 当前页首张可见卡片突出展示
+        var visible = Array.from(cards).filter(function(c) { return !c.hasAttribute('hidden'); });
+        if (visible.length > 0) {
+            visible[0].classList.add('featured-card');
+        }
 
         var buttons = document.querySelectorAll('#collector-pagination button');
         buttons.forEach(function(b, i) {

@@ -773,11 +773,25 @@
         var filtered = getFilteredCollectionCards();
         var start = (page - 1) * COLLECTION_PER_PAGE;
         var end = start + COLLECTION_PER_PAGE;
+        // 先清除所有 featured 状态
         document.querySelectorAll('.collection-card').forEach(function(card) {
             card.setAttribute('hidden', '');
+            card.classList.remove('featured-card');
+            var img = card.querySelector('img');
+            if (img) { img.style.height = '200px'; }
         });
         for (var i = start; i < end && i < filtered.length; i++) {
             filtered[i].removeAttribute('hidden');
+        }
+        // 当前页首张可见卡片突出展示
+        var pageCards = [];
+        for (var i = start; i < end && i < filtered.length; i++) {
+            pageCards.push(filtered[i]);
+        }
+        if (pageCards.length > 0) {
+            pageCards[0].classList.add('featured-card');
+            var img = pageCards[0].querySelector('img');
+            if (img) { img.style.height = '280px'; }
         }
         var visibleCount = filtered.length;
         document.getElementById('collection-count').textContent = collectionCurrentCategory === '全部' ? '共 ' + visibleCount + ' 件藏品' : collectionCurrentCategory + ' · ' + visibleCount + ' 件藏品';
