@@ -767,7 +767,8 @@
         });
     }
 
-    function goToCollectionPage(page) {
+    function goToCollectionPage(page, shouldScroll) {
+        if (shouldScroll === undefined) shouldScroll = true;
         collectionCurrentPage = page;
         var filtered = getFilteredCollectionCards();
         var start = (page - 1) * COLLECTION_PER_PAGE;
@@ -781,10 +782,12 @@
         var visibleCount = filtered.length;
         document.getElementById('collection-count').textContent = collectionCurrentCategory === '全部' ? '共 ' + visibleCount + ' 件藏品' : collectionCurrentCategory + ' · ' + visibleCount + ' 件藏品';
         updateCollectionPagination();
-        var grid = document.getElementById('collection-grid');
-        if (grid) {
-            var offsetTop = grid.getBoundingClientRect().top + window.pageYOffset - 20;
-            window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        if (shouldScroll) {
+            var grid = document.getElementById('collection-grid');
+            if (grid) {
+                var offsetTop = grid.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({top: offsetTop, behavior: 'smooth'});
+            }
         }
     }
 
@@ -870,7 +873,7 @@
     }
 
     /* === Init === */
-    (function(){ goToCollectionPage(1); })();
+    (function(){ goToCollectionPage(1, false); })();
 
     // URL parameter auto-filter: ?category=瓷器
     (function() {
