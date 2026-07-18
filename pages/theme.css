@@ -244,6 +244,8 @@
 .jd-eyebrow { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-eyebrow); line-height: var(--line-height-eyebrow); }
 .jd-label { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-label); line-height: var(--line-height-label); }
 .jd-more-link { font-family: var(--font-body); font-size: 0.875rem; font-weight: var(--font-weight-more-link); line-height: var(--line-height-more-link); }
+.jd-more-link:hover { color: var(--navy-500); }
+.jd-more-link:hover img { transform: scale(1.25); }
 .jd-caption { font-family: var(--font-body); font-size: 0.8125rem; font-weight: var(--font-weight-caption); line-height: 1.4; }
 
 /* === Interactive Link Hover === */
