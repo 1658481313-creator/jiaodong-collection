@@ -126,8 +126,8 @@
                 
                     <!-- Buttons -->
                     <div class="flex flex-wrap gap-3" style="margin-top:28px;margin-bottom:24px;">
-                        <a href="collection.html" class="inline-flex items-center justify-center whitespace-nowrap" style="min-height:var(--size-button-min-height);padding-left:var(--size-button-padding-x);padding-right:var(--size-button-padding-x);background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-button);font-weight:var(--font-weight-button);font-family:var(--font-body);border-radius:var(--radius-sm);">浏览藏品</a>
-                        <a href="contact.html" class="inline-flex items-center justify-center whitespace-nowrap" style="min-height:var(--size-button-min-height);padding-left:var(--size-button-padding-x);padding-right:var(--size-button-padding-x);background:var(--surface-50);color:var(--navy-500);font-size:var(--font-size-button);font-weight:var(--font-weight-button);font-family:var(--font-body);border:1px solid var(--navy-500);border-radius:var(--radius-sm);">联系平台</a>
+                        <a href="collection.html" class="inline-flex items-center justify-center whitespace-nowrap" style="min-height:var(--size-button-min-height);padding-left:var(--size-button-padding-x);padding-right:var(--size-button-padding-x);background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-button);font-weight:var(--font-weight-button);font-family:var(--font-body);border-radius:var(--radius-sm);transition:box-shadow 0.2s,background 0.2s;" onmouseover="this.style.boxShadow='0 4px 12px rgba(30,59,122,0.3)';this.style.background='#152d61'" onmouseout="this.style.boxShadow='none';this.style.background='var(--navy-500)'">浏览藏品</a>
+                        <a href="contact.html" class="inline-flex items-center justify-center whitespace-nowrap" style="min-height:var(--size-button-min-height);padding-left:var(--size-button-padding-x);padding-right:var(--size-button-padding-x);background:var(--surface-50);color:var(--navy-500);font-size:var(--font-size-button);font-weight:var(--font-weight-button);font-family:var(--font-body);border:1px solid var(--navy-500);border-radius:var(--radius-sm);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--navy-500)';this.style.color='var(--surface-50)'" onmouseout="this.style.background='var(--surface-50)';this.style.color='var(--navy-500)'">联系平台</a>
                     </div>
                     <!-- Info Box -->
                     <div class="p-4 flex items-start gap-3" style="background:var(--surface-200);border-radius:var(--radius-sm);">
@@ -207,9 +207,9 @@
                     <h2 style="font-family:var(--font-heading);font-size:var(--font-size-h2);font-weight:var(--font-weight-h2);color:var(--text-primary-700);">收藏动态</h2>
                     <p class="mt-2.5" style="font-size:15px;color:var(--text-primary-300);font-family:var(--font-body);">平台采访与收藏界资讯</p>
                 </div>
-                <a href="stories.html" class="hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 jd-more-link" style="color:var(--text-primary-500);text-decoration:none;"><img src="assets/icon-more.svg" alt="" style="width:24px;height:24px;transition:transform 0.2s;">更多</a>
-            </div>
-            <!-- Category tabs -->
+                <a href="updates.html" class="hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 jd-more-link" style="color:var(--text-primary-500);text-decoration:none;"><img src="assets/icon-more.svg" alt="" style="width:24px;height:24px;transition:transform 0.2s;">更多</a>
+              </div>
+              <!-- Category tabs -->
             <div class="flex flex-nowrap overflow-x-auto gap-2.5 mb-6 no-scrollbar resp-filter-min-h" id="news-filter-bar" style="margin-top:var(--space-7);">
                 <button data-news-type="全部" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--navy-500);color:var(--surface-50);font-size:var(--font-size-eyebrow);font-family:var(--font-body);border-radius:var(--radius-sm);border:none;cursor:pointer;" onclick="filterNews('全部', this)">全部</button>
                 <button data-news-type="平台采访" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-eyebrow);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterNews('平台采访', this)">平台采访</button>
@@ -261,7 +261,7 @@
                     <h2 style="font-family:var(--font-heading);font-size:var(--font-size-h2);font-weight:var(--font-weight-h2);color:var(--text-primary-700);">收藏故事</h2>
                     <p class="mt-2.5" style="font-size:15px;color:var(--text-primary-300);font-family:var(--font-body);">藏品背后的故事与收藏家的心路历程</p>
                 </div>
-                <a href="updates.html" class="hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 jd-more-link" style="color:var(--text-primary-500);text-decoration:none;"><img src="assets/icon-more.svg" alt="" style="width:24px;height:24px;transition:transform 0.2s;">更多</a>
+                <a href="stories.html" class="hidden sm:inline-flex items-center gap-1.5 whitespace-nowrap shrink-0 jd-more-link" style="color:var(--text-primary-500);text-decoration:none;"><img src="assets/icon-more.svg" alt="" style="width:24px;height:24px;transition:transform 0.2s;">更多</a>
             </div>
             <!-- Category tabs -->
             <div class="flex flex-nowrap overflow-x-auto gap-2.5 mb-6 no-scrollbar resp-filter-min-h" id="story-filter-bar" style="margin-top:var(--space-7);">
