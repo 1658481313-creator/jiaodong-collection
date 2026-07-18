@@ -760,7 +760,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         });
     }
 
-    function goToUpdatePage(page) {
+    function goToUpdatePage(page, scroll) {
+        if (scroll === undefined) scroll = true;
         updateCurrentPage = page;
         var filtered = getFilteredCards();
         var start = (page - 1) * UPDATE_PER_PAGE;
@@ -785,10 +786,12 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         }
 
         updateUpdatePagination();
-        var section = document.querySelector('.update-card') ? document.querySelector('.update-card').closest('section') : null;
-        if (section) {
-            var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 20;
-            window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        if (scroll) {
+            var section = document.querySelector('.update-card') ? document.querySelector('.update-card').closest('section') : null;
+            if (section) {
+                var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({top: offsetTop, behavior: 'smooth'});
+            }
         }
     }
     function filterUpdates(category, btn) {
@@ -808,6 +811,6 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         });
         goToUpdatePage(1);
     }
-    (function(){goToUpdatePage(1);})();
+    (function(){goToUpdatePage(1, false);})();
 </script>
 <script>lucide.createIcons();</script></body></html>

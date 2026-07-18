@@ -506,7 +506,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         });
     }
 
-    function goToStoryPage(page) {
+    function goToStoryPage(page, scroll) {
+        if (scroll === undefined) scroll = true;
         storyCurrentPage = page;
         var filtered = getFilteredStoryCards();
         var start = (page - 1) * STORY_PER_PAGE;
@@ -528,10 +529,12 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         }
 
         updateStoryPagination();
-        var section = document.querySelector('.story-card') ? document.querySelector('.story-card').closest('section') : null;
-        if (section) {
-            var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 20;
-            window.scrollTo({top: offsetTop, behavior: 'smooth'});
+        if (scroll) {
+            var section = document.querySelector('.story-card') ? document.querySelector('.story-card').closest('section') : null;
+            if (section) {
+                var offsetTop = section.getBoundingClientRect().top + window.pageYOffset - 20;
+                window.scrollTo({top: offsetTop, behavior: 'smooth'});
+            }
         }
     }
     function filterStories(category, btn) {
@@ -552,6 +555,6 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         });
         goToStoryPage(1);
     }
-    (function(){goToStoryPage(1);})();
+    (function(){goToStoryPage(1, false);})();
 </script>
 <script>lucide.createIcons();</script></body></html>
