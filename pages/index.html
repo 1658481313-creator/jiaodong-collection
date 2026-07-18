@@ -314,9 +314,9 @@
                 <button data-collector-region="青岛" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterCollector('青岛', this)">青岛</button>
             </div>
             <!-- Collector cards -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4.5 resp-grid-4" id="home-collector-grid">
-                <!-- Collector 1: 王 — 首卡突出（大展柜） -->
-                <a href="collector-detail.html" data-dom-id="link-collector-detail-1" data-card-region="烟台" class="block p-6 collector-card sm:col-span-2 lg:col-span-2" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4.5 resp-grid-3" id="home-collector-grid">
+                <!-- Collector 1: 王 -->
+                <a href="collector-detail.html" data-dom-id="link-collector-detail-1" data-card-region="烟台" class="block p-6 collector-card" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);">
                     <div class="flex items-center gap-3 mb-1">
                         <div class="flex items-center justify-center shrink-0" style="width:44px;height:44px;background:var(--navy-500);border-radius:50%;color:var(--surface-50);font-size:18px;font-weight:700;font-family:var(--font-body);">王</div>
                         <div class="min-w-0">
@@ -996,9 +996,7 @@
         });
     }
     function filterCollector(region, btn) {
-        var grid = document.getElementById('home-collector-grid');
-        var cards = Array.from(grid.querySelectorAll('.collector-card'));
-        cards.forEach(function(card) { card.classList.remove('sm:col-span-2', 'lg:col-span-2'); });
+        var cards = document.querySelectorAll('.collector-card');
         cards.forEach(function(card) {
             if (region === '全部' || card.getAttribute('data-card-region') === region) {
                 card.removeAttribute('hidden');
@@ -1006,11 +1004,6 @@
                 card.setAttribute('hidden', '');
             }
         });
-        // 首张可见卡片自动获得突出展示
-        var visible = cards.filter(function(c) { return !c.hasAttribute('hidden'); });
-        if (visible.length > 0) {
-            visible[0].classList.add('sm:col-span-2', 'lg:col-span-2');
-        }
         var buttons = document.querySelectorAll('#collector-filter-bar button');
         buttons.forEach(function(b) {
             if (b === btn) {
