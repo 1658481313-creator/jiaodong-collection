@@ -311,25 +311,27 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 /* === 列表项 hover（收藏故事/收藏动态） === */
 .story-card,
 .story-featured,
-.update-card {
+.update-card,
+.collector-card-filter {
   transition: background var(--duration-normal) var(--easing-default),
               box-shadow var(--duration-normal) var(--easing-default),
               transform var(--duration-normal) var(--easing-default);
 }
 .story-card:hover,
 .story-featured:hover,
-.update-card:hover {
+.update-card:hover,
+.collector-card-filter:hover {
   background: var(--surface-200) !important;
   box-shadow: var(--shadow-1);
   transform: translateY(-1px);
 }
 @media (prefers-reduced-motion: reduce) {
   .home-card, .collector-card, .collection-card,
-  .story-card, .story-featured, .update-card {
+  .story-card, .story-featured, .update-card, .collector-card-filter {
     transition: none;
   }
   .home-card:hover, .collector-card:hover, .collection-card:hover,
-  .story-card:hover, .story-featured:hover, .update-card:hover {
+  .story-card:hover, .story-featured:hover, .update-card:hover, .collector-card-filter:hover {
     transform: none;
     box-shadow: none;
   }
