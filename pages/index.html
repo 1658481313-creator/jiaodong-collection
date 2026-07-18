@@ -63,7 +63,8 @@
     }
     @media (max-width: 767px) {
       .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-      .resp-grid-news { grid-template-columns: 1fr !important; }
+      .news-carousel-grid { grid-template-columns: 1fr !important; }
+      .news-carousel-slides { aspect-ratio: 16/9 !important; }
       .resp-full-width { flex-direction: column !important; }
       .resp-stack { flex-direction: column !important; gap: 12px !important; }
       .resp-hide-mobile { display: none !important; }
@@ -414,363 +415,33 @@
                 <button data-news-type="展览信息" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-eyebrow);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterNews('展览信息', this)">展览信息</button>
                 <button data-news-type="市场动态" class="inline-flex items-center justify-center whitespace-nowrap shrink-0" style="height:44px;padding-left:16px;padding-right:16px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-eyebrow);font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="filterNews('市场动态', this)">市场动态</button>
             </div>
-            <!-- News grid: left featured + right list -->
-            <div class="grid gap-6 lg:grid-cols-12 items-stretch resp-grid-news">
-                <!-- Left: Featured article with image -->
-                <div class="lg:col-span-5">
-                    <a href="update-detail.html" data-dom-id="link-article-6" data-card-news-type="展览信息" data-news-featured="true" class="block h-full news-card" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);overflow:hidden;transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default);">
-                        <div class="overflow-hidden">
-                            <img src="assets/news-museum-exhibition.jpg" loading="lazy" alt="胶东博物馆新展" class="w-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'" style="height: 380px;">
-                        </div>
-                        <div class="p-5">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:24px;padding-left:8px;padding-right:8px;background:var(--surface-200);color:var(--navy-500);font-size:12px;font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);">展览信息</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-11-10</span>
-                            </div>
-                            <h3 class="mb-2 line-clamp-2" style="font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--text-primary-700);line-height:1.45;">胶东博物馆新展：海上丝路与民间收藏</h3>
-                            <p class="line-clamp-3" style="font-size:14px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.75;">本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。</p>
-                        </div>
-                    </a>
+            <!-- 轮播主体：左图右文 -->
+            <div class="grid gap-6 lg:grid-cols-12 items-stretch news-carousel-grid" style="grid-template-columns:5fr 7fr;">
+                <!-- 左侧：图片轮播 -->
+                <div id="newsCarousel" style="position:relative;border:1px solid var(--border-200);border-radius:var(--radius-md);overflow:hidden;background:var(--surface-50);">
+                    <div id="carouselSlides" class="news-carousel-slides" style="position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;">
+                        <!-- JS动态生成slides -->
+                    </div>
+                    <!-- 底部信息叠加层 -->
+                    <div id="carouselOverlay" style="position:absolute;bottom:0;left:0;right:0;padding:40px 20px 16px;background:linear-gradient(to top,rgba(10,16,25,0.65),transparent);z-index:2;">
+                        <span id="overlayTag" style="display:inline-flex;align-items:center;height:22px;padding:0 8px;background:rgba(255,255,255,0.18);color:#fff;font-size:11px;font-weight:600;border-radius:4px;margin-bottom:6px;"></span>
+                        <p id="overlayTitle" style="font-size:15px;font-weight:700;color:#fff;line-height:1.4;margin:0;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;"></p>
+                    </div>
+                    <!-- 左右箭头 -->
+                    <button id="carouselPrev" style="position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.85);color:var(--text-primary-700);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-1);transition:background 0.15s;" aria-label="上一条">&#8249;</button>
+                    <button id="carouselNext" style="position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.85);color:var(--text-primary-700);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-1);transition:background 0.15s;left:auto;right:10px;" aria-label="下一条">&#8250;</button>
+                    <!-- 指示器 -->
+                    <div id="carouselDots" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 0;"></div>
                 </div>
-                <!-- Right: Article list (stretches to match left card height) -->
-                <div class="lg:col-span-7 flex flex-col" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);overflow:hidden;">
-                    <!-- Article 1 -->
-                    <a href="update-detail.html" data-dom-id="link-update-1" data-card-news-type="拍卖资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-auction-record.jpg" loading="lazy" alt="北京秋拍" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">拍卖资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-09-28</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">北京秋拍：胶东藏家藏品创高价</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交。</p>
-                        </div>
-                    </a>
-                    <!-- Article 2 -->
-                    <a href="update-detail.html" data-dom-id="link-update-2" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-jade-market.jpg" loading="lazy" alt="烟台玉石市场" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-10-22</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">烟台玉石市场春季行情分析</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。</p>
-                        </div>
-                    </a>
-                    <!-- Article 3 -->
-                    <a href="update-detail.html" data-dom-id="link-update-3" data-card-news-type="平台采访" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-collector-interview.jpg" loading="lazy" alt="走近胶东收藏家" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">平台采访</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-09-08</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">走近胶东收藏家：赵先生的票证世界</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了一段段鲜活的历史记忆。</p>
-                        </div>
-                    </a>
-                    <!-- Article 4 -->
-                    <a href="update-detail.html" data-dom-id="link-update-4" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-kiln-heritage.jpg" loading="lazy" alt="古窑遗址保护" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-08-15</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">古窑遗址保护与民间收藏的共生</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。</p>
-                        </div>
-                    </a>
-                    <!-- Article 5 -->
-                    <a href="update-detail.html" data-dom-id="link-update-5" data-card-news-type="展览信息" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/story-ancient-coin.jpg" loading="lazy" alt="济南古玩交流会" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">展览信息</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-07-28</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">济南古玩交流会：胶东收藏家的参展纪实</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">多位胶东收藏家携珍品参展，展现了胶东地区深厚的收藏底蕴与活跃的收藏氛围。</p>
-                        </div>
-                    </a>
-                    <!-- Article 6 -->
-                    <a href="update-detail.html" data-dom-id="link-update-6" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-auction-record.jpg" loading="lazy" alt="北京秋拍" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-02-25</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">北京秋拍：胶东藏家藏品创高价</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">在刚结束的北京秋拍中，多位胶东藏家的藏品以超出估价数倍的价格成交，引发市场关注。</p>
-                        </div>
-                    </a>
-                    <!-- Article 7 -->
-                    <a href="update-detail.html" data-dom-id="link-update-7" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-digital-museum.jpg" loading="lazy" alt="数字博物馆" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-02-20</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">数字博物馆：让收藏走进千家万户</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">随着数字技术的发展，越来越多的私人收藏开始通过线上虚拟博物馆向公众展示。</p>
-                        </div>
-                    </a>
-                    <!-- Article 8 -->
-                    <a href="update-detail.html" data-dom-id="link-update-8" data-card-news-type="展览信息" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-porcelain-exhibition.jpg" loading="lazy" alt="御窑遗址瓷器" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">展览信息</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-02-15</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">景德镇御窑遗址出土瓷器首次展出</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">景德镇御窑遗址新出土的明清官窑瓷器首次在山东博物馆展出，吸引大批观众。</p>
-                        </div>
-                    </a>
-                    <!-- Article 9 -->
-                    <a href="update-detail.html" data-dom-id="link-update-9" data-card-news-type="平台采访" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-collector-forum.jpg" loading="lazy" alt="收藏家交流会" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">平台采访</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-02-10</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">第三届胶东收藏家交流会在烟台举办</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">第三届胶东收藏家交流会在烟台成功举办，来自三地的百余名收藏家参与交流。</p>
-                        </div>
-                    </a>
-                    <!-- Article 10 -->
-                    <a href="update-detail.html" data-dom-id="link-update-10" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-cultural-heritage.jpg" loading="lazy" alt="非遗保护" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-02-05</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">非遗保护与收藏：传统工艺的新机遇</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">非物质文化遗产保护法的修订为传统工艺品收藏带来新的发展机遇。</p>
-                        </div>
-                    </a>
-                    <!-- Article 11 -->
-                    <a href="update-detail.html" data-dom-id="link-update-11" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-market-report.jpg" loading="lazy" alt="市场年度报告" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-01-28</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">2024年古玩市场年度报告发布</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">年度报告显示，瓷器、玉器品类持续领跑市场，书画板块回暖明显。</p>
-                        </div>
-                    </a>
-                    <!-- Article 12 -->
-                    <a href="update-detail.html" data-dom-id="link-update-12" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-calligraphy-auction.jpg" loading="lazy" alt="书法拍卖" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-01-20</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">民国书法作品拍卖行情分析</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">民国时期名家书法作品近年来受到市场追捧，价格稳步上升，分析其投资前景。</p>
-                        </div>
-                    </a>
-                    <!-- Article 13 -->
-                    <a href="update-detail.html" data-dom-id="link-update-13" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-jade-exhibition.jpg" loading="lazy" alt="和田玉市场" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-01-15</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">和田玉市场走势：原料稀缺推高价格</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">随着和田玉原料日益稀缺，优质籽料价格持续走高，收藏投资需理性对待。</p>
-                        </div>
-                    </a>
-                    <!-- Article 14 -->
-                    <a href="update-detail.html" data-dom-id="link-update-14" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-online-platform.jpg" loading="lazy" alt="线上收藏平台" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-01-08</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">线上收藏平台用户突破百万</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">主流线上收藏交易平台的注册用户已突破百万，线上交易成为收藏市场新常态。</p>
-                        </div>
-                    </a>
-                    <!-- Article 15 -->
-                    <a href="update-detail.html" data-dom-id="link-update-15" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-restoration-workshop.jpg" loading="lazy" alt="古书画修复" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2024-01-02</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">故宫博物院古书画修复项目进展</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">故宫博物院古书画修复项目取得重要进展，多件珍贵书画重焕光彩。</p>
-                        </div>
-                    </a>
-                    <!-- Article 16 -->
-                    <a href="update-detail.html" data-dom-id="link-update-16" data-card-news-type="平台采访" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-treasure-hunt.jpg" loading="lazy" alt="乡村淘宝" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">平台采访</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-12-25</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">乡村淘宝：胶东民间藏品发现记</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">跟随收藏爱好者深入胶东乡村，记录民间藏品的发现与征集过程。</p>
-                        </div>
-                    </a>
-                    <!-- Article 17 -->
-                    <a href="update-detail.html" data-dom-id="link-update-17" data-card-news-type="展览信息" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-museum-collaboration.jpg" loading="lazy" alt="博物馆合作" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">展览信息</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-12-18</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">省博物馆与私人收藏家合作新模式</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">山东多家博物馆探索与私人收藏家合作办展的新模式，实现资源共享。</p>
-                        </div>
-                    </a>
-                    <!-- Article 18 -->
-                    <a href="update-detail.html" data-dom-id="link-update-18" data-card-news-type="平台采访" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-young-collectors.jpg" loading="lazy" alt="年轻收藏家" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">平台采访</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-12-10</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">年轻收藏家群体的崛起</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">90后收藏家群体逐渐壮大，他们以新的视角和方式参与传统收藏文化。</p>
-                        </div>
-                    </a>
-                    <!-- Article 19 -->
-                    <a href="update-detail.html" data-dom-id="link-update-19" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-export-regulation.jpg" loading="lazy" alt="文物出境管理" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-12-05</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">文物出境管理政策解读</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">最新文物出境管理政策有哪些变化？收藏家需要注意哪些合规要求？</p>
-                        </div>
-                    </a>
-                    <!-- Article 20 -->
-                    <a href="update-detail.html" data-dom-id="link-update-20" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-autumn-auction.jpg" loading="lazy" alt="秋季拍卖预告" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-11-28</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">秋季拍卖会精品预告</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">各大拍卖行秋季拍卖会即将拉开帷幕，本季有哪些值得关注的重器精品？</p>
-                        </div>
-                    </a>
-                    <!-- Article 21 -->
-                    <a href="update-detail.html" data-dom-id="link-update-21" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-winter-auction.jpg" loading="lazy" alt="冬拍前瞻" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-11-20</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">冬拍前瞻：重器精品抢先看</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">各大拍卖行冬拍即将开启，本季有哪些重磅拍品值得收藏家关注？</p>
-                        </div>
-                    </a>
-                    <!-- Article 22 -->
-                    <a href="update-detail.html" data-dom-id="link-update-22" data-card-news-type="市场动态" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-porcelain-market.jpg" loading="lazy" alt="瓷器市场" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">市场动态</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-11-15</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">瓷器市场价格走势分析</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">分析近年瓷器拍卖市场行情，明清官窑瓷器持续领涨。</p>
-                        </div>
-                    </a>
-                    <!-- Article 23 -->
-                    <a href="update-detail.html" data-dom-id="link-update-23" data-card-news-type="行业资讯" class="flex gap-4 p-4 flex-1 news-card" style="border-bottom:1px solid var(--border-200);text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-jade-authentication.jpg" loading="lazy" alt="玉器鉴定" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">行业资讯</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-11-10</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">玉器鉴定知识科普</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">专家分享玉器鉴定实用技巧，从材质、工艺、皮壳三方面入手。</p>
-                        </div>
-                    </a>
-                    <!-- Article 24 -->
-                    <a href="update-detail.html" data-dom-id="link-update-24" data-card-news-type="平台采访" class="flex gap-4 p-4 news-card" style="text-decoration:none;transition:background var(--duration-fast) var(--easing-default);">
-                        <div class="shrink-0 overflow-hidden" style="width:140px;border-radius:var(--radius-sm);">
-                            <img src="assets/news-collector-club.jpg" loading="lazy" alt="收藏家协会" class="w-full h-full object-cover" onerror="this.style.background='var(--surface-200)';this.style.minHeight='100px';this.alt='图片加载失败'">
-                        </div>
-                        <div class="min-w-0 flex flex-col justify-center">
-                            <div class="flex items-center gap-2 mb-1.5">
-                                <span class="inline-flex items-center justify-center whitespace-nowrap" style="height:22px;padding-left:6px;padding-right:6px;background:var(--surface-200);color:var(--navy-500);font-size:11px;font-weight:600;font-family:var(--font-body);border-radius:4px;">平台采访</span>
-                                <span class="whitespace-nowrap" style="font-size:12px;color:var(--text-primary-300);font-family:var(--font-body);">2023-11-05</span>
-                            </div>
-                            <h4 class="mb-1 line-clamp-1" style="font-size:15px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-body);">胶东收藏家协会年度总结</h4>
-                            <p class="line-clamp-2" style="font-size:13px;color:var(--text-primary-400);font-family:var(--font-body);line-height:1.6;">胶东收藏家协会召开年度总结大会，回顾成果展望未来发展规划。</p>
-                        </div>
-                    </a>
-
+                <!-- 右侧：对应文字详情 -->
+                <div id="newsDetail" style="border:1px solid var(--border-200);border-radius:var(--radius-md);background:var(--surface-50);padding:28px 32px;display:flex;flex-direction:column;justify-content:center;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                        <span id="detailTag" style="display:inline-flex;align-items:center;height:24px;padding:0 8px;background:var(--navy-50);color:var(--navy-500);font-size:12px;font-weight:600;border-radius:var(--radius-sm);font-family:var(--font-body);"></span>
+                        <span id="detailDate" style="font-size:13px;color:var(--text-primary-300);font-family:var(--font-body);"></span>
+                    </div>
+                    <h3 id="detailTitle" style="font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--text-primary-700);line-height:1.4;margin:0 0 16px;transition:opacity 0.3s;"></h3>
+                    <p id="detailDesc" style="font-size:15px;color:var(--text-primary-400);line-height:1.85;margin:0 0 20px;transition:opacity 0.3s;font-family:var(--font-body);"></p>
+                    <a id="detailLink" href="update-detail.html" style="display:inline-flex;align-items:center;gap:4px;font-size:var(--font-size-more-link);font-weight:var(--font-weight-more-link);color:var(--navy-500);text-decoration:none;align-self:flex-start;transition:color 0.15s;font-family:var(--font-body);">阅读全文 &rarr;</a>
                 </div>
             </div>
         </section>
@@ -1043,34 +714,162 @@
             }
         });
     }
-    function filterNews(type, btn) {
-        var cards = document.querySelectorAll('.news-card');
-        if (type === '全部') {
-            // 每个分类取前1条，组成右4
-            var countByCategory = {};
-            cards.forEach(function(card) {
-                if (card.getAttribute('data-news-featured')) return;
-                var cat = card.getAttribute('data-card-news-type');
-                if (!countByCategory[cat]) countByCategory[cat] = 0;
-                if (countByCategory[cat] < 1) {
-                    card.removeAttribute('hidden');
-                    countByCategory[cat]++;
-                } else {
-                    card.setAttribute('hidden', '');
-                }
+    // ===== 收藏动态轮播 =====
+    var allNewsData = [
+        { type:'展览信息', date:'2024-11-10', title:'胶东博物馆新展：海上丝路与民间收藏', desc:'本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出。', img:'assets/news-museum-exhibition.jpg', alt:'胶东博物馆新展' },
+        { type:'拍卖资讯', date:'2024-09-28', title:'北京秋拍：胶东藏家藏品创高价', desc:'在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交。本次拍卖吸引了来自全国各地的藏家参与。', img:'assets/news-auction-record.jpg', alt:'北京秋拍' },
+        { type:'市场动态', date:'2024-10-22', title:'烟台玉石市场春季行情分析', desc:'今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。业内人士分析，中小型收藏品市场需求有望进一步扩大。', img:'assets/news-jade-market.jpg', alt:'烟台玉石市场' },
+        { type:'平台采访', date:'2024-09-08', title:'走近胶东收藏家：赵先生的票证世界', desc:'赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了一段段鲜活的历史记忆。他的收藏不仅记录了胶东地区的社会变迁，也为研究地方经济史提供了珍贵资料。', img:'assets/news-collector-interview.jpg', alt:'走近胶东收藏家' },
+        { type:'行业资讯', date:'2024-08-15', title:'古窑遗址保护与民间收藏的共生', desc:'探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。多位专家呼吁建立更完善的合作机制。', img:'assets/news-kiln-heritage.jpg', alt:'古窑遗址保护' },
+        { type:'展览信息', date:'2024-07-28', title:'济南古玩交流会：胶东收藏家的参展纪实', desc:'多位胶东收藏家携珍品参展，展现了胶东地区深厚的收藏底蕴与活跃的收藏氛围。', img:'assets/story-ancient-coin.jpg', alt:'济南古玩交流会' },
+        { type:'市场动态', date:'2024-02-25', title:'北京秋拍预展：胶东精品抢先看', desc:'在刚结束的北京秋拍中，多位胶东藏家的藏品以超出估价数倍的价格成交，引发市场关注。', img:'assets/news-auction-record.jpg', alt:'北京秋拍预展' },
+        { type:'行业资讯', date:'2024-02-20', title:'数字博物馆：让收藏走进千家万户', desc:'随着数字技术的发展，越来越多的私人收藏开始通过线上虚拟博物馆向公众展示。', img:'assets/news-digital-museum.jpg', alt:'数字博物馆' },
+        { type:'展览信息', date:'2024-02-15', title:'景德镇御窑遗址出土瓷器首次展出', desc:'景德镇御窑遗址新出土的明清官窑瓷器首次在山东博物馆展出，吸引大批观众。', img:'assets/news-porcelain-exhibition.jpg', alt:'御窑遗址瓷器' },
+        { type:'平台采访', date:'2024-02-10', title:'第三届胶东收藏家交流会在烟台举办', desc:'第三届胶东收藏家交流会在烟台成功举办，来自三地的百余名收藏家参与交流。', img:'assets/news-collector-forum.jpg', alt:'收藏家交流会' },
+        { type:'行业资讯', date:'2024-02-05', title:'非遗保护与收藏：传统工艺的新机遇', desc:'非物质文化遗产保护法的修订为传统工艺品收藏带来新的发展机遇。', img:'assets/news-cultural-heritage.jpg', alt:'非遗保护' },
+        { type:'市场动态', date:'2024-01-28', title:'2024年古玩市场年度报告发布', desc:'年度报告显示，瓷器、玉器品类持续领跑市场，书画板块回暖明显。', img:'assets/news-market-report.jpg', alt:'市场年度报告' },
+        { type:'市场动态', date:'2024-01-20', title:'民国书法作品拍卖行情分析', desc:'民国时期名家书法作品近年来受到市场追捧，价格稳步上升，分析其投资前景。', img:'assets/news-calligraphy-auction.jpg', alt:'书法拍卖' },
+        { type:'市场动态', date:'2024-01-15', title:'和田玉市场走势与收藏建议', desc:'和田玉市场近期价格波动较大，专家建议收藏者关注籽料与山料的价值差异。', img:'assets/news-jade-exhibition.jpg', alt:'和田玉市场' }
+    ];
+
+    var newsCurrentSlide = 0;
+    var newsFilteredData = [];
+    var newsAutoTimer = null;
+    var newsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 生成slides DOM
+    function buildCarouselSlides(data) {
+        var container = document.getElementById('carouselSlides');
+        var dotsContainer = document.getElementById('carouselDots');
+        if (!container || !dotsContainer) return;
+
+        // 清空
+        container.innerHTML = '';
+        dotsContainer.innerHTML = '';
+
+        data.forEach(function(item, idx) {
+            // 创建slide
+            var slide = document.createElement('img');
+            slide.src = item.img;
+            slide.alt = item.alt || item.title;
+            slide.loading = 'lazy';
+            slide.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.6s ease;opacity:' + (idx === 0 ? '1' : '0') + ';';
+            slide.onerror = function() { this.style.background = 'var(--surface-200)'; this.style.minHeight = '100px'; this.alt = '图片加载失败'; };
+            container.appendChild(slide);
+
+            // 创建dot
+            var dot = document.createElement('span');
+            dot.style.cssText = 'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background 0.15s,transform 0.15s;background:' + (idx === 0 ? 'var(--navy-500)' : 'var(--border-300)') + ';' + (idx === 0 ? 'transform:scale(1.2);' : '');
+            dot.setAttribute('data-idx', String(idx));
+            dot.addEventListener('click', function() {
+                newsGoTo(parseInt(this.getAttribute('data-idx'), 10));
             });
-        } else {
-            var count = 0;
-            cards.forEach(function(card) {
-                if (card.getAttribute('data-news-featured')) return;
-                if (card.getAttribute('data-card-news-type') === type && count < 4) {
-                    card.removeAttribute('hidden');
-                    count++;
-                } else {
-                    card.setAttribute('hidden', '');
-                }
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    // 更新右侧文字
+    function updateNewsDetail(item) {
+        var tag = document.getElementById('detailTag');
+        var date = document.getElementById('detailDate');
+        var title = document.getElementById('detailTitle');
+        var desc = document.getElementById('detailDesc');
+        if (!tag || !title) return;
+
+        // 淡出
+        title.style.opacity = '0';
+        desc.style.opacity = '0';
+
+        setTimeout(function() {
+            tag.textContent = item.type;
+            if (date) date.textContent = item.date;
+            title.textContent = item.title;
+            desc.textContent = item.desc;
+
+            // 更新叠加层
+            var overlayTag = document.getElementById('overlayTag');
+            var overlayTitle = document.getElementById('overlayTitle');
+            if (overlayTag) overlayTag.textContent = item.type;
+            if (overlayTitle) overlayTitle.textContent = item.title;
+
+            // 淡入
+            title.style.opacity = '1';
+            desc.style.opacity = '1';
+        }, 150);
+    }
+
+    // 切换到指定slide
+    function newsGoTo(idx) {
+        if (newsFilteredData.length === 0) return;
+        if (idx < 0) idx = newsFilteredData.length - 1;
+        if (idx >= newsFilteredData.length) idx = 0;
+        newsCurrentSlide = idx;
+
+        // 切换图片opacity
+        var slides = document.getElementById('carouselSlides');
+        if (slides) {
+            var imgs = slides.querySelectorAll('img');
+            imgs.forEach(function(img, i) {
+                img.style.opacity = (i === idx) ? '1' : '0';
             });
         }
+
+        // 切换dots
+        var dots = document.getElementById('carouselDots');
+        if (dots) {
+            var spans = dots.querySelectorAll('span');
+            spans.forEach(function(dot, i) {
+                dot.style.background = (i === idx) ? 'var(--navy-500)' : 'var(--border-300)';
+                dot.style.transform = (i === idx) ? 'scale(1.2)' : 'scale(1)';
+            });
+        }
+
+        // 更新右侧文字
+        updateNewsDetail(newsFilteredData[idx]);
+    }
+
+    // 自动轮播
+    function newsStartAuto() {
+        if (newsReducedMotion) return;
+        newsStopAuto();
+        newsAutoTimer = setInterval(function() {
+            newsGoTo(newsCurrentSlide + 1);
+        }, 5000);
+    }
+
+    function newsStopAuto() {
+        if (newsAutoTimer) {
+            clearInterval(newsAutoTimer);
+            newsAutoTimer = null;
+        }
+    }
+
+    // 筛选函数（替换旧的filterNews）
+    function filterNews(type, btn) {
+        // 筛选数据
+        if (type === '全部') {
+            newsFilteredData = allNewsData.slice();
+        } else {
+            newsFilteredData = allNewsData.filter(function(item) {
+                return item.type === type;
+            });
+        }
+
+        // 重置索引
+        newsCurrentSlide = 0;
+
+        // 重建DOM
+        buildCarouselSlides(newsFilteredData);
+
+        // 更新右侧
+        if (newsFilteredData.length > 0) {
+            updateNewsDetail(newsFilteredData[0]);
+        }
+
+        // 重启自动轮播
+        newsStartAuto();
+
+        // 切换按钮样式
         var buttons = document.querySelectorAll('#news-filter-bar button');
         buttons.forEach(function(b) {
             if (b === btn) {
@@ -1084,10 +883,45 @@
             }
         });
     }
-    // 初始化：收藏动态按"全部"模式设置卡片可见性
+
+    // 初始化轮播
     (function() {
         var defaultBtn = document.querySelector('#news-filter-bar button');
         if (defaultBtn) filterNews('全部', defaultBtn);
+
+        // 箭头事件
+        var prevBtn = document.getElementById('carouselPrev');
+        var nextBtn = document.getElementById('carouselNext');
+        var carousel = document.getElementById('newsCarousel');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                newsGoTo(newsCurrentSlide - 1);
+                newsStartAuto(); // 用户操作后重置自动计时
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                newsGoTo(newsCurrentSlide + 1);
+                newsStartAuto();
+            });
+        }
+
+        // hover暂停/恢复
+        if (carousel) {
+            carousel.addEventListener('mouseenter', newsStopAuto);
+            carousel.addEventListener('mouseleave', newsStartAuto);
+        }
+
+        // prefers-reduced-motion 监听
+        window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', function(e) {
+            newsReducedMotion = e.matches;
+            if (newsReducedMotion) {
+                newsStopAuto();
+            } else {
+                newsStartAuto();
+            }
+        });
     })();
     function filterStories(type, btn) {
         // 1. Toggle featured cards (left side) - show matching category's featured card
