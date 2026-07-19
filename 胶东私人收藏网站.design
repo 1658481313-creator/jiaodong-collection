@@ -185,7 +185,7 @@
       "createdAt": 1783828000000,
       "canvasData": {
         "x": 0,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -268,7 +268,7 @@
       "createdAt": 1783828030000,
       "canvasData": {
         "x": 620,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -356,7 +356,7 @@
       "createdAt": 1783828040000,
       "canvasData": {
         "x": 0,
-        "y": 2953,
+        "y": 1353,
         "group": 0
       },
       "devMetadata": {
@@ -468,7 +468,7 @@
       "createdAt": 1783828010000,
       "canvasData": {
         "x": 1240,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -551,7 +551,7 @@
       "createdAt": 1783828020000,
       "canvasData": {
         "x": 1860,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -610,7 +610,7 @@
       "createdAt": 1783828100000,
       "canvasData": {
         "x": 0,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-story-1.jpg"
@@ -624,7 +624,7 @@
       "createdAt": 1783828101000,
       "canvasData": {
         "x": 620,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-story-2.jpg"
@@ -638,7 +638,7 @@
       "createdAt": 1783828102000,
       "canvasData": {
         "x": 1240,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-updates-1.jpg"
@@ -652,7 +652,7 @@
       "createdAt": 1783828103000,
       "canvasData": {
         "x": 1860,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-updates-2.jpg"
@@ -666,7 +666,7 @@
       "createdAt": 1783821000000,
       "canvasData": {
         "x": 2480,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-blue-porcelain-jar.jpg"
@@ -680,7 +680,7 @@
       "createdAt": 1783821001000,
       "canvasData": {
         "x": 3100,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-jade-dragon-pendant.jpg"
@@ -694,7 +694,7 @@
       "createdAt": 1783821002000,
       "canvasData": {
         "x": 3720,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-qing-coins.jpg"
@@ -708,7 +708,7 @@
       "createdAt": 1783821003000,
       "canvasData": {
         "x": 4340,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-landscape-scroll.jpg"
@@ -722,7 +722,7 @@
       "createdAt": 1783821004000,
       "canvasData": {
         "x": 4960,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/hero-collection-display.jpg"
@@ -736,7 +736,7 @@
       "createdAt": 1783821005000,
       "canvasData": {
         "x": 5580,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-banner-porcelain.jpg"
@@ -750,7 +750,7 @@
       "createdAt": 1783822000000,
       "canvasData": {
         "x": 6200,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/news-museum-exhibition.jpg"
@@ -764,7 +764,7 @@
       "createdAt": 1783822001000,
       "canvasData": {
         "x": 6820,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/news-jade-market.jpg"
@@ -778,7 +778,7 @@
       "createdAt": 1783822002000,
       "canvasData": {
         "x": 7440,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/news-collector-interview.jpg"
@@ -792,7 +792,7 @@
       "createdAt": 1783822003000,
       "canvasData": {
         "x": 8060,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/news-kiln-heritage.jpg"
@@ -806,7 +806,7 @@
       "createdAt": 1783822004000,
       "canvasData": {
         "x": 8680,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-porcelain-journey.jpg"
@@ -820,7 +820,7 @@
       "createdAt": 1783822005000,
       "canvasData": {
         "x": 9300,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-copper-coin-history.jpg"
@@ -834,7 +834,7 @@
       "createdAt": 1783822006000,
       "canvasData": {
         "x": 9920,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-blue-porcelain-memory.jpg"
@@ -848,7 +848,7 @@
       "createdAt": 1783822007000,
       "canvasData": {
         "x": 10540,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-folk-collection.jpg"
@@ -862,7 +862,7 @@
       "createdAt": 1783822008000,
       "canvasData": {
         "x": 11160,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-collector-study.jpg"
@@ -876,7 +876,7 @@
       "createdAt": 1783822009000,
       "canvasData": {
         "x": 11780,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/story-ancient-coin.jpg"
@@ -890,7 +890,7 @@
       "createdAt": 1783842000000,
       "canvasData": {
         "x": 12400,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-collectors-1.jpg"
@@ -904,7 +904,7 @@
       "createdAt": 1783842100000,
       "canvasData": {
         "x": 13020,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-collectors-2.jpg"
@@ -918,7 +918,7 @@
       "createdAt": 1783842200000,
       "canvasData": {
         "x": 13640,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-contact-1.jpg"
@@ -932,7 +932,7 @@
       "createdAt": 1783842300000,
       "canvasData": {
         "x": 14260,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/banner-contact-2.jpg"
@@ -946,7 +946,7 @@
       "createdAt": 1783843000000,
       "canvasData": {
         "x": 2480,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -1035,7 +1035,7 @@
       "createdAt": 1783843100000,
       "canvasData": {
         "x": 620,
-        "y": 2953,
+        "y": 1353,
         "group": 0
       },
       "devMetadata": {
@@ -1112,7 +1112,7 @@
       "createdAt": 1784170000000,
       "canvasData": {
         "x": 3100,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -1177,7 +1177,7 @@
       "createdAt": 1783843200000,
       "canvasData": {
         "x": 14880,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collector-wang-studio.jpg"
@@ -1191,7 +1191,7 @@
       "createdAt": 1783870643223,
       "canvasData": {
         "x": 15500,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-green-glaze-vase.jpg"
@@ -1205,7 +1205,7 @@
       "createdAt": 1783870643223,
       "canvasData": {
         "x": 16120,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-blue-white-plate.jpg"
@@ -1219,7 +1219,7 @@
       "createdAt": 1783870643223,
       "canvasData": {
         "x": 16740,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-five-color-jar.jpg"
@@ -1233,7 +1233,7 @@
       "createdAt": 1783870643223,
       "canvasData": {
         "x": 17360,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/collection-celadon-bowl.jpg"
@@ -1247,7 +1247,7 @@
       "createdAt": 1784130900000,
       "canvasData": {
         "x": 3720,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {
@@ -1300,7 +1300,7 @@
       "createdAt": 1784270000000,
       "canvasData": {
         "x": 17980,
-        "y": 14442
+        "y": 3308
       },
       "devMetadata": {
         "imageSrc": "assets/logo.png"
@@ -1314,7 +1314,7 @@
       "createdAt": 1784268000000,
       "canvasData": {
         "x": 4340,
-        "y": 7733,
+        "y": 2257,
         "group": 0
       },
       "devMetadata": {

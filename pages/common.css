@@ -1,0 +1,144 @@
+/* ============================================================
+   common.css - 胶东私人收藏 全站公共样式
+   仅放置纯 CSS（不含 Tailwind @theme/@layer 指令）
+   各页面 <head> 内仍保留 type="text/tailwindcss" 内联块
+   ============================================================ */
+
+/* ---------- 基础工具类 ---------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+[data-icon] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  background-color: currentColor;
+}
+
+/* 跳转链接（无障碍） */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--navy-500);
+  color: var(--surface-50);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 14px;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+/* ---------- 分页按钮统一样式 ---------- */
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  width: 40px;
+  height: 40px;
+  font-size: var(--font-size-nav);
+  font-weight: 600;
+  font-family: var(--font-body);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: var(--surface-50);
+  color: var(--text-primary-500);
+  border: 1px solid var(--border-200);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.pagination-btn:hover:not(.pagination-btn-active) {
+  background: var(--surface-200);
+  border-color: var(--navy-500);
+  color: var(--navy-500);
+}
+.pagination-btn:focus-visible {
+  outline: 2px solid var(--navy-500);
+  outline-offset: 2px;
+}
+.pagination-btn-active {
+  background: var(--navy-500) !important;
+  color: var(--surface-50) !important;
+  border: none !important;
+  cursor: default;
+}
+
+/* ---------- 移动端导航 当前页统一标识 ---------- */
+.mobile-nav-menu a[aria-current="page"] {
+  color: var(--navy-500) !important;
+  font-weight: 600 !important;
+}
+
+/* ---------- 响应式工具类（全站并集） ---------- */
+@media (max-width: 1023px) {
+  .resp-full-width { flex-direction: column !important; }
+  .resp-detail-grid { grid-template-columns: 1fr !important; }
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-grid img { width: 100% !important; max-width: 100% !important; height: auto !important; max-height: 300px !important; }
+}
+
+@media (max-width: 767px) {
+  /* 栅格调整 */
+  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .resp-grid-3 { grid-template-columns: 1fr !important; }
+  .resp-grid-news { grid-template-columns: 1fr !important; }
+  .news-carousel-grid { grid-template-columns: 1fr !important; }
+  .news-carousel-slides { aspect-ratio: 16/9 !important; }
+
+  /* 通用排布 */
+  .resp-full-width { flex-direction: column !important; }
+  .resp-stack { flex-direction: column !important; gap: 12px !important; }
+  .resp-hide-mobile { display: none !important; }
+  .resp-detail-info { flex-direction: column !important; }
+
+  /* 间距 */
+  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
+  .resp-section-pt { padding-top: 32px !important; }
+  .resp-section-pb { padding-bottom: 32px !important; }
+  .resp-card-gap { gap: 12px !important; }
+
+  /* 触控目标统一 44px（无障碍） */
+  .resp-filter-min-h button { min-height: 44px !important; }
+
+  /* 图片与 banner */
+  .resp-hero-img { height: 200px !important; max-height: 200px !important; }
+  .resp-banner-img { height: 200px !important; }
+
+  /* 表单与文字 */
+  .resp-contact-form { max-width: 100% !important; }
+  .resp-breadcrumb { font-size: 12px !important; }
+
+  /* 页脚 */
+  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* 新闻/故事卡片：图片缩小、整体纵向堆叠 */
+  .news-card-img { width: 120px !important; min-width: 120px !important; }
+  .news-card { flex-direction: column !important; }
+  .story-card-img { width: 120px !important; min-width: 120px !important; }
+  .story-card { flex-direction: column !important; }
+
+  /* 首页收藏动态：右侧详情卡内边距收窄 */
+  .news-detail-inner { padding: 20px 18px !important; }
+  .news-detail-title { font-size: 20px !important; margin-bottom: 12px !important; }
+  .news-detail-desc { font-size: 14px !important; line-height: 1.7 !important; }
+
+  /* info.html 服务帮助 tab：横向滚动 + 44px 触控目标 */
+  .info-nav-btn {
+    white-space: nowrap !important;
+    min-width: auto !important;
+    width: auto !important;
+    min-height: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+  }
+}

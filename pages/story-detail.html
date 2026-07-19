@@ -7,6 +7,7 @@
     <meta name="description" content="这件明代青花缠枝莲纹罐，历经百年辗转，从景德镇窑火中诞生，最终落户胶东民间收藏家之手。">
     
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="common.css">
     <style type="text/tailwindcss">
 @theme inline {
     --color-background: var(--color-background);
@@ -41,46 +42,10 @@
   }
     </style>
     <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
-    </style>
-    <style>
-    body { margin: 0; padding: 0; background: var(--surface-50); }
-    /* == Responsive == */
-    @media (max-width: 1023px) {
-        .hero-grid img { width: 100% !important; height: auto !important; }
-        .resp-full-width { flex-direction: column !important; }
-        .resp-detail-grid { grid-template-columns: 1fr !important; }
-    }
+    /* story-detail.html 独有：移动端文章布局纵向堆叠（侧栏移到主文下方） */
     @media (max-width: 767px) {
-        .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-        .resp-grid-3 { grid-template-columns: 1fr !important; }
-        .resp-grid-news { grid-template-columns: 1fr !important; }
-        .resp-hide-mobile { display: none !important; }
-        .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
-        .resp-section-pt { padding-top: 32px !important; }
-        .resp-section-pb { padding-bottom: 32px !important; }
-        .resp-filter-min-h button { min-height: 40px !important; }
-        .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-        .resp-banner-img { height: 200px !important; }
-        .resp-detail-info { flex-direction: column !important; }
-        .resp-contact-form { max-width: 100% !important; }
-        .resp-breadcrumb { font-size: 12px !important; }
-        .resp-card-gap { gap: 12px !important; }
         .article-layout { flex-direction: column !important; }
-        .sidebar { display: none !important; }
+        .sidebar { width: 100% !important; position: static !important; }
         .article-main { max-width: 100% !important; }
     }
     </style>
@@ -111,7 +76,7 @@
         <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
         <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
         <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
-        <a href="stories.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
+        <a href="stories.html" class="text-base font-medium py-2" aria-current="page" style="text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
         <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
         <a href="info.html" style="font-size:var(--font-size-body);font-weight:500;color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
         <a href="contact.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;">入驻联系</a>
@@ -246,7 +211,7 @@
                 <h2 style="font-size:20px;font-weight:700;color:var(--text-primary-700);font-family:var(--font-heading);margin-bottom:24px;">相关故事</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-[18px]">
                     <!-- Card 1 -->
-                    <a href="update-detail.html" data-dom-id="link-article-2" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
+                    <a href="story-detail.html" data-dom-id="link-article-2" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
                         <div class="shrink-0 hidden sm:block" style="width:120px;height:80px;border-radius:var(--radius-sm);overflow:hidden;">
                             <img src="assets/story-copper-coin-history.jpg" alt="相关故事配图" class="w-full h-full object-cover" style="aspect-ratio:4/3;">
                         </div>
@@ -256,7 +221,7 @@
                         </div>
                     </a>
                     <!-- Card 2 -->
-                    <a href="update-detail.html" data-dom-id="link-article-3" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
+                    <a href="story-detail.html" data-dom-id="link-article-3" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
                         <div class="shrink-0 hidden sm:block" style="width:120px;height:80px;border-radius:var(--radius-sm);overflow:hidden;">
                             <img src="assets/story-blue-porcelain-memory.jpg" alt="相关故事配图" class="w-full h-full object-cover" style="aspect-ratio:4/3;">
                         </div>
@@ -266,7 +231,7 @@
                         </div>
                     </a>
                     <!-- Card 3 -->
-                    <a href="update-detail.html" data-dom-id="link-article-4" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
+                    <a href="story-detail.html" data-dom-id="link-article-4" class="flex gap-4 items-start p-4" style="background:var(--surface-50);border:1px solid var(--border-200);border-radius:var(--radius-md);text-decoration:none;transition:border-color var(--duration-fast) var(--easing-default);">
                         <div class="shrink-0 hidden sm:block" style="width:120px;height:80px;border-radius:var(--radius-sm);overflow:hidden;">
                             <img src="assets/story-porcelain-journey.jpg" alt="相关故事配图" class="w-full h-full object-cover" style="aspect-ratio:4/3;">
                         </div>

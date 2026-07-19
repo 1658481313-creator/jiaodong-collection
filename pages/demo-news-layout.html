@@ -293,12 +293,12 @@
     </div>
     <p class="section-subtitle">平台采访与收藏界资讯</p>
 
-    <div class="filter-bar">
-        <button class="active">全部</button>
-        <button>平台采访</button>
-        <button>行业资讯</button>
-        <button>展览信息</button>
-        <button>市场动态</button>
+    <div class="filter-bar" role="tablist" aria-label="新闻分类筛选">
+        <button class="active" data-category="全部" aria-pressed="true" role="tab">全部</button>
+        <button data-category="平台采访" aria-pressed="false" role="tab">平台采访</button>
+        <button data-category="行业资讯" aria-pressed="false" role="tab">行业资讯</button>
+        <button data-category="展览信息" aria-pressed="false" role="tab">展览信息</button>
+        <button data-category="市场动态" aria-pressed="false" role="tab">市场动态</button>
     </div>
 
     <div class="news-carousel-wrap">
@@ -365,58 +365,96 @@
 
     <script>
     (function() {
-        var newsData = [
+        var allNewsData = [
             {
-                tag: '展览信息', date: '2024-11-10',
+                category: '展览信息', tag: '展览信息', date: '2024-11-10',
+                image: 'assets/news-museum-exhibition.jpg', imageAlt: '胶东博物馆新展',
                 title: '胶东博物馆新展：海上丝路与民间收藏',
                 desc: '本次展览聚焦海上丝绸之路的历史遗存与胶东地区民间收藏的珍贵文物，通过百余件展品呈现古代贸易与文化交流的辉煌篇章。展览涵盖陶瓷、书画、玉器等多个门类，其中多件藏品为首次公开展出，为观众了解海上丝绸之路文化提供了难得的窗口。展期将持续至2025年3月，期间还将举办多场专题讲座和鉴赏活动。'
             },
             {
-                tag: '拍卖资讯', date: '2024-09-28',
+                category: '行业资讯', tag: '拍卖资讯', date: '2024-09-28',
+                image: 'assets/news-auction-record.jpg', imageAlt: '北京秋拍',
                 title: '北京秋拍：胶东藏家藏品创高价',
                 desc: '在近期北京秋季拍卖会上，多位胶东地区收藏家送拍的藏品取得优异成绩，其中一件清代瓷器以超出估价三倍的价格成交，引发业界广泛关注。本次拍卖共汇集胶东藏家精品二十余件，总成交额突破五千万元。业内人士认为，这一成绩反映出胶东地区私人收藏的整体品质正在获得市场的高度认可。'
             },
             {
-                tag: '市场动态', date: '2024-10-22',
+                category: '市场动态', tag: '市场动态', date: '2024-10-22',
+                image: 'assets/news-jade-market.jpg', imageAlt: '烟台玉石市场',
                 title: '烟台玉石市场春季行情分析',
                 desc: '今年春季烟台玉石市场整体走势稳中有升，和田玉与岫岩玉交易活跃，投资者信心逐步恢复。据烟台玉石协会统计，一季度成交额同比增长12%，其中高端籽料涨幅尤为明显。多位业内人士建议收藏者关注材质与工艺并重的精品，避免盲目追逐热点品种。'
             },
             {
-                tag: '平台采访', date: '2024-09-08',
+                category: '平台采访', tag: '平台采访', date: '2024-09-08',
+                image: 'assets/news-collector-interview.jpg', imageAlt: '赵先生票证',
                 title: '走近胶东收藏家：赵先生的票证世界',
                 desc: '赵先生数十年如一日收藏各类票证，从清代粮票到民国车票，见证了胶东地区社会变迁的鲜活历史。他的收藏涵盖粮票、布票、肉票、车票等十余个门类，总数超过三千张。这些票证不仅是历史的物证，更是一部微缩的胶东社会经济变迁史，为研究者提供了珍贵的第一手资料。'
             },
             {
-                tag: '行业资讯', date: '2024-08-15',
+                category: '行业资讯', tag: '行业资讯', date: '2024-08-15',
+                image: 'assets/news-kiln-heritage.jpg', imageAlt: '古窑遗址保护',
                 title: '古窑遗址保护与民间收藏的共生',
                 desc: '探讨古窑遗址保护中民间收藏力量的参与模式与可持续发展路径，寻找文物保护与民间热情的平衡点。近年来，随着多处古窑遗址的发现与发掘，民间收藏家手中的相关藏品日益受到考古界重视。多位专家呼吁建立更完善的合作机制，让民间收藏成为遗址保护与研究的重要补充力量。'
             }
         ];
 
+        var currentData = allNewsData.slice();
         var current = 0;
-        var total = newsData.length;
-        var slides = document.querySelectorAll('.news-carousel__slide');
+        var slidesContainer = document.getElementById('carouselSlides');
         var dotsContainer = document.getElementById('carouselDots');
         var detailTag = document.getElementById('detailTag');
         var detailDate = document.getElementById('detailDate');
         var detailTitle = document.getElementById('detailTitle');
         var detailDesc = document.getElementById('detailDesc');
+        var autoTimer = null;
+        var carousel = document.getElementById('newsCarousel');
 
-        for (var i = 0; i < total; i++) {
-            var dot = document.createElement('button');
-            dot.className = 'news-carousel__dot' + (i === 0 ? ' active' : '');
-            dot.setAttribute('data-index', i);
-            dotsContainer.appendChild(dot);
+        function renderCarousel() {
+            var total = currentData.length;
+            slidesContainer.innerHTML = '';
+            for (var i = 0; i < total; i++) {
+                var item = currentData[i];
+                var slide = document.createElement('div');
+                slide.className = 'news-carousel__slide' + (i === 0 ? ' active' : '');
+                slide.setAttribute('data-index', i);
+                slide.innerHTML = '<img src="' + item.image + '" alt="' + item.imageAlt + '">' +
+                    '<div class="news-carousel__overlay">' +
+                        '<span class="news-carousel__overlay-tag">' + item.tag + '</span>' +
+                        '<p class="news-carousel__overlay-title">' + item.title + '</p>' +
+                    '</div>';
+                slidesContainer.appendChild(slide);
+            }
+
+            dotsContainer.innerHTML = '';
+            for (var j = 0; j < total; j++) {
+                var dot = document.createElement('button');
+                dot.className = 'news-carousel__dot' + (j === 0 ? ' active' : '');
+                dot.setAttribute('data-index', j);
+                dot.setAttribute('aria-label', '第 ' + (j + 1) + ' 条新闻');
+                dotsContainer.appendChild(dot);
+            }
+
+            current = 0;
+            if (total > 0) {
+                var d = currentData[0];
+                detailTag.textContent = d.tag;
+                detailDate.textContent = d.date;
+                detailTitle.textContent = d.title;
+                detailDesc.textContent = d.desc;
+            }
         }
-        var dots = dotsContainer.querySelectorAll('.news-carousel__dot');
 
         function goTo(index) {
+            var total = currentData.length;
+            if (total === 0) return;
             if (index < 0) index = total - 1;
             if (index >= total) index = 0;
             current = index;
+            var slides = slidesContainer.querySelectorAll('.news-carousel__slide');
+            var dots = dotsContainer.querySelectorAll('.news-carousel__dot');
             for (var i = 0; i < slides.length; i++) slides[i].classList.toggle('active', i === current);
             for (var i = 0; i < dots.length; i++) dots[i].classList.toggle('active', i === current);
-            var d = newsData[current];
+            var d = currentData[current];
             detailTitle.style.opacity = '0';
             detailDesc.style.opacity = '0';
             setTimeout(function() {
@@ -429,17 +467,57 @@
             }, 150);
         }
 
+        function startAutoPlay() {
+            if (autoTimer) clearInterval(autoTimer);
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            if (currentData.length <= 1) return;
+            autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
+        }
+
+        function stopAutoPlay() {
+            if (autoTimer) {
+                clearInterval(autoTimer);
+                autoTimer = null;
+            }
+        }
+
+        function filterByCategory(category) {
+            if (category === '全部') {
+                currentData = allNewsData.slice();
+            } else {
+                currentData = allNewsData.filter(function(item) {
+                    return item.category === category;
+                });
+            }
+            renderCarousel();
+            startAutoPlay();
+        }
+
+        var filterButtons = document.querySelectorAll('.filter-bar button');
+        filterButtons.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                filterButtons.forEach(function(b) {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-pressed', 'false');
+                });
+                btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'true');
+                var category = btn.getAttribute('data-category');
+                filterByCategory(category);
+            });
+        });
+
         document.getElementById('carouselPrev').addEventListener('click', function() { goTo(current - 1); });
         document.getElementById('carouselNext').addEventListener('click', function() { goTo(current + 1); });
         dotsContainer.addEventListener('click', function(e) {
             if (e.target.classList.contains('news-carousel__dot')) goTo(parseInt(e.target.getAttribute('data-index')));
         });
 
-        var autoTimer = setInterval(function() { goTo(current + 1); }, 5000);
-        var carousel = document.getElementById('newsCarousel');
-        carousel.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
-        carousel.addEventListener('mouseleave', function() { autoTimer = setInterval(function() { goTo(current + 1); }, 5000); });
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) clearInterval(autoTimer);
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        renderCarousel();
+        startAutoPlay();
     })();
     </script>
 

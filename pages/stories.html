@@ -7,6 +7,7 @@
     <title>收藏故事 - 胶东私人收藏</title>
     
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="common.css">
     <style type="text/tailwindcss">
 @theme inline {
     --color-background: var(--color-background);
@@ -33,7 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
     <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
     <style type="text/tailwindcss">
-  
+
   @layer base {
     body { background: var(--color-background); color: var(--color-foreground); }
     td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
@@ -41,48 +42,8 @@
   }
     </style>
     <style>
+      /* stories 独有：避免分页时滚动条跳动 */
       html { overflow-y: scroll; }
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
-    </style>
-    <style>
-    /* == Responsive == */
-@media (max-width: 1023px) {
-  .resp-full-width { flex-direction: column !important; }
-  .resp-detail-grid { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 767px) {
-  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-  .resp-grid-3 { grid-template-columns: 1fr !important; }
-  .resp-grid-news { grid-template-columns: 1fr !important; }
-  .resp-hide-mobile { display: none !important; }
-  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
-  .resp-section-pt { padding-top: 32px !important; }
-  .resp-section-pb { padding-bottom: 32px !important; }
-  .resp-filter-min-h button { min-height: 40px !important; }
-  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .resp-banner-img { height: 200px !important; }
-  .resp-detail-info { flex-direction: column !important; }
-  .resp-contact-form { max-width: 100% !important; }
-  .resp-breadcrumb { font-size: 12px !important; }
-  .resp-card-gap { gap: 12px !important; }
-}
-@media (max-width: 767px) {
-  .story-card-img { width: 120px !important; min-width: 120px !important; }
-  .story-card { flex-direction: column !important; }
-}
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
@@ -111,7 +72,7 @@
     <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
     <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
     <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
-    <a href="stories.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
+    <a href="stories.html" class="text-base font-medium py-2" aria-current="page" style="text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
     <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
     <a href="info.html" style="font-size:var(--font-size-body);font-weight:500;color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
             <a href="contact.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;">入驻联系</a>
@@ -480,8 +441,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             (function(pg) {
                 var btn = document.createElement('button');
                 btn.textContent = pg;
-                btn.className = 'inline-flex items-center justify-center whitespace-nowrap';
-                btn.style.cssText = 'width:40px;height:40px;font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);cursor:pointer;';
+                btn.className = 'pagination-btn';
+                btn.setAttribute('aria-label', '第 ' + pg + ' 页');
                 btn.addEventListener('click', function() { goToStoryPage(pg); });
                 container.appendChild(btn);
             })(i);
@@ -489,13 +450,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         var buttons = container.querySelectorAll('button');
         buttons.forEach(function(b, i) {
             if (i + 1 === storyCurrentPage) {
-                b.style.background = 'var(--navy-500)';
-                b.style.color = 'var(--surface-50)';
-                b.style.border = 'none';
-            } else {
-                b.style.background = 'var(--surface-50)';
-                b.style.color = 'var(--text-primary-500)';
-                b.style.border = '1px solid var(--border-200)';
+                b.classList.add('pagination-btn-active');
+                b.setAttribute('aria-current', 'page');
             }
         });
     }

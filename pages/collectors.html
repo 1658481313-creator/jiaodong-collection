@@ -7,6 +7,7 @@
     <title>收藏家 - 胶东私人收藏</title>
     
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="common.css">
     <style type="text/tailwindcss">
 @theme inline {
     --color-background: var(--color-background);
@@ -33,51 +34,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
     <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
     <style type="text/tailwindcss">
-  
+
   @layer base {
     body { background: var(--color-background); color: var(--color-foreground); }
     td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
     th { @apply whitespace-nowrap; }
   }
-    </style>
-    <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
-    </style>
-    <style>
-    /* == Responsive == */
-@media (max-width: 1023px) {
-  .resp-full-width { flex-direction: column !important; }
-  .resp-detail-grid { grid-template-columns: 1fr !important; }
-}
-@media (max-width: 767px) {
-  .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-  .resp-grid-3 { grid-template-columns: 1fr !important; }
-  .resp-grid-news { grid-template-columns: 1fr !important; }
-  .resp-hide-mobile { display: none !important; }
-  .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
-  .resp-section-pt { padding-top: 32px !important; }
-  .resp-section-pb { padding-bottom: 32px !important; }
-  .resp-filter-min-h button { min-height: 40px !important; }
-  .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .resp-banner-img { height: 200px !important; }
-  .resp-detail-info { flex-direction: column !important; }
-  .resp-contact-form { max-width: 100% !important; }
-  .resp-breadcrumb { font-size: 12px !important; }
-  .resp-card-gap { gap: 12px !important; }
-}
     </style>
     </head>
 <body class="min-h-screen font-sans antialiased">
@@ -104,7 +66,7 @@
   <nav class="flex flex-col gap-3">
     <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
     <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
-    <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
+    <a href="collectors.html" class="text-base font-medium py-2" aria-current="page" style="text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
     <a href="stories.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
     <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
     <a href="info.html" style="font-size:var(--font-size-body);font-weight:500;color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);padding:8px 0;display:block;">服务帮助</a>
@@ -168,10 +130,21 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
             </p>
         </div>
 
-        <!-- 2. Page Title -->
+        <!-- 2. Page Title + Search -->
         <div class="mx-auto px-6 resp-section-pt resp-section-pb" style="max-width:var(--size-content-width);padding-top:16px;padding-bottom:24px;">
-            <h1 style="font-family:var(--font-heading);font-size:32px;font-weight:700;color:var(--text-primary-700);">收藏家</h1>
-            <p class="mt-2" style="font-size:15px;color:var(--text-primary-300);font-family:var(--font-body);">了解胶东地区的私人收藏家与他们的收藏方向</p>
+            <div class="flex items-center justify-between gap-4">
+                <div>
+                    <h1 style="font-family:var(--font-heading);font-size:32px;font-weight:700;color:var(--text-primary-700);">收藏家</h1>
+                    <p class="mt-2" style="font-size:15px;color:var(--text-primary-300);font-family:var(--font-body);">了解胶东地区的私人收藏家与他们的收藏方向</p>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <div style="position:relative;">
+                        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--text-primary-400);pointer-events:none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        <input id="collectorSearchInput" type="text" placeholder="搜索收藏家..." style="height:44px;width:180px;border:1px solid var(--border-200);border-radius:var(--radius-sm);font-size:14px;padding:0 12px 0 36px;color:var(--text-primary-500);font-family:var(--font-body);outline:none;background:var(--surface-50);" oninput="debouncedCollectorSearch()" aria-label="搜索收藏家姓名或收藏方向">
+                        <button type="button" onclick="clearCollectorSearch()" id="clearCollectorSearchBtn" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-primary-400);font-size:16px;padding:4px;" aria-label="清除搜索">&times;</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 3. Statistics Bar -->
@@ -498,8 +471,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                 </a>
             </div>
             <div class="flex items-center justify-center gap-3" style="margin-top:24px;padding-bottom:24px;" id="collector-pagination">
-                    <button class="inline-flex items-center justify-center whitespace-nowrap pagination-btn" style="width:40px;height:40px;background:var(--navy-500);color:white;font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);border:none;cursor:pointer;" onclick="goToCollectorPage(1, this)">1</button>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap pagination-btn pagination-btn-inactive" style="width:40px;height:40px;background:var(--surface-50);color:var(--text-primary-500);font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border:1px solid var(--border-200);border-radius:var(--radius-sm);cursor:pointer;" onclick="goToCollectorPage(2, this)">2</button>
+                    <button class="pagination-btn pagination-btn-active" aria-current="page" aria-label="第 1 页" onclick="goToCollectorPage(1, this)">1</button>
+                    <button class="pagination-btn" aria-label="第 2 页" onclick="goToCollectorPage(2, this)">2</button>
                 </div>
         </section>
 
@@ -574,6 +547,8 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
 <script>
     var collectorCurrentPage = 1;
     var collectorCurrentRegion = '全部';
+    var collectorSearchText = '';
+    var collectorSearchTimer = null;
 
     function goToCollectorPage(page, btn) {
         collectorCurrentPage = page;
@@ -594,15 +569,11 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
         var buttons = document.querySelectorAll('#collector-pagination button');
         buttons.forEach(function(b, i) {
             if (i + 1 === page) {
-                b.style.background = 'var(--navy-500)';
-                b.style.color = 'white';
-                b.style.border = 'none';
-                b.classList.remove('pagination-btn-inactive');
+                b.classList.add('pagination-btn-active');
+                b.setAttribute('aria-current', 'page');
             } else {
-                b.style.background = 'var(--surface-50)';
-                b.style.color = 'var(--text-primary-500)';
-                b.style.border = '1px solid var(--border-200)';
-                b.classList.add('pagination-btn-inactive');
+                b.classList.remove('pagination-btn-active');
+                b.removeAttribute('aria-current');
             }
         });
     }
@@ -610,6 +581,13 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
     function filterCollectorCards(region, btn) {
         collectorCurrentRegion = region;
         collectorCurrentPage = 1;
+        // 切换地区筛选时清空搜索框，避免两种筛选相互冲突
+        var searchInput = document.getElementById('collectorSearchInput');
+        if (searchInput) {
+            searchInput.value = '';
+            document.getElementById('clearCollectorSearchBtn').style.display = 'none';
+            collectorSearchText = '';
+        }
         var buttons = document.querySelectorAll('#collectorFilterBar button');
         buttons.forEach(function(b) {
             if (b === btn) {
@@ -622,7 +600,53 @@ function toggleMobileMenu(){var m=document.getElementById('mobile-menu');var b=d
                 b.style.border = '1px solid var(--border-200)';
             }
         });
+        // 恢复分页栏显示
+        var pagination = document.getElementById('collector-pagination');
+        if (pagination) pagination.style.display = '';
         goToCollectorPage(1, document.querySelector('#collector-pagination button'));
     }
+
+    /* === Search === */
+    function debouncedCollectorSearch() {
+        clearTimeout(collectorSearchTimer);
+        var v = document.getElementById('collectorSearchInput').value;
+        document.getElementById('clearCollectorSearchBtn').style.display = v ? 'block' : 'none';
+        collectorSearchTimer = setTimeout(function() { searchCollectors(); }, 300);
+    }
+
+    function searchCollectors() {
+        collectorSearchText = document.getElementById('collectorSearchInput').value.trim();
+        applyCollectorSearch();
+    }
+
+    function clearCollectorSearch() {
+        document.getElementById('collectorSearchInput').value = '';
+        document.getElementById('clearCollectorSearchBtn').style.display = 'none';
+        collectorSearchText = '';
+        applyCollectorSearch();
+    }
+
+    // 搜索模式下：对所有卡片做整卡文本匹配，隐藏分页栏
+    function applyCollectorSearch() {
+        var pagination = document.getElementById('collector-pagination');
+        var cards = document.querySelectorAll('.collector-card-filter');
+        if (collectorSearchText) {
+            if (pagination) pagination.style.display = 'none';
+            cards.forEach(function(card) {
+                // 整卡文本匹配：覆盖姓名、地区、收藏方向、简介
+                var text = card.textContent || '';
+                if (text.indexOf(collectorSearchText) !== -1) {
+                    card.removeAttribute('hidden');
+                } else {
+                    card.setAttribute('hidden', '');
+                }
+            });
+        } else {
+            // 清除搜索后恢复分页显示
+            if (pagination) pagination.style.display = '';
+            goToCollectorPage(collectorCurrentPage, null);
+        }
+    }
+
     (function(){var btn=document.querySelector('[onclick*="Page(1,"');if(btn)btn.click();})();
 </script></body></html>

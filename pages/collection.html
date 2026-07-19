@@ -7,6 +7,7 @@
     <title>藏品展示 - 胶东私人收藏</title>
     
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="common.css">
     <style type="text/tailwindcss">
 @theme inline {
     --color-background: var(--color-background);
@@ -40,35 +41,6 @@
     th { @apply whitespace-nowrap; }
   }
     </style>
-    <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
-
-    /* ═══ Responsive ═══ */
-    @media (max-width: 1023px) {
-      .resp-detail-grid { grid-template-columns: 1fr !important; }
-    }
-    @media (max-width: 767px) {
-      .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-      .resp-hide-mobile { display: none !important; }
-      .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
-      .resp-section-pt { padding-top: 32px !important; }
-      .resp-section-pb { padding-bottom: 32px !important; }
-      .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-    }
-    </style>
 </head>
 <body class="min-h-screen font-sans antialiased">
     <a href="#main" class="skip-link">跳到主要内容</a>
@@ -91,7 +63,7 @@
         <div id="mobile-menu" class="lg:hidden mobile-nav-menu" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);padding:16px 24px;">
           <nav class="flex flex-col gap-3">
             <a href="index.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
-            <a href="collection.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
+            <a href="collection.html" class="text-base font-medium py-2" aria-current="page" style="text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
             <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
             <a href="stories.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
             <a href="updates.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏动态</a>
@@ -802,8 +774,8 @@
             (function(pg) {
                 var btn = document.createElement('button');
                 btn.textContent = pg;
-                btn.className = 'inline-flex items-center justify-center whitespace-nowrap pagination-btn';
-                btn.style.cssText = 'width:40px;height:40px;font-size:var(--font-size-nav);font-weight:600;font-family:var(--font-body);border-radius:var(--radius-sm);cursor:pointer;';
+                btn.className = 'pagination-btn';
+                btn.setAttribute('aria-label', '第 ' + pg + ' 页');
                 btn.addEventListener('click', function() { goToCollectionPage(pg); });
                 container.appendChild(btn);
             })(i);
@@ -811,16 +783,8 @@
         var buttons = container.querySelectorAll('button');
         buttons.forEach(function(b, i) {
             if (i + 1 === collectionCurrentPage) {
-                b.style.background = 'var(--navy-500)';
-                b.style.color = 'white';
-                b.style.border = 'none';
-            } else {
-                b.style.background = 'var(--surface-50)';
-                b.style.color = 'var(--text-primary-500)';
-                b.style.border = '1px solid var(--border-200)';
-            }
-            if (i + 1 !== collectionCurrentPage) {
-                b.classList.add('pagination-btn-inactive');
+                b.classList.add('pagination-btn-active');
+                b.setAttribute('aria-current', 'page');
             }
         });
     }
@@ -909,7 +873,8 @@
             noResult.style.display = hasVisible ? 'none' : 'block';
         }
         updateCollectionPagination();
-        goToCollectionPage(1);
+        // 筛选分类时不滚动，避免页面跳动；仅分页按钮翻页时才滚动
+        goToCollectionPage(1, false);
     }
 
     function sortCollection() {

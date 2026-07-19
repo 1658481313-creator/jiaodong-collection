@@ -7,6 +7,7 @@
     <title>胶东私人收藏 - 胶东地区私人藏品信息展示平台</title>
     
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="common.css">
     <style type="text/tailwindcss">
 @theme inline {
     --color-background: var(--color-background);
@@ -33,49 +34,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
     <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
     <style type="text/tailwindcss">
-  
+
   @layer base {
     body { background: var(--color-background); color: var(--color-foreground); }
     td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
     th { @apply whitespace-nowrap; }
   }
-    </style>
-    <style>
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      [data-icon] {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        -webkit-mask-size: contain;
-        mask-size: contain;
-        -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        mask-position: center;
-        background-color: currentColor;
-      }
-
-    /* ═══ Responsive ═══ */
-    @media (max-width: 1023px) {
-      .hero-grid { grid-template-columns: 1fr !important; }
-      .hero-grid img { width: 100% !important; max-width: 100% !important; height: auto !important; max-height: 300px !important; }
-    }
-    @media (max-width: 767px) {
-      .resp-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
-      .news-carousel-grid { grid-template-columns: 1fr !important; }
-      .news-carousel-slides { aspect-ratio: 16/9 !important; }
-      .resp-full-width { flex-direction: column !important; }
-      .resp-stack { flex-direction: column !important; gap: 12px !important; }
-      .resp-hide-mobile { display: none !important; }
-      .resp-padding-mobile { padding-left: 16px !important; padding-right: 16px !important; }
-      .resp-hero-img { height: 200px !important; max-height: 200px !important; }
-      .resp-banner-img { height: 200px !important; }
-      .resp-section-pt { padding-top: 32px !important; }
-      .resp-section-pb { padding-bottom: 32px !important; }
-      .resp-filter-min-h button { min-height: 40px !important; }
-      .resp-footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-    }
     </style>
 </head>
 <body class="min-h-screen font-sans antialiased">
@@ -99,7 +63,7 @@
         </header>
         <div id="mobile-menu" class="lg:hidden mobile-nav-menu" style="background:var(--surface-50);border-bottom:1px solid var(--border-200);padding:16px 24px;">
           <nav class="flex flex-col gap-3">
-            <a href="index.html" class="text-base font-medium py-2" style="color:var(--navy-500);text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
+            <a href="index.html" class="text-base font-medium py-2" aria-current="page" style="text-decoration:none;border-bottom:1px solid var(--border-200);">首页</a>
             <a href="collection.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">藏品展示</a>
             <a href="collectors.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏家</a>
             <a href="stories.html" class="text-base font-medium py-2" style="color:var(--text-primary-500);text-decoration:none;border-bottom:1px solid var(--border-200);">收藏故事</a>
@@ -238,16 +202,16 @@
                 <!-- 右侧：对应文字详情 -->
                 <a id="newsDetail" href="updates.html" style="border:1px solid var(--border-200);border-radius:var(--radius-md);background:var(--surface-50);padding:0;display:flex;flex-direction:column;transition:border-color var(--duration-normal) var(--easing-default),box-shadow var(--duration-normal) var(--easing-default),transform var(--duration-normal) var(--easing-default);text-decoration:none;cursor:pointer;">
                     <div style="height:4px;background:var(--navy-500);border-radius:var(--radius-md) var(--radius-md) 0 0;flex-shrink:0;"></div>
-                    <div style="padding:32px 36px;flex:1;display:flex;flex-direction:column;">
+                    <div class="news-detail-inner" style="padding:32px 36px;flex:1;display:flex;flex-direction:column;">
                         <!-- meta -->
                         <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
                             <span id="detailTag" style="display:inline-flex;align-items:center;height:26px;padding:0 10px;background:var(--navy-50);color:var(--navy-500);font-size:12px;font-weight:700;border-radius:var(--radius-sm);font-family:var(--font-body);"></span>
                             <span id="detailDate" style="font-size:14px;color:var(--text-primary-300);font-family:var(--font-body);"></span>
                         </div>
                         <!-- title -->
-                        <h3 id="detailTitle" style="font-family:var(--font-heading);font-size:26px;font-weight:700;color:var(--text-primary-700);line-height:1.35;margin:0 0 20px;transition:opacity 0.25s;"></h3>
+                        <h3 id="detailTitle" class="news-detail-title" style="font-family:var(--font-heading);font-size:26px;font-weight:700;color:var(--text-primary-700);line-height:1.35;margin:0 0 20px;transition:opacity 0.25s;"></h3>
                         <!-- desc -->
-                        <p id="detailDesc" style="font-size:15px;color:var(--text-primary-500);line-height:1.9;margin:0;flex:1;transition:opacity 0.25s;font-family:var(--font-body);"></p>
+                        <p id="detailDesc" class="news-detail-desc" style="font-size:15px;color:var(--text-primary-500);line-height:1.9;margin:0;flex:1;transition:opacity 0.25s;font-family:var(--font-body);"></p>
                     </div>
                 </a>
             </div>
